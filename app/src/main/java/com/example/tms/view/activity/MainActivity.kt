@@ -7,7 +7,7 @@ import com.example.tms.R
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_page)
+        setContentView(R.layout.registration_page)
         println("Hello");
     }
 }
