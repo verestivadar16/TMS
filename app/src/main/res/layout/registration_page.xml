@@ -14,29 +14,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/bacgroundtexture2" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/editText_re_password"
         android:layout_width="221dp"
         android:layout_height="38dp"
+        android:layout_marginTop="@dimen/register_page_gap"
         android:background="@drawable/frame"
-
-
         android:hint="Re-enter password "
         android:inputType="textPassword"
         android:textAlignment="center"
         android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        android:layout_marginBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintTop_toBottomOf="@id/editText_password"
+         />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blue"
@@ -53,57 +50,53 @@
 
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/editText_username"
         android:layout_width="221dp"
         android:layout_height="38dp"
         android:background="@drawable/frame"
         android:hint="Username"
+        android:layout_marginTop="@dimen/register_page_gap"
         android:textAlignment="center"
         android:textColorHint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/editText_email"
         app:layout_constraintVertical_bias="0.869"
         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editText_email"
         android:layout_width="221dp"
         android:layout_height="38dp"
+        android:layout_marginTop="@dimen/register_page_gap"
         android:background="@drawable/frame"
         android:hint="Email"
         android:textAlignment="center"
         android:textColorHint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/editText1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.818"
-        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="221dp"
-        android:layout_height="38dp"
-        android:background="@drawable/frame"
-
-
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textAlignment="center"
-        android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.462" />
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/editText_password"
+        android:layout_width="221dp"
+        android:layout_height="38dp"
+        android:background="@drawable/frame"
+        android:hint="Password"
+        android:layout_marginTop="@dimen/register_page_gap"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColorHint="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/editText_username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent" />
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/imageButton_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
