@@ -7,18 +7,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
-import com.example.tms.databinding.LoginPageBinding
+import com.example.tms.databinding.RegistrationPageBinding
 
-class LoginFragment: Fragment() {
-    private lateinit var binding : LoginPageBinding
+class RegisterFragment:Fragment() {
+    private lateinit var binding : RegistrationPageBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = LoginPageBinding.inflate(layoutInflater)
+        binding = RegistrationPageBinding.inflate(layoutInflater)
         binding.imageButtonBack.setOnClickListener(View.OnClickListener{
-            findNavController().navigate(R.id.action_loginPage_to_startPage)
+            findNavController().navigate(R.id.action_registerPage_to_startPage)
+        })
+
+        binding.buttonRegister.setOnClickListener(View.OnClickListener{
+
         })
         return binding.root
     }
