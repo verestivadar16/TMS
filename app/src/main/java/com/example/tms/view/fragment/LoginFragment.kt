@@ -20,6 +20,9 @@ class LoginFragment: Fragment() {
         binding.imageButtonBack.setOnClickListener(View.OnClickListener{
             findNavController().navigate(R.id.action_loginPage_to_startPage)
         })
+        binding.loginButton.setOnClickListener(View.OnClickListener{
+            findNavController().navigate(R.id.action_loginPage_to_insta_page)
+        })
         return binding.root
     }
 }
