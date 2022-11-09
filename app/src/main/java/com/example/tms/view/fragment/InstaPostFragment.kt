@@ -21,6 +21,9 @@ class InstaPostFragment: Fragment() {
         binding = InstaPostBinding.inflate(layoutInflater)
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instapostpage_to_loginpage) })
+        binding.imageButtonToUploadImage.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_instapostpage_to_instauploadpage)
+        })
 
         return binding.root
     }
