@@ -30,6 +30,15 @@
         <action
             android:id="@+id/action_loginPage_to_insta_page"
             app:destination="@id/insta_post_page" />
+        <action
+            android:id="@+id/action_loginPage_to_forgot_password_page"
+            app:destination="@+id/forgot_password"/>
+    </fragment>
+    <fragment
+        android:id="@+id/forgot_password"
+        android:name="com.example.tms.view.fragment.ForgotPasswordFragment"
+        android:label="ForgotPassword"
+        tools:layout="@layout/forgot_password">
     </fragment>
 
     <fragment
@@ -56,6 +65,14 @@
         android:name="com.example.tms.view.fragment.InstaPostFragment"
         android:label="InstaPostFragment"
         tools:layout="@layout/insta_post">
+
+        <action
+            android:id="@+id/action_instapostpage_to_instauploadpage"
+            app:destination="@id/insta_upload_page"/>
+
+        <action
+            android:id="@+id/action_instapostpage_to_loginpage"
+            app:destination="@+id/loginPage"/>
 
     </fragment>
 

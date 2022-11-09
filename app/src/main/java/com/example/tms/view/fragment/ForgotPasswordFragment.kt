@@ -5,18 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.tms.databinding.InstaUploadImageBinding
+import com.example.tms.databinding.ForgotPasswordBinding
 
-class InstaUploadFragment:Fragment() {
-    private lateinit var binding: InstaUploadImageBinding
-
+class ForgotPasswordFragment:Fragment() {
+    private lateinit var binding: ForgotPasswordBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = InstaUploadImageBinding.inflate(layoutInflater)
-
+        binding = ForgotPasswordBinding.inflate(layoutInflater)
 
         return binding.root
     }

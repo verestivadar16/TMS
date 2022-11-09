@@ -23,6 +23,9 @@ class LoginFragment: Fragment() {
         binding.loginButton.setOnClickListener(View.OnClickListener{
             findNavController().navigate(R.id.action_loginPage_to_insta_page)
         })
+        binding.forgotPasswordButton.setOnClickListener(View.OnClickListener{
+            findNavController().navigate(R.id.action_loginPage_to_forgot_password_page)
+        })
         return binding.root
     }
 }
