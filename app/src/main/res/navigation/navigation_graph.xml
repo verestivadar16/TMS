@@ -39,6 +39,9 @@
         android:name="com.example.tms.view.fragment.ForgotPasswordFragment"
         android:label="ForgotPassword"
         tools:layout="@layout/forgot_password">
+        <action
+            android:id="@+id/action_forgotPage_to_loginPage"
+            app:destination="@id/loginPage" />
     </fragment>
 
     <fragment
