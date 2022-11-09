@@ -22,7 +22,7 @@ class RegisterFragment:Fragment() {
         })
 
         binding.buttonRegister.setOnClickListener(View.OnClickListener{
-
+            findNavController().navigate(R.id.action_registerPage_to_startPage)
         })
         return binding.root
     }

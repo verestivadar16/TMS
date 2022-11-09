@@ -22,7 +22,7 @@ class ForgotPasswordFragment:Fragment() {
         })
 
         binding.sendButton.setOnClickListener(View.OnClickListener{
-
+            findNavController().navigate(R.id.action_forgotPage_to_loginPage)
         })
 
         return binding.root
