@@ -27,6 +27,21 @@
         <action
             android:id="@+id/action_loginPage_to_startPage"
             app:destination="@id/startPage" />
+        <action
+            android:id="@+id/action_loginPage_to_insta_page"
+            app:destination="@id/insta_post_page" />
+        <action
+            android:id="@+id/action_loginPage_to_forgot_password_page"
+            app:destination="@+id/forgot_password"/>
+    </fragment>
+    <fragment
+        android:id="@+id/forgot_password"
+        android:name="com.example.tms.view.fragment.ForgotPasswordFragment"
+        android:label="ForgotPassword"
+        tools:layout="@layout/forgot_password">
+        <action
+            android:id="@+id/action_forgotPage_to_loginPage"
+            app:destination="@id/loginPage" />
     </fragment>
 
     <fragment
@@ -38,6 +53,30 @@
         <action
             android:id="@+id/action_registerPage_to_startPage"
             app:destination="@id/startPage" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/insta_upload_page"
+        android:name="com.example.tms.view.fragment.InstaUploadFragment"
+        android:label="InstaUploadFragment"
+        tools:layout="@layout/insta_upload_image">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/insta_post_page"
+        android:name="com.example.tms.view.fragment.InstaPostFragment"
+        android:label="InstaPostFragment"
+        tools:layout="@layout/insta_post">
+
+        <action
+            android:id="@+id/action_instapostpage_to_instauploadpage"
+            app:destination="@id/insta_upload_page"/>
+
+        <action
+            android:id="@+id/action_instapostpage_to_loginpage"
+            app:destination="@+id/loginPage"/>
+
     </fragment>
 
 
