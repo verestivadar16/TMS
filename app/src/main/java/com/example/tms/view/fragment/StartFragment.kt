@@ -10,17 +10,18 @@ import com.example.tms.R
 import com.example.tms.databinding.StartPageBinding
 
 class StartFragment : Fragment() {
-    private lateinit var binding : StartPageBinding
+    private lateinit var binding: StartPageBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
         binding = StartPageBinding.inflate(layoutInflater)
 
-        binding.loginButton.setOnClickListener(View.OnClickListener{
+        binding.loginButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_startFragment_to_loginFragment)
         })
-        binding.registerButton.setOnClickListener{
+        binding.registerButton.setOnClickListener {
             findNavController().navigate((R.id.action_startFragment_to_registerFragment))
         }
         return binding.root
