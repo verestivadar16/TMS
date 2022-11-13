@@ -12,9 +12,9 @@ import com.example.tms.databinding.ForgotPasswordBinding
 class ForgotPasswordFragment : Fragment() {
     private lateinit var binding: ForgotPasswordBinding
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = ForgotPasswordBinding.inflate(layoutInflater)
         binding.backButton.setOnClickListener(View.OnClickListener {

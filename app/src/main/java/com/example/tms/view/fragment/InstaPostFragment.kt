@@ -14,9 +14,9 @@ class InstaPostFragment : Fragment() {
     private lateinit var binding: InstaPostBinding
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = InstaPostBinding.inflate(layoutInflater)
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {

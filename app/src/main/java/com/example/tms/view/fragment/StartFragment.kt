@@ -12,7 +12,8 @@ import com.example.tms.databinding.StartPageBinding
 class StartFragment : Fragment() {
     private lateinit var binding: StartPageBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
         binding = StartPageBinding.inflate(layoutInflater)

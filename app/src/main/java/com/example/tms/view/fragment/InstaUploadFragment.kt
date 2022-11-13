@@ -11,9 +11,9 @@ class InstaUploadFragment : Fragment() {
     private lateinit var binding: InstaUploadImageBinding
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = InstaUploadImageBinding.inflate(layoutInflater)
 

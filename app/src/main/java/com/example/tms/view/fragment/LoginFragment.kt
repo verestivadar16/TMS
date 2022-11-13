@@ -12,9 +12,9 @@ import com.example.tms.databinding.LoginPageBinding
 class LoginFragment : Fragment() {
     private lateinit var binding: LoginPageBinding
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = LoginPageBinding.inflate(layoutInflater)
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
