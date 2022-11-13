@@ -29,7 +29,7 @@
             app:destination="@id/startPage" />
         <action
             android:id="@+id/action_loginPage_to_insta_page"
-            app:destination="@id/insta_post_page" />
+            app:destination="@id/navigation_page" />
         <action
             android:id="@+id/action_loginPage_to_forgot_password_page"
             app:destination="@+id/forgot_password"/>
@@ -79,5 +79,13 @@
 
     </fragment>
 
+
+    <fragment
+        android:id="@+id/navigation_page"
+        android:name="com.example.tms.view.fragment.NavigationPageFragment"
+        android:label="NavigationPageFragment"
+        tools:layout="@layout/navigation_page">
+
+    </fragment>
 
 </navigation>
