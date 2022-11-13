@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.tms.R
 import com.example.tms.databinding.ForgotPasswordBinding
 
-class ForgotPasswordFragment:Fragment() {
+class ForgotPasswordFragment : Fragment() {
     private lateinit var binding: ForgotPasswordBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -17,11 +17,11 @@ class ForgotPasswordFragment:Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = ForgotPasswordBinding.inflate(layoutInflater)
-        binding.backButton.setOnClickListener(View.OnClickListener{
+        binding.backButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_forgotPage_to_loginPage)
         })
 
-        binding.sendButton.setOnClickListener(View.OnClickListener{
+        binding.sendButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_forgotPage_to_loginPage)
         })
 

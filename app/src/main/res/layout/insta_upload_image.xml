@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.activity.MainActivity">
-<!--    android:padding="16dp"-->
+    <!--    android:padding="16dp"-->
 
 
     <Button
@@ -32,8 +32,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/progress_bar"
         android:layout_below="@id/edit_text_file_name"
-        android:layout_marginTop="16dp"
-         />
+        android:layout_marginTop="16dp" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

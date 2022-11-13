@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tms.databinding.NavigationPageBinding
 
-class NavigationPageFragment :Fragment(){
+//AIzaSyCXPxzAnc8icMuBAYqWnbtw5S2eaT5opMg
+
+
+class NavigationPageFragment : Fragment() {
 
     private lateinit var binding: NavigationPageBinding
     override fun onCreateView(
@@ -15,7 +18,7 @@ class NavigationPageFragment :Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding=NavigationPageBinding.inflate(layoutInflater)
+        binding = NavigationPageBinding.inflate(layoutInflater)
         return binding.root
     }
 }
