@@ -49,8 +49,11 @@
 
             <TextView
                 android:id="@+id/textview1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:text="Namivan"
+                />
 
 
             <ImageView
@@ -63,6 +66,7 @@
                 android:src="@drawable/audib5" />
 
             <ImageView
+                android:id="@+id/image2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="fitStart"
@@ -71,6 +75,7 @@
                 android:src="@drawable/audib6" />
 
             <ImageView
+                android:id="@+id/image3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="fitStart"
