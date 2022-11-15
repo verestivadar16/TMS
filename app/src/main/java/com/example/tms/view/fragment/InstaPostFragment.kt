@@ -26,6 +26,10 @@ class InstaPostFragment : Fragment() {
             findNavController().navigate(R.id.action_instapostpage_to_instauploadpage)
         })
 
+
+
         return binding.root
     }
+
+
 }
