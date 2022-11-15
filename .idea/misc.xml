@@ -4,13 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1715" />
+        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/drawable/ic_baseline_directions_car_24.xml" value="0.1455" />
+        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1455" />
+        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/drawable/ic_baseline_local_grocery_store_24.xml" value="0.1455" />
+        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.1455" />
         <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1715" />
-        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/layout/activity_main.xml" value="0.15" />
+        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/layout/bottom_nav.xml" value="0.22402736212056434" />
         <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/layout/example.xml" value="0.18802083333333333" />
-        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/layout/insta_post.xml" value="0.1" />
+        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/layout/insta_post.xml" value="0.22402736212056434" />
         <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/layout/login_page.xml" value="0.15625" />
         <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/layout/registration_page.xml" value="0.1786038077969175" />
         <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/layout/start_page.xml" value="0.1" />
+        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/menu/bottom_nav.xml" value="0.2231722958529286" />
+        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/menu/bottom_nav_icons.xml" value="0.25" />
+        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1455" />
+        <entry key="..\:/Harmadev/I_felev/SoftwareTervezesProjekt/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1455" />
       </map>
     </option>
   </component>
