@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.tms.R
 import com.example.tms.databinding.NavigationPageBinding
 
 //AIzaSyCXPxzAnc8icMuBAYqWnbtw5S2eaT5opMg
@@ -19,6 +21,13 @@ class NavigationPageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = NavigationPageBinding.inflate(layoutInflater)
-        return binding.root
-    }
+//        binding.homeButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_navigation_to_instapostpage)
+//        })
+//        binding.addEventButton.setOnClickListener(View.OnClickListener {
+//            findNavController().navigate(R.id.action_navigation_to_ad_event_page)
+//        })
+//        return binding.root
+//    }
+
 }
