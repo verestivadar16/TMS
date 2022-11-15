@@ -5,6 +5,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -25,14 +26,37 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+//        binding.bottomNavigationView.visibility= View.INVISIBLE
 
         val navController =
             Navigation.findNavController(this, R.id.nav_host_fragment) as NavController
         val bottomNavigationView = binding.bottomNavigationView as BottomNavigationView
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
+//        if (layoutInflater.equals(R.id.insta_upload)){
+//            binding.bottomNavigationView.visibility= View.VISIBLE
+//        }
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.loginPage -> hideBottomNav()
+                R.id.startPage -> hideBottomNav()
+                R.id.registerPage -> hideBottomNav()
+                R.id.forgot_password -> hideBottomNav()
+                else -> showBottomNav()
+            }
+        }
+
 
 
     }
+    private fun showBottomNav() {
+        binding.bottomNavigationView.visibility = View.VISIBLE
 
+    }
+
+    private fun hideBottomNav() {
+        binding.bottomNavigationView.visibility = View.GONE
+
+    }
 
 }

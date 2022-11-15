@@ -56,7 +56,7 @@
     </fragment>
 
     <fragment
-        android:id="@+id/location"
+        android:id="@+id/insta_upload"
         android:name="com.example.tms.view.fragment.InstaUploadFragment"
         android:label="InstaUploadFragment"
         tools:layout="@layout/insta_upload_image">
@@ -71,7 +71,7 @@
 
         <action
             android:id="@+id/action_instapostpage_to_instauploadpage"
-            app:destination="@id/location" />
+            app:destination="@id/insta_upload" />
 
         <action
             android:id="@+id/action_instapostpage_to_loginpage"
