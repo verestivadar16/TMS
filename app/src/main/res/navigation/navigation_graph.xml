@@ -29,7 +29,7 @@
             app:destination="@id/startPage" />
         <action
             android:id="@+id/action_loginPage_to_insta_page"
-            app:destination="@id/insta_post_page" />
+            app:destination="@id/home" />
         <action
             android:id="@+id/action_loginPage_to_forgot_password_page"
             app:destination="@+id/forgot_password" />
@@ -56,7 +56,7 @@
     </fragment>
 
     <fragment
-        android:id="@+id/insta_upload_page"
+        android:id="@+id/location"
         android:name="com.example.tms.view.fragment.InstaUploadFragment"
         android:label="InstaUploadFragment"
         tools:layout="@layout/insta_upload_image">
@@ -64,14 +64,14 @@
     </fragment>
 
     <fragment
-        android:id="@+id/insta_post_page"
+        android:id="@+id/home"
         android:name="com.example.tms.view.fragment.InstaPostFragment"
         android:label="InstaPostFragment"
         tools:layout="@layout/insta_post">
 
         <action
             android:id="@+id/action_instapostpage_to_instauploadpage"
-            app:destination="@id/insta_upload_page" />
+            app:destination="@id/location" />
 
         <action
             android:id="@+id/action_instapostpage_to_loginpage"
