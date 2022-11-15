@@ -27,7 +27,7 @@ class NavigationPageFragment : Fragment() {
 //        binding.addEventButton.setOnClickListener(View.OnClickListener {
 //            findNavController().navigate(R.id.action_navigation_to_ad_event_page)
 //        })
-//        return binding.root
-//    }
+        return binding.root
+    }
 
 }
