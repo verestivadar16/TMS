@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="117" />
-                            <option name="y" value="123" />
+                            <option name="x" value="62" />
+                            <option name="y" value="148" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -50,13 +50,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="insta_post_page">
+                  <entry key="home">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-156" />
-                            <option name="y" value="-215" />
+                            <option name="x" value="-158" />
+                            <option name="y" value="-209" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -76,14 +76,40 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="insta_upload_page">
+                  <entry key="insta_upload">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-132" />
-                            <option name="y" value="132" />
+                            <option name="x" value="-148" />
+                            <option name="y" value="144" />
                           </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="location">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="63" />
+                            <option name="y" value="-196" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_navigation_to_ad_event_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_navigation_to_instapostpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -110,32 +136,6 @@
                               </value>
                             </entry>
                             <entry key="action_loginPage_to_startPage">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="navigation_page">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="108" />
-                            <option name="y" value="-245" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_navigation_to_ad_event_page">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_navigation_to_instapostpage">
                               <value>
                                 <LayoutPositions />
                               </value>

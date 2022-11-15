@@ -11,10 +11,10 @@
         tools:layout="@layout/start_page">
         <action
             android:id="@+id/action_startFragment_to_loginFragment"
-            app:destination="@id/loginPage"/>
+            app:destination="@id/loginPage" />
         <action
             android:id="@+id/action_startFragment_to_registerFragment"
-            app:destination="@id/registerPage"/>
+            app:destination="@id/registerPage" />
 
     </fragment>
 
@@ -32,7 +32,7 @@
             app:destination="@id/home" />
         <action
             android:id="@+id/action_loginPage_to_forgot_password_page"
-            app:destination="@+id/forgot_password"/>
+            app:destination="@+id/forgot_password" />
     </fragment>
     <fragment
         android:id="@+id/forgot_password"
@@ -75,10 +75,9 @@
 
         <action
             android:id="@+id/action_instapostpage_to_loginpage"
-            app:destination="@+id/loginPage"/>
+            app:destination="@+id/loginPage" />
 
     </fragment>
-
 
 
     <!-- navigation page-->

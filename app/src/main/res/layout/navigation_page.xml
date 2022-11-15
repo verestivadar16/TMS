@@ -59,21 +59,21 @@
         app:srcCompat="@drawable/navigation_search_bar"
         tools:ignore="MissingConstraints" />
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/navigation_alert_button"-->
-<!--        android:layout_width="64dp"-->
-<!--        android:layout_height="70dp"-->
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/navigation_alert_button"-->
+    <!--        android:layout_width="64dp"-->
+    <!--        android:layout_height="70dp"-->
 
-<!--        android:background="?android:attr/selectableItemBackground"-->
-<!--&lt;!&ndash;        app:layout_constraintBottom_toBottomOf="@+id/profil_button"&ndash;&gt;-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.997"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.895"-->
-<!--        app:srcCompat="@drawable/navigation_alert_button"-->
-<!--        tools:ignore="MissingConstraints" />-->
+    <!--        android:background="?android:attr/selectableItemBackground"-->
+    <!--&lt;!&ndash;        app:layout_constraintBottom_toBottomOf="@+id/profil_button"&ndash;&gt;-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.997"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.895"-->
+    <!--        app:srcCompat="@drawable/navigation_alert_button"-->
+    <!--        tools:ignore="MissingConstraints" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

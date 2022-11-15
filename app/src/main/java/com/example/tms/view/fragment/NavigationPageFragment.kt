@@ -22,11 +22,11 @@ class NavigationPageFragment : Fragment() {
     ): View? {
         binding = NavigationPageBinding.inflate(layoutInflater)
 //        binding.homeButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_navigation_to_instapostpage)
+//        findNavController().navigate(R.id.action_navigation_to_instapostpage)
 //        })
-//        binding.addEventButton.setOnClickListener(View.OnClickListener {
-//            findNavController().navigate(R.id.action_navigation_to_ad_event_page)
-//        })
+        binding.addEventButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_navigation_to_ad_event_page)
+        })
         return binding.root
     }
 
