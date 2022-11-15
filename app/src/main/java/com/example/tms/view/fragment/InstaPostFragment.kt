@@ -1,6 +1,5 @@
 package com.example.tms.view.fragment
 
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -66,10 +65,4 @@ class InstaPostFragment : Fragment() {
 
         return binding.root
     }
-
-    private fun setupTextView() = binding.textview1.apply {
-
-    }
-
 }
-
