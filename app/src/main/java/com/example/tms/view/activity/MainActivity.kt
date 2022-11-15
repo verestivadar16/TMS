@@ -47,8 +47,8 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
     }
+
     private fun showBottomNav() {
         binding.bottomNavigationView.visibility = View.VISIBLE
 
