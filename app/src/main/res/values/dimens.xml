@@ -4,6 +4,9 @@
 
     <!--    dimens for registration page-->
     <dimen name="register_page_gap">50dp</dimen>
+    <dimen name="add_event_margin_start">10dp</dimen>
+    <dimen name="add_event_margin_end">10dp</dimen>
+    <dimen name="add_event_margin_top">20dp</dimen>
 
 
 </resources>

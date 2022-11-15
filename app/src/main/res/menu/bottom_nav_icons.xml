@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_baseline_home_24" />
     <item
         android:title="Location"
-        android:id="@+id/location"
+        android:id="@+id/navigation_page"
         android:icon="@drawable/ic_baseline_location_on_24" />
     <item
         android:title="Store"
