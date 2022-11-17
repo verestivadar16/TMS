@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.compose.ui.unit.dp
+import androidx.core.view.marginBottom
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -42,7 +44,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.startPage -> hideBottomNav()
                 R.id.registerPage -> hideBottomNav()
                 R.id.forgot_password -> hideBottomNav()
-                else -> showBottomNav()
+                else -> {
+                    showBottomNav()
+
+                }
             }
         }
 
@@ -51,12 +56,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun showBottomNav() {
         binding.bottomNavigationView.visibility = View.VISIBLE
+//        binding.root.setPadding(0,0,0,500)
 
     }
 
     private fun hideBottomNav() {
         binding.bottomNavigationView.visibility = View.GONE
-
     }
 
 }
