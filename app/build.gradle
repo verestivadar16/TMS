@@ -15,6 +15,18 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    buildFeatures {
+        viewBinding = true
+    }
+    buildscript {
+        repositories {
+            google()
+        }
+        dependencies {
+            classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.5.3")
+        }
+    }
+
 
     buildTypes {
         release {
@@ -29,10 +41,16 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.example.tms'
+    buildToolsVersion '33.0.0'
+    ndkVersion '22.0.6917172 rc1'
+    dependenciesInfo {
+        includeInApk true
+        includeInBundle true
+    }
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
@@ -42,7 +60,13 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'androidx.cardview:cardview:1.0.0'
+
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
+
+    //dependencies for maps
+    implementation "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.1"
+    implementation 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin:com.google.android.libraries.mapsplatform.secrets-gradle-plugin.gradle.plugin:2.0.1'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
 
 }
