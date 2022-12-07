@@ -8,7 +8,7 @@ import com.auth0.jwt.algorithms.Algorithm
 
 class JwtService {
 
-    private val issuer = "noteServer"
+    private val issuer = "tmsServer"
     private val jwtSecret = System.getenv("JWT_SECRET")
     private val algorithm = Algorithm.HMAC512(jwtSecret)
 
@@ -19,7 +19,7 @@ class JwtService {
 
     fun generateToken(user: User):String{
          return JWT.create()
-             .withSubject("NoteAuthentificatiom")
+             .withSubject("UserAuthentication")
              .withIssuer(issuer)
              .withClaim("email",user.email)
              .sign(algorithm)

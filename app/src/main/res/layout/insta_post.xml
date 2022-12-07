@@ -35,20 +35,17 @@
 
     <ScrollView
 
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="50dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
         android:fillViewport="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:orientation="vertical">
 
 
@@ -57,42 +54,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:text="Namivan" />
+                android:text="Ez nem megy" />
 
 
             <ImageView
                 android:id="@+id/image1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitStart"
-                android:adjustViewBounds="true"
                 android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
                 android:src="@drawable/audib5" />
 
             <ImageView
                 android:id="@+id/image2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitStart"
-                android:adjustViewBounds="true"
                 android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
                 android:src="@drawable/audib6" />
 
             <ImageView
                 android:id="@+id/image3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitStart"
-                android:adjustViewBounds="true"
                 android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
                 android:src="@drawable/variantr32" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitStart"
-                android:adjustViewBounds="true"
                 android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
                 android:src="@drawable/golfr32" />
 
 

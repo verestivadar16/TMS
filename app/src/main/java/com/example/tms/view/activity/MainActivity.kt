@@ -28,15 +28,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-//        binding.bottomNavigationView.visibility= View.INVISIBLE
 
         val navController =
             Navigation.findNavController(this, R.id.nav_host_fragment) as NavController
         val bottomNavigationView = binding.bottomNavigationView as BottomNavigationView
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
-//        if (layoutInflater.equals(R.id.insta_upload)){
-//            binding.bottomNavigationView.visibility= View.VISIBLE
-//        }
+
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
@@ -56,7 +53,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun showBottomNav() {
         binding.bottomNavigationView.visibility = View.VISIBLE
-//        binding.root.setPadding(0,0,0,500)
 
     }
 
