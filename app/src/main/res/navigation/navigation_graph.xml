@@ -79,6 +79,22 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/notification_page"
+        android:name="com.example.tms.view.fragment.NotificationFragment"
+        android:label="NotificationFragment"
+        tools:layout="@layout/notification_page">
+
+<!--        <action-->
+<!--            android:id="@+id/action_notificationpage_to_inboxpage"-->
+<!--            app:destination="@id/inbox_page" />-->
+
+<!--        <action-->
+<!--            android:id="@+id/action_instapostpage_to_loginpage"-->
+<!--            app:destination="@+id/loginPage" />-->
+
+    </fragment>
+
 
     <!-- navigation page-->
     <fragment
