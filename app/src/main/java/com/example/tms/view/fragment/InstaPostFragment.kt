@@ -50,7 +50,7 @@ class InstaPostFragment : Fragment() {
                     "https://i.ytimg.com/vi/-k5VTUfRaK0/maxresdefault.jpg"
                 val url2 = RetrofitInstance.api.getImages().body()?.imageUrl
                 val temp = RetrofitInstance.api.getImages().body()?.imageUrl
-                binding.textview1.text = temp.toString()
+                binding.textview1.text = RetrofitInstance.api.getImages().body()?.name
                 val imagePath = binding.image1
                 Glide.with(binding.root)
                     .load(url)

@@ -36,7 +36,7 @@ fun Route.UserRoutes(
     hashFunction:(String)->String
 ){
 
-    post("/register"){
+    post(REGISTER_REQUEST){
         val registerRequest = try {
             call.receive<RegisterRequest>()
         }   catch (e:Exception){
