@@ -12,9 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TMS"
         tools:targetApi="31">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCXPxzAnc8icMuBAYqWnbtw5S2eaT5opMg" />
+
+
         <activity
             android:name=".view.activity.MainActivity"
             android:exported="true">
@@ -22,6 +21,7 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
     </application>

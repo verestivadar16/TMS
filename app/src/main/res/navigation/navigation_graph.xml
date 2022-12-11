@@ -85,7 +85,7 @@
         android:id="@+id/navigation_page"
         android:name="com.example.tms.view.fragment.NavigationPageFragment"
         android:label="NavigationPageFragment"
-        tools:layout="@layout/navigation_page">
+        tools:layout="@layout/activity_maps_fragment">
         <action
             android:id="@+id/action_navigation_to_instapostpage"
             app:destination="@id/home" />
