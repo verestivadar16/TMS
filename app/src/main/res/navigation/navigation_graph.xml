@@ -62,6 +62,22 @@
         tools:layout="@layout/insta_upload_image">
 
     </fragment>
+    <fragment
+        android:id="@+id/inbox_page"
+        android:name="com.example.tms.view.fragment.InboxPageFragment"
+        android:label="InboxPageFragment"
+        tools:layout="@layout/inbox_page">
+
+        <action
+            android:id="@+id/action_inboxpage_to_notificationpage"
+            app:destination="@id/notification_page" />
+
+        <action
+            android:id="@+id/action_inboxpage_to_homepage"
+            app:destination="@+id/home" />
+
+
+    </fragment>
 
     <fragment
         android:id="@+id/home"
@@ -76,6 +92,11 @@
         <action
             android:id="@+id/action_instapostpage_to_loginpage"
             app:destination="@+id/loginPage" />
+        <action
+            android:id="@+id/action_instapostpage_to_inboxpage"
+            app:destination="@+id/inbox_page" />
+
+
 
     </fragment>
 
@@ -85,9 +106,9 @@
         android:label="NotificationFragment"
         tools:layout="@layout/notification_page">
 
-<!--        <action-->
-<!--            android:id="@+id/action_notificationpage_to_inboxpage"-->
-<!--            app:destination="@id/inbox_page" />-->
+        <action
+            android:id="@+id/action_notificationpage_to_inboxpage"
+            app:destination="@id/inbox_page" />
 
 
     </fragment>

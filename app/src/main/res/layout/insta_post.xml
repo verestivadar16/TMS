@@ -7,6 +7,20 @@
     android:background="@drawable/bacgroundtexture2">
 
     <ImageButton
+        android:id="@+id/notification_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.768"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.007"
+        app:srcCompat="@drawable/bell" />
+
+    <ImageButton
         android:id="@+id/imageButton_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

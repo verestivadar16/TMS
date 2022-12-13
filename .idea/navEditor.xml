@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="225" />
-                            <option name="y" value="294" />
+                            <option name="x" value="57" />
+                            <option name="y" value="566" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -55,18 +55,49 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-158" />
-                            <option name="y" value="-209" />
+                            <option name="x" value="-163" />
+                            <option name="y" value="-249" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_instapostpage_to_inboxpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_instapostpage_to_instauploadpage">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                             <entry key="action_instapostpage_to_loginpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="inbox_page">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="66" />
+                            <option name="y" value="-247" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_inboxpage_to_homepage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_inboxpage_to_notificationpage">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -150,9 +181,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="82" />
-                            <option name="y" value="-200" />
+                            <option name="x" value="45" />
+                            <option name="y" value="152" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_notificationpage_to_inboxpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
