@@ -6,13 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
 import com.example.tms.databinding.ActivityMainBinding
+import com.example.tms.view.fragment.InstaAdaptor
+import com.example.tms.view.fragment.InstaPostData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -26,23 +30,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-//        binding.bottomNavigationView.visibility= View.INVISIBLE
 
         val navController =
             Navigation.findNavController(this, R.id.nav_host_fragment) as NavController
         val bottomNavigationView = binding.bottomNavigationView as BottomNavigationView
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
-//        if (layoutInflater.equals(R.id.insta_upload)){
-//            binding.bottomNavigationView.visibility= View.VISIBLE
-//        }
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
+
+        navController.addOnDestinationChangedListener {_, destination, _ ->
             when (destination.id) {
                 R.id.loginPage -> hideBottomNav()
                 R.id.startPage -> hideBottomNav()
                 R.id.registerPage -> hideBottomNav()
                 R.id.forgot_password -> hideBottomNav()
-                else -> showBottomNav()
+                else -> {
+                    showBottomNav()
+
+                }
             }
         }
 
@@ -56,7 +60,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideBottomNav() {
         binding.bottomNavigationView.visibility = View.GONE
-
     }
 
 }
