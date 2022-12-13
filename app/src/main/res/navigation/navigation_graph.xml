@@ -89,9 +89,6 @@
 <!--            android:id="@+id/action_notificationpage_to_inboxpage"-->
 <!--            app:destination="@id/inbox_page" />-->
 
-<!--        <action-->
-<!--            android:id="@+id/action_instapostpage_to_loginpage"-->
-<!--            app:destination="@+id/loginPage" />-->
 
     </fragment>
 
