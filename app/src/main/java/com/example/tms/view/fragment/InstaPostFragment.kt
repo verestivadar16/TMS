@@ -34,6 +34,9 @@ class InstaPostFragment : Fragment() {
         binding.imageButtonToUploadImage.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instapostpage_to_instauploadpage)
         })
+        binding.notificationButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_instapostpage_to_inboxpage)
+        })
 
         lifecycleScope.launchWhenCreated {
             val response = try {

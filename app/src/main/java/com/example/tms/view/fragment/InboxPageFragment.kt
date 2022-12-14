@@ -1,27 +1,38 @@
 package com.example.tms.view.fragment
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.tms.R
+import com.example.tms.databinding.InboxPageBinding
+import com.example.tms.databinding.InstaUploadImageBinding
+import com.example.tms.view.fragment.ConversationViewModel
+import com.example.tms.view.fragment.CustomAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tms.R
-import com.example.tms.databinding.LoginPageBinding
-import com.example.tms.databinding.NotificationPageBinding
 
-class NotificationFragment : Fragment() {
-    private lateinit var binding: NotificationPageBinding
+class InboxPageFragment : Fragment() {
+    private lateinit var binding: InboxPageBinding
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = NotificationPageBinding.inflate(layoutInflater)
-        binding.imageButtonBack.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_notificationpage_to_inboxpage)
+
+        binding = InboxPageBinding.inflate(layoutInflater)
+        binding.notificationButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_inboxpage_to_notificationpage)
         })
+        binding.imageButtonBack.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_inboxpage_to_homepage)
+        })
+
+
         return binding.root
     }
 
@@ -32,9 +43,9 @@ class NotificationFragment : Fragment() {
             recyclerview.layoutManager = LinearLayoutManager(getContext())
         }
         val data = ArrayList<ConversationViewModel>()
-        data.add(ConversationViewModel(R.drawable.map, "Arany Janos", "invited to an upcoming event", "12:00"))
-        data.add(ConversationViewModel(R.drawable.contacticon, "Osama bin Laden", "wants to be your friend", "13:00"))
-        data.add(ConversationViewModel(R.drawable.instaicon, "Mia Khalifa", "tagged in her new post", "17:00"))
+        data.add(ConversationViewModel(R.drawable.avatar4, "Kiss Elemer ", "Extremity sweetness difficult behaviour he of....", "16:44"))
+        data.add(ConversationViewModel(R.drawable.avatar4, "Arany Janos ", "This tires stonks", "12:00"))
+        data.add(ConversationViewModel(R.drawable.avatar4, "Petofi Sandor", "8pm at the parking lot?", "17:00"))
         val adapter = CustomAdapter(data)
         if (recyclerview != null) {
             recyclerview.adapter = adapter
@@ -44,6 +55,4 @@ class NotificationFragment : Fragment() {
         }
     }
 
-
 }
-
