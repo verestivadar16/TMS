@@ -6,7 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ListView
+import androidx.compose.ui.unit.dp
+import androidx.core.view.marginBottom
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -15,8 +16,6 @@ import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
 import com.example.tms.databinding.ActivityMainBinding
-import com.example.tms.view.fragment.InstaAdaptor
-import com.example.tms.view.fragment.InstaPostData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -37,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
 
 
-        navController.addOnDestinationChangedListener {_, destination, _ ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.loginPage -> hideBottomNav()
                 R.id.startPage -> hideBottomNav()
