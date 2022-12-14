@@ -32,6 +32,9 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
         binding.addEventButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_navigation_to_ad_event_page)
         })
+        binding.navigationAvatar.setOnClickListener({
+            findNavController().navigate(R.id.action_navigation_to_profile_page)
+        })
 //        onMapReady(mMap)
         return binding.root
     }

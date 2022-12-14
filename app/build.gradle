@@ -18,6 +18,10 @@ android {
         buildConfigField("String", "ROUTING_API_KEY", "\"I8bisoI4hzRq69wRj24PCV7dmvUdPmtm\"")
         buildConfigField("String", "SEARCH_API_KEY", "\"I8bisoI4hzRq69wRj24PCV7dmvUdPmtm\"")
 
+        buildConfigField("String", "MAPS_API_KEY", "\"I8bisoI4hzRq69wRj24PCV7dmvUdPmtm\"")
+        buildConfigField("String", "ROUTING_API_KEY", "\"I8bisoI4hzRq69wRj24PCV7dmvUdPmtm\"")
+        buildConfigField("String", "SEARCH_API_KEY", "\"I8bisoI4hzRq69wRj24PCV7dmvUdPmtm\"")
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     packagingOptions {

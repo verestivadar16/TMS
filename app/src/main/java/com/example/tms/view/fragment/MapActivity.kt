@@ -1,14 +1,12 @@
 //package com.example.tms.view.activity
 //
 //import android.annotation.SuppressLint
-//import android.app.Activity
 //import android.os.Bundle
 //import android.view.View
 //import android.widget.EditText
 //import android.widget.ImageButton
 //import android.widget.Toast
 //import androidx.appcompat.app.AppCompatActivity
-//import androidx.fragment.app.Fragment
 //import com.example.tms.BuildConfig
 //import com.example.tms.R
 //import com.google.android.gms.maps.OnMapReadyCallback
@@ -35,7 +33,6 @@
 //abstract class MapActivity : AppCompatActivity(), OnMapReadyCallback,
 //    TomtomMapCallback.OnMapLongClickListener, com.tomtom.online.sdk.map.OnMapReadyCallback {
 //    private lateinit var tomtomMap: TomtomMap
-//    private var MAPS_API_KEY = "I8bisoI4hzRq69wRj24PCV7dmvUdPmtm"
 //    private lateinit var searchApi: SearchApi
 //    private lateinit var routingApi: RoutingApi
 //    private var route: Route? = null
@@ -49,7 +46,7 @@
 //
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.navigate_page)
+//        setContentView(R.layout.activity_main)
 //        initTomTomServices()
 //        initUIViews()
 //        setupUIViewListeners()
@@ -81,7 +78,7 @@
 //
 //    private fun initTomTomServices() {
 //        val mapKeys = mapOf(
-//            ApiKeyType.MAPS_API_KEY to MAPS_API_KEY
+//            ApiKeyType.MAPS_API_KEY to BuildConfig.MAP_API_KEY
 //        )
 //        val mapProperties = MapProperties.Builder()
 //            .keys(mapKeys)
@@ -93,8 +90,8 @@
 //            .commit()
 //        mapFragment.getAsyncMap(this)
 //
-//        searchApi = OnlineSearchApi.create(this, MAPS_API_KEY)
-//        routingApi = OnlineRoutingApi.create(this, MAPS_API_KEY)
+//        searchApi = OnlineSearchApi.create(this, BuildConfig.MAP_API_KEY)
+//        routingApi = OnlineRoutingApi.create(this, BuildConfig.MAP_API_KEY)
 //    }
 //
 //    private fun clearMap() {
@@ -126,7 +123,7 @@
 //
 //    @JvmName("getSearchButtonListener1")
 //    private fun getSearchButtonListener(): View.OnClickListener {
-//        return this.searchButtonListener
+//       return this.searchButtonListener
 //    }
 //
 //    override fun onMapLongClick(latLng: LatLng) {
@@ -252,11 +249,8 @@
 //
 //            private fun displayRoutes(routes: List<FullRoute>) {
 //                for (fullRoute in routes) {
-//                    route = tomtomMap.addRoute(
-//                        RouteBuilder(
-//                            fullRoute.getCoordinates()
-//                        ).startIcon(departureIcon).endIcon(destinationIcon)
-//                    )
+//                    route = tomtomMap.addRoute(RouteBuilder(
+//                        fullRoute.getCoordinates()).startIcon(departureIcon).endIcon(destinationIcon))
 //                }
 //            }
 //        })
@@ -269,13 +263,10 @@
 //    private fun createMarkerIfNotPresent(position: LatLng?, icon: Icon?) {
 //        val optionalMarker: Optional<Marker> = tomtomMap.findMarkerByPosition(position)
 //        if (!optionalMarker.isPresent) {
-//            tomtomMap.addMarker(
-//                MarkerBuilder((position)!!)
-//                    .icon(icon)
-//            )
+//            tomtomMap.addMarker(MarkerBuilder((position)!!)
+//                .icon(icon))
 //        }
 //    }
-//
 //    private val searchButtonListener: View.OnClickListener
 //        get() {
 //            return object : View.OnClickListener {
@@ -285,8 +276,7 @@
 //
 //                private fun handleSearchClick(v: View) {
 //                    if (isRouteSet) {
-//                        val description: Optional<CharSequence> =
-//                            Optional.fromNullable(v.contentDescription)
+//                        val description: Optional<CharSequence> = Optional.fromNullable(v.contentDescription)
 //                        if (description.isPresent) {
 //                            editTextPois?.setText(description.get())
 ////                            deselectShortcutButtons()
@@ -296,7 +286,7 @@
 //                            tomtomMap.clear()
 //                            drawRoute(departurePosition, destinationPosition)
 //                        }
-//                        val textToSearch: String = editTextPois?.text.toString()
+//                        val textToSearch : String  = editTextPois?.text.toString()
 //                        if (textToSearch.isNotEmpty()) {
 //                            tomtomMap.removeMarkers()
 //                            searchAlongTheRoute(route, textToSearch)
@@ -320,14 +310,9 @@
 //                    disableSearchButtons()
 //                    showDialogInProgress()
 //                    searchApi.alongRouteSearch(
-//                        AlongRouteSearchQueryBuilder(
-//                            textToSearch,
-//                            route!!.coordinates,
-//                            maxDetourTime
-//                        )
-//                            .withLimit(queryLimit)
-//                            .build()
-//                    )
+//                        AlongRouteSearchQueryBuilder(textToSearch, route!!.coordinates, maxDetourTime)
+//                        .withLimit(queryLimit)
+//                        .build())
 //                        .subscribeOn(Schedulers.io())
 //                        .observeOn(AndroidSchedulers.mainThread())
 //                        .subscribe(object : DisposableSingleObserver<AlongRouteSearchResponse?>() {
@@ -344,21 +329,11 @@
 //                                    }
 //                                    tomtomMap.zoomToAllMarkers()
 //                                } else {
-//                                    Toast.makeText(
-//                                        this@MapActivity,
-//                                        String.format(
-//                                            getString(R.string.no_search_results),
-//                                            textToSearch
-//                                        ),
-//                                        Toast.LENGTH_LONG
-//                                    ).show()
+//                                    Toast.makeText(this@MapActivity, String.format(getString(R.string.no_search_results), textToSearch), Toast.LENGTH_LONG).show()
 //                                }
 //                            }
 //
-//                            private fun createAndDisplayCustomMarker(
-//                                position: LatLng,
-//                                result: AlongRouteSearchResult
-//                            ) {
+//                            private fun createAndDisplayCustomMarker(position: LatLng, result: AlongRouteSearchResult) {
 //                                val address: String = result.address.freeformAddress
 //                                val poiName: String = result.poi.name
 //                                val markerBalloonData = BaseMarkerBalloon().apply {
