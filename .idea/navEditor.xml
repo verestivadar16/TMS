@@ -61,12 +61,43 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_instapostpage_to_inboxpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_instapostpage_to_instauploadpage">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                             <entry key="action_instapostpage_to_loginpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="inbox_page">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="229" />
+                            <option name="y" value="-215" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_inboxpage_to_homepage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_inboxpage_to_notificationpage">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -124,8 +155,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="-167" />
+                            <option name="y" value="462" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -136,6 +167,27 @@
                               </value>
                             </entry>
                             <entry key="action_navigation_to_instapostpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="notification_page">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="278" />
+                            <option name="y" value="351" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_notificationpage_to_inboxpage">
                               <value>
                                 <LayoutPositions />
                               </value>
