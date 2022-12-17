@@ -32,6 +32,10 @@ class InboxPageFragment : Fragment() {
             findNavController().navigate(R.id.action_inboxpage_to_homepage)
         })
 
+        binding.conversationButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_inboxpage_to_chatpage)
+        })
+
 
         return binding.root
     }

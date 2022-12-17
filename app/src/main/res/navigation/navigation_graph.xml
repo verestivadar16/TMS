@@ -75,6 +75,21 @@
         <action
             android:id="@+id/action_inboxpage_to_homepage"
             app:destination="@+id/home" />
+        <action
+            android:id="@+id/action_inboxpage_to_chatpage"
+            app:destination="@+id/chat_page" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/chat_page"
+        android:name="com.example.tms.view.fragment.ChatPageFragment"
+        android:label="ChatPageFragment"
+        tools:layout="@layout/chat_input">
+
+        <action
+            android:id="@+id/action_chatpage_to_inboxpage"
+            app:destination="@id/inbox_page" />
 
 
     </fragment>
