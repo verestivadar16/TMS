@@ -61,6 +61,9 @@
         android:label="InstaUploadFragment"
         tools:layout="@layout/insta_upload_image">
 
+        <action
+            android:id="@+id/action_instauploadpage_to_instapostpage"
+            app:destination="@+id/home" />
     </fragment>
     <fragment
         android:id="@+id/inbox_page"

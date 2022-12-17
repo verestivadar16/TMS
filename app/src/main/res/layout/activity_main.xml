@@ -23,7 +23,7 @@
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@drawable/bacgroundtexture2"
+        android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:itemIconTint="@color/tms_pink"
