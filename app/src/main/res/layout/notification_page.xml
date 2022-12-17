@@ -86,7 +86,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notification_layout"
-        app:layout_constraintVertical_bias="0.059"
+        app:layout_constraintVertical_bias="0.027"
         tools:itemCount="2"
         tools:listitem="@layout/card_view_design" />
 

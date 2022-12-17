@@ -1,27 +1,19 @@
 package com.example.tms.view.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.tms.R
-import com.example.tms.data.ImageAdapter
-import com.example.tms.data.RetrofitInstance
 import com.example.tms.databinding.InstaPostBinding
-import com.example.tms.view.activity.MainActivity
-import okio.IOException
-import retrofit2.HttpException
 
 
 class InstaPostFragment : Fragment() {
     private lateinit var binding: InstaPostBinding
-    val TAG = "mokus"
+    private lateinit var postArrayList : ArrayList<InstaPostData>
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,34 +26,40 @@ class InstaPostFragment : Fragment() {
         binding.imageButtonToUploadImage.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instapostpage_to_instauploadpage)
         })
+        binding.inboxButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_instapostpage_to_inboxpage)
+        })
 
-        lifecycleScope.launchWhenCreated {
-            val response = try {
-                RetrofitInstance.api.getImages()
-            } catch (e: IOException) {
-                Log.d(TAG, e.toString())
-                return@launchWhenCreated
-            } catch (e: HttpException) {
-                Log.d(TAG, "Http")
-                return@launchWhenCreated
-            }
-            if (response.isSuccessful && response.body() != null) {
-                val url =
-                    "https://i.ytimg.com/vi/-k5VTUfRaK0/maxresdefault.jpg"
-                val url2 = RetrofitInstance.api.getImages().body()?.imageUrl
-                val temp = RetrofitInstance.api.getImages().body()?.imageUrl
-                binding.textview1.text = RetrofitInstance.api.getImages().body()?.name
-                val imagePath = binding.image1
-                Glide.with(binding.root)
-                    .load(url)
-                    .into(imagePath)
-                val imagePath2 = binding.image2
-                Glide.with(binding.root)
-                    .load(url2)
-                    .into(imagePath2)
-            }
+        val profImageId = intArrayOf(
+            R.drawable.avatar_button, R.drawable.avatar_button, R.drawable.avatar_button, R.drawable.avatar_button
+        )
+
+        val name = arrayOf(
+            "Balazs", "Roli", "Tomi", "Tivadar"
+        )
+
+        val postDescription = arrayOf(
+            "ez egy rs4 b5",
+            "ez egy rs4 b6",
+            "ez egy variant r32",
+            "ez egy golf r32"
+        )
+
+        val imageId = intArrayOf(
+            R.drawable.audib5, R.drawable.audib6, R.drawable.variantr32, R.drawable.golfr32
+        )
+
+        postArrayList = ArrayList()
+
+        for (i in name.indices) {
+            val post = InstaPostData(name[i], postDescription[i],imageId[i], profImageId[i])
+            postArrayList.add(post)
         }
+
+        binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
 
         return binding.root
     }
+
+
 }
