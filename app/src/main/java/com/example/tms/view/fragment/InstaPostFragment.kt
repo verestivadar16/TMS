@@ -29,6 +29,9 @@ class InstaPostFragment : Fragment() {
         binding.inboxButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instapostpage_to_inboxpage)
         })
+        binding.navigationAvatarInsta.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_instapostpage_to_profilepage)
+        })
 
         val profImageId = intArrayOf(
             R.drawable.avatar_button, R.drawable.avatar_button, R.drawable.avatar_button, R.drawable.avatar_button
