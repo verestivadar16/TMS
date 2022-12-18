@@ -37,12 +37,13 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="184dp"
+        android:background="@color/transparent"
 
         android:layout_marginTop="15dp"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/addimagebutton" />
+        android:src="@drawable/addbuttonwhite" />
 
     <ScrollView
 
