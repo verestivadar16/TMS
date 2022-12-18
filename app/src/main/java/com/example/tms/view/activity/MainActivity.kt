@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.startPage -> hideBottomNav()
                 R.id.registerPage -> hideBottomNav()
                 R.id.forgot_password -> hideBottomNav()
+                R.id.chat_page -> hideBottomNav()
                 else -> {
                     showBottomNav()
 
