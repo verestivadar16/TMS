@@ -4,18 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.databinding.ChatInputBinding
+import android.widget.EditText
+
 
 
 class ChatPageFragment :Fragment(){
     private lateinit var binding: ChatInputBinding
-    private lateinit var messageAdapter: MessageAdapter
-    private lateinit var messageList: ArrayList<Message>
 
 
     override fun onCreateView(
@@ -48,7 +49,16 @@ class ChatPageFragment :Fragment(){
         data.add(Message("Yeah","2"))
         data.add(Message("Cant wait for it","2"))
         binding.chatSendMsg.setOnClickListener(){
-            data.add(Message(binding.chatInputMsg.toString(),"1"))
+            val inputMessage= getView()?.findViewById<EditText>(R.id.input_message)?.text
+            data.add(Message(inputMessage.toString(),"2"))
+            getView()?.findViewById<EditText>(R.id.input_message)?.text?.clear()
+            val adapter = context?.let { MessageAdapter(it,data) }
+            if (recyclerview != null) {
+                recyclerview.adapter = adapter
+            }
+            if (recyclerview != null) {
+                recyclerview.adapter = adapter
+            }
         }
 
 
@@ -60,5 +70,6 @@ class ChatPageFragment :Fragment(){
         if (recyclerview != null) {
             recyclerview.adapter = adapter
         }
+
     }
 }
