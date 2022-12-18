@@ -51,6 +51,8 @@ class ChatPageFragment :Fragment(){
             data.add(Message(binding.chatInputMsg.toString(),"1"))
         }
 
+
+
         val adapter = context?.let { MessageAdapter(it,data) }
         if (recyclerview != null) {
             recyclerview.adapter = adapter

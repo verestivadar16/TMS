@@ -4,9 +4,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
 class CustomAdapter (private val mList: List<ConversationViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+
+    var onItemClick:((ConversationViewModel) -> Unit)? = null
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflates the card_view_design view
@@ -29,6 +32,18 @@ class CustomAdapter (private val mList: List<ConversationViewModel>) : RecyclerV
         holder.name.text = ConversationViewModel.name
         holder.message.text =ConversationViewModel.message
         holder.time.text = ConversationViewModel.time
+
+        holder.itemView.setOnClickListener{
+            onItemClick?.invoke(ConversationViewModel)
+        }
+
+//        holder.itemView.setOnClickListener(object : View.OnClickListener{
+//            override fun onClick(v: View?) {
+//                val activity = v!!.context as AppCompatActivity
+//                val nextFragment = ChatPageFragment()
+//                activity.supportFragmentManager.beginTransaction().replace(R.id.conversation_list,nextFragment).addToBackStack(null).commit()
+//            }
+//        })
 
     }
 

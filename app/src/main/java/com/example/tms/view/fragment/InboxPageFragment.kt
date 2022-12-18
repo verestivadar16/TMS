@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
@@ -32,9 +33,11 @@ class InboxPageFragment : Fragment() {
             findNavController().navigate(R.id.action_inboxpage_to_homepage)
         })
 
-        binding.conversationButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_inboxpage_to_chatpage)
-        })
+
+
+
+
+
 
 
         return binding.root
@@ -50,12 +53,16 @@ class InboxPageFragment : Fragment() {
         data.add(ConversationViewModel(R.drawable.avatar4, "Kiss Elemer ", "Extremity sweetness difficult behaviour he of....", "16:44"))
         data.add(ConversationViewModel(R.drawable.avatar4, "Arany Janos ", "This tires stonks", "12:00"))
         data.add(ConversationViewModel(R.drawable.avatar4, "Petofi Sandor", "8pm at the parking lot?", "17:00"))
+
         val adapter = CustomAdapter(data)
         if (recyclerview != null) {
             recyclerview.adapter = adapter
         }
         if (recyclerview != null) {
             recyclerview.adapter = adapter
+        }
+        adapter.onItemClick = {
+            findNavController().navigate(R.id.action_inboxpage_to_chatpage)
         }
     }
 
