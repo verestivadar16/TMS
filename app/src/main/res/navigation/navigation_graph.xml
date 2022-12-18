@@ -113,6 +113,9 @@
         <action
             android:id="@+id/action_instapostpage_to_inboxpage"
             app:destination="@+id/inbox_page" />
+        <action
+            android:id="@+id/action_instapostpage_to_profile_page"
+            app:destination="@id/profile_page" />
 
 
 

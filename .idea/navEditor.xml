@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="86" />
-                            <option name="y" value="373" />
+                            <option name="x" value="132" />
+                            <option name="y" value="496" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -142,6 +142,15 @@
                             <option name="y" value="144" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_instauploadpage_to_instapostpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -181,8 +190,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-167" />
-                            <option name="y" value="462" />
+                            <option name="x" value="-156" />
+                            <option name="y" value="583" />
                           </Point>
                         </option>
                         <option name="myPositions">
