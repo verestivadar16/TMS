@@ -14,6 +14,9 @@
     <color name="grey3">#8b8989</color>
 
 
+    <color name="bg_balloon_button_color">#C3D552</color>
+    <color name="transparentblack">#90000000</color>
+    <color name="transparent">#FF000000</color>
 
     <color name="tms_pink">#D61F56</color>
 </resources>

@@ -61,6 +61,9 @@
         android:label="InstaUploadFragment"
         tools:layout="@layout/insta_upload_image">
 
+        <action
+            android:id="@+id/action_instauploadpage_to_instapostpage"
+            app:destination="@+id/home" />
     </fragment>
     <fragment
         android:id="@+id/inbox_page"
@@ -141,6 +144,9 @@
         <action
             android:id="@+id/action_navigation_to_ad_event_page"
             app:destination="@id/add_event_page" />
+        <action
+            android:id="@+id/action_navigation_to_profile_page"
+            app:destination="@id/profile_page" />
     </fragment>
 
     <fragment
@@ -153,5 +159,16 @@
             app:destination="@id/navigation_page" />
 
     </fragment>
+    <fragment
+        android:id="@+id/profile_page"
+        android:name="com.example.tms.view.fragment.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/profile_page">
+        <action
+            android:id="@+id/profile_page_to_navigation_page"
+            app:destination="@id/navigation_page" />
+
+    </fragment>
+
 
 </navigation>
