@@ -117,6 +117,9 @@
             android:id="@+id/action_instapostpage_to_profile_page"
             app:destination="@id/profile_page" />
 
+        <action
+            android:id="@+id/action_instapostpage_to_market_page"
+            app:destination="@id/market_page" />
 
 
     </fragment>
@@ -170,6 +173,33 @@
         <action
             android:id="@+id/profile_page_to_navigation_page"
             app:destination="@id/navigation_page" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/market_page"
+        android:name="com.example.tms.view.fragment.MarketPageFragment"
+        android:label="MarketPageFragment"
+        tools:layout="@layout/market_page">
+
+        <action
+            android:id="@+id/action_marketpage_to_homepage"
+            app:destination="@id/home" />
+
+        <action
+            android:id="@+id/action_marketpage_to_newlistingpage"
+            app:destination="@+id/home" />
+
+        <action
+            android:id="@+id/action_marketpage_to_profilpage"
+            app:destination="@+id/profile_page" />
+        <action
+            android:id="@+id/action_marketpage_to_searchitempage"
+            app:destination="@+id/profile_page" />
+
+        <action
+            android:id="@+id/action_marketpage_to_chatpage"
+            app:destination="@+id/chat_page" />
 
     </fragment>
 

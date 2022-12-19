@@ -4,14 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
 import com.example.tms.databinding.InboxPageBinding
-import com.example.tms.databinding.InstaUploadImageBinding
-import com.example.tms.view.fragment.ConversationViewModel
-import com.example.tms.view.fragment.CustomAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 

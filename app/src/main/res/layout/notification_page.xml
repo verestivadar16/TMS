@@ -70,7 +70,8 @@
             android:text="Notifications"
 
             android:textColor="@color/white"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:textStyle="bold"/>
 
 
     </RelativeLayout>
