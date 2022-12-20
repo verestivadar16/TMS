@@ -11,9 +11,9 @@ import com.example.tms.R
 import com.example.tms.databinding.AddEventPageBinding
 import com.example.tms.databinding.ProfilePageBinding
 
-class ProfileFragment : Fragment(){
+class ProfileFragment : Fragment() {
     private lateinit var binding: ProfilePageBinding
-   override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?

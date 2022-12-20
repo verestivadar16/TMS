@@ -25,7 +25,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 //AIzaSyCXPxzAnc8icMuBAYqWnbtw5S2eaT5opMg
 
 class NavigationPageFragment : Fragment(), OnMapReadyCallback {
-//    private lateinit var REQUEST_LOCATION
+    //    private lateinit var REQUEST_LOCATION
     private lateinit var binding: NavigationPageBinding
     private lateinit var mMap: GoogleMap
     override fun onCreateView(
@@ -57,8 +57,9 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(
             MarkerOptions()
-            .position(sydney)
-            .title("Marker in Sydney"))
+                .position(sydney)
+                .title("Marker in Sydney")
+        )
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 
@@ -79,8 +80,7 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
             ) {
                 // do something which you want to do
                 // when permission granted
-            }
-            else if (permissions[0] ==
+            } else if (permissions[0] ==
                 Manifest.permission.ACCESS_FINE_LOCATION &&
                 grantResults[0] == PackageManager.PERMISSION_DENIED
             ) {
@@ -88,7 +88,8 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
                 // again is selected or not by making use of
                 !ActivityCompat.shouldShowRequestPermissionRationale(
                     requireActivity(),
-                    Manifest.permission.ACCESS_FINE_LOCATION)
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                )
             }
         }
     }

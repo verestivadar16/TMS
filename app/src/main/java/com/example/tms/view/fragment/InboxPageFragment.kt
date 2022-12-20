@@ -50,9 +50,30 @@ class InboxPageFragment : Fragment() {
             recyclerview.layoutManager = LinearLayoutManager(getContext())
         }
         val data = ArrayList<ConversationViewModel>()
-        data.add(ConversationViewModel(R.drawable.avatar4, "Kiss Elemer ", "Extremity sweetness difficult behaviour he of....", "16:44"))
-        data.add(ConversationViewModel(R.drawable.avatar4, "Arany Janos ", "This tires stonks", "12:00"))
-        data.add(ConversationViewModel(R.drawable.avatar4, "Petofi Sandor", "8pm at the parking lot?", "17:00"))
+        data.add(
+            ConversationViewModel(
+                R.drawable.avatar4,
+                "Kiss Elemer ",
+                "Extremity sweetness difficult behaviour he of....",
+                "16:44"
+            )
+        )
+        data.add(
+            ConversationViewModel(
+                R.drawable.avatar4,
+                "Arany Janos ",
+                "This tires stonks",
+                "12:00"
+            )
+        )
+        data.add(
+            ConversationViewModel(
+                R.drawable.avatar4,
+                "Petofi Sandor",
+                "8pm at the parking lot?",
+                "17:00"
+            )
+        )
 
         val adapter = CustomAdapter(data)
         if (recyclerview != null) {
