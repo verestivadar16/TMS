@@ -1,20 +1,16 @@
 package com.example.tms.view.fragment
 
 import android.Manifest
-import android.Manifest.permission.ACCESS_FINE_LOCATION
-import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.requestPermissions
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
+import com.example.tms.data.AppConstant
 import com.example.tms.databinding.NavigationPageBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap

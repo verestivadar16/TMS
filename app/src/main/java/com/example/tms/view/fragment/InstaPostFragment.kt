@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
+import com.example.tms.adapter.InstaAdaptor
+import com.example.tms.data.InstaPostData
 import com.example.tms.databinding.InstaPostBinding
 
 

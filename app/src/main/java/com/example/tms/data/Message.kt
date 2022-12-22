@@ -1,4 +1,4 @@
-package com.example.tms.view.fragment
+package com.example.tms.data
 
 class Message {
     var message: String? = null

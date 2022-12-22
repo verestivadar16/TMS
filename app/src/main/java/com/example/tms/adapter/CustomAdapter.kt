@@ -1,13 +1,13 @@
-package com.example.tms.view.fragment
+package com.example.tms.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
+import com.example.tms.data.ConversationViewModel
 
 class CustomAdapter(private val mList: List<ConversationViewModel>) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {

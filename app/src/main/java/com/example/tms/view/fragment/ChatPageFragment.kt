@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
@@ -12,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.databinding.ChatInputBinding
 import android.widget.EditText
+import com.example.tms.adapter.MessageAdapter
+import com.example.tms.data.Message
 
 
 class ChatPageFragment : Fragment() {
@@ -50,7 +51,8 @@ class ChatPageFragment : Fragment() {
         data.add(Message("Cant wait for it", "2"))
         binding.chatSendMsg.setOnClickListener() {
             val inputMessage = getView()?.findViewById<EditText>(R.id.input_message)?.text
-            data.add(Message(inputMessage.toString(), "2"))
+            val inputMessage2 = binding.inputMessage.text
+            data.add(Message(inputMessage2.toString(), "2"))
             getView()?.findViewById<EditText>(R.id.input_message)?.text?.clear()
             val adapter = context?.let { MessageAdapter(it, data) }
             if (recyclerview != null) {

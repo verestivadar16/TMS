@@ -9,7 +9,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
-import com.example.tms.databinding.LoginPageBinding
+import com.example.tms.adapter.CustomAdapter
+import com.example.tms.data.ConversationViewModel
 import com.example.tms.databinding.NotificationPageBinding
 
 class NotificationFragment : Fragment() {

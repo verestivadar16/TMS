@@ -1,4 +1,4 @@
-package com.example.tms.view.fragment
+package com.example.tms.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
+import com.example.tms.data.Message
 
 class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

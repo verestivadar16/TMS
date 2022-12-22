@@ -1,4 +1,4 @@
-package com.example.tms.view.fragment
+package com.example.tms.data
 
 data class InstaPostData(
     var name: String,
