@@ -36,6 +36,7 @@ class ForgotPasswordFragment : Fragment() {
                     if (task.isSuccessful) {
                         Log.d(TAG, "Email sent.")
                         Toast.makeText(requireContext(), "Email sent!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Check Spam", Toast.LENGTH_SHORT).show()
                         findNavController().navigate(R.id.action_forgotPage_to_loginPage)
                     }
                 }
