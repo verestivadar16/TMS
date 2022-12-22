@@ -118,7 +118,6 @@
             app:destination="@id/profile_page" />
 
 
-
     </fragment>
 
     <fragment
