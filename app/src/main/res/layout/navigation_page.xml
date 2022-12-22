@@ -29,8 +29,8 @@
 
     <ImageButton
         android:id="@+id/navigation_avatar"
-        android:layout_width="50dp"
-        android:layout_height="70dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
 
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
