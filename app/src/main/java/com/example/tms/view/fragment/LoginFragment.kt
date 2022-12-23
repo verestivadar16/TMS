@@ -20,11 +20,11 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = LoginPageBinding.inflate(layoutInflater)
         mAuth = FirebaseAuth.getInstance()
 
-        login()
+       login()
 
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_loginPage_to_startPage)
