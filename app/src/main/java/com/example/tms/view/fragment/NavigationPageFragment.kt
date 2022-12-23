@@ -38,16 +38,15 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
         savedInstanceState: Bundle?
     ): View? {
         binding = NavigationPageBinding.inflate(layoutInflater)
-        Log.d("TAG"," vagyok")
         val alertDialog: AlertDialog
         val permissionLauncher = registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ) { isGranted ->
             if (isGranted) {
-                Log.d("TAG","bent vagyok")
+
             }
             else {
-                Log.d("TAG","kint vagyok")
+
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("You cant access the maps")
                 builder.setMessage("You have to allow your location.")
