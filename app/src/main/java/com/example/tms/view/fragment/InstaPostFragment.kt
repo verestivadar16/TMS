@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
+import com.example.tms.adapter.InstaAdaptor
+import com.example.tms.data.InstaPostData
 import com.example.tms.databinding.InstaPostBinding
 
 
 class InstaPostFragment : Fragment() {
     private lateinit var binding: InstaPostBinding
-    private lateinit var postArrayList : ArrayList<InstaPostData>
+    private lateinit var postArrayList: ArrayList<InstaPostData>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,8 +35,15 @@ class InstaPostFragment : Fragment() {
             findNavController().navigate(R.id.action_instapostpage_to_profilepage)
         })
 
+        binding.profileButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_instapostpage_to_profile_page)
+        })
+
         val profImageId = intArrayOf(
-            R.drawable.avatar_button, R.drawable.avatar_button, R.drawable.avatar_button, R.drawable.avatar_button
+            R.drawable.avatar_button,
+            R.drawable.avatar_button,
+            R.drawable.avatar_button,
+            R.drawable.avatar_button
         )
 
         val name = arrayOf(
@@ -55,7 +64,7 @@ class InstaPostFragment : Fragment() {
         postArrayList = ArrayList()
 
         for (i in name.indices) {
-            val post = InstaPostData(name[i], postDescription[i],imageId[i], profImageId[i])
+            val post = InstaPostData(name[i], postDescription[i], imageId[i], profImageId[i])
             postArrayList.add(post)
         }
 

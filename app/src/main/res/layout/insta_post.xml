@@ -8,22 +8,22 @@
 
     <ImageButton
         android:id="@+id/inbox_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintHorizontal_bias="0.746"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.018"
+        app:layout_constraintVertical_bias="0.023"
         app:srcCompat="@drawable/bell" />
 
     <ImageButton
-        android:id="@+id/navigation_avatar_insta"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:id="@+id/profile_button"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
 
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.018"
+        app:layout_constraintVertical_bias="0.003"
         app:srcCompat="@drawable/avatar_button"
         tools:ignore="MissingConstraints" />
 
@@ -53,12 +53,13 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="184dp"
+        android:background="@color/transparent"
 
         android:layout_marginTop="15dp"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/addimagebutton" />
+        android:src="@drawable/addbuttonwhite" />
 
     <ImageButton
         android:id="@+id/search_button"
@@ -92,7 +93,7 @@
             android:layout_height="wrap_content"
             android:divider="@android:color/transparent"
             android:dividerHeight="20dp"
-            tools:listitem="@layout/list_item"/>
+            tools:listitem="@layout/list_item" />
 
     </ScrollView>
 

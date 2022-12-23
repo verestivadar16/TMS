@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="ANDROID.PERMISSION.INTERNET" />
 
 
     <application
@@ -24,6 +25,7 @@
             android:value="AIzaSyCXPxzAnc8icMuBAYqWnbtw5S2eaT5opMg" />
         <activity
             android:name=".view.activity.MainActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,5 @@
 package com.example.tms.view.fragment
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
-import com.example.tms.databinding.LoginPageBinding
+import com.example.tms.adapter.CustomAdapter
+import com.example.tms.data.ConversationViewModel
 import com.example.tms.databinding.NotificationPageBinding
 
 class NotificationFragment : Fragment() {
@@ -32,9 +34,30 @@ class NotificationFragment : Fragment() {
             recyclerview.layoutManager = LinearLayoutManager(getContext())
         }
         val data = ArrayList<ConversationViewModel>()
-        data.add(ConversationViewModel(R.drawable.map, "Arany Janos", "invited to an upcoming event", "12:00"))
-        data.add(ConversationViewModel(R.drawable.contacticon, "Osama bin Laden", "wants to be your friend", "13:00"))
-        data.add(ConversationViewModel(R.drawable.instaicon, "Mia Khalifa", "tagged in her new post", "17:00"))
+        data.add(
+            ConversationViewModel(
+                R.drawable.map,
+                "Arany Janos",
+                "invited to an upcoming event",
+                "12:00"
+            )
+        )
+        data.add(
+            ConversationViewModel(
+                R.drawable.contacticon,
+                "Osama bin Laden",
+                "wants to be your friend",
+                "13:00"
+            )
+        )
+        data.add(
+            ConversationViewModel(
+                R.drawable.instaicon,
+                "Mia Khalifa",
+                "tagged in her new post",
+                "17:00"
+            )
+        )
         val adapter = CustomAdapter(data)
         if (recyclerview != null) {
             recyclerview.adapter = adapter

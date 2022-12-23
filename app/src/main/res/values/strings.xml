@@ -7,7 +7,7 @@
     <string name="name543">Name543</string>
     <string name="_34">34</string>
     <string name="name12">Name12</string>
-    <string name="upload">Upload</string>
+    <string name="Post">Upload</string>
     <string name="show_uploads">Show Uploads</string>
     <string name="title_activity_maps_fragment">MapsFragment</string>
     <string name="geocode_no_results">No geocoder results. Choose different location and try again.</string>
@@ -17,4 +17,5 @@
     <string name="poisearch_hint">Kind of place to add to your route</string>
     <string name="no_search_results">No search results for \'%1\'. Please try another search term.</string>
     <string name="add_to_my_route">Add to my route</string>
+
 </resources>

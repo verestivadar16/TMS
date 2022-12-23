@@ -11,9 +11,9 @@ import com.example.tms.R
 import com.example.tms.databinding.AddEventPageBinding
 import com.example.tms.databinding.ProfilePageBinding
 
-class ProfileFragment : Fragment(){
+class ProfileFragment : Fragment() {
     private lateinit var binding: ProfilePageBinding
-   override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,9 +22,9 @@ class ProfileFragment : Fragment(){
         binding.backButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.profile_page_to_navigation_page)
         })
-        binding.friendsButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_addEventPage_to_navigationPage)
-        })
+//        binding.friendsButton.setOnClickListener(View.OnClickListener {
+//            findNavController().navigate(R.id.action_addEventPage_to_navigationPage)
+//        })
         return binding.root
     }
 }

@@ -15,7 +15,9 @@
         <action
             android:id="@+id/action_startFragment_to_registerFragment"
             app:destination="@id/registerPage" />
-
+        <action
+            android:id="@+id/action_startFragment_to_InstaFragment"
+            app:destination="@+id/home"/>
     </fragment>
 
     <fragment
@@ -61,6 +63,9 @@
         android:label="InstaUploadFragment"
         tools:layout="@layout/insta_upload_image">
 
+        <action
+            android:id="@+id/action_instauploadpage_to_instapostpage"
+            app:destination="@+id/home" />
     </fragment>
     <fragment
         android:id="@+id/inbox_page"
@@ -75,6 +80,21 @@
         <action
             android:id="@+id/action_inboxpage_to_homepage"
             app:destination="@+id/home" />
+        <action
+            android:id="@+id/action_inboxpage_to_chatpage"
+            app:destination="@+id/chat_page" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/chat_page"
+        android:name="com.example.tms.view.fragment.ChatPageFragment"
+        android:label="ChatPageFragment"
+        tools:layout="@layout/chat_input">
+
+        <action
+            android:id="@+id/action_chatpage_to_inboxpage"
+            app:destination="@id/inbox_page" />
 
 
     </fragment>
@@ -96,9 +116,8 @@
             android:id="@+id/action_instapostpage_to_inboxpage"
             app:destination="@+id/inbox_page" />
         <action
-            android:id="@+id/action_instapostpage_to_profilepage"
-            app:destination="@+id/profile_page" />
-
+            android:id="@+id/action_instapostpage_to_profile_page"
+            app:destination="@id/profile_page" />
 
 
     </fragment>

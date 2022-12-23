@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.compose.ui.unit.dp
 import androidx.core.view.marginBottom
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -42,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.startPage -> hideBottomNav()
                 R.id.registerPage -> hideBottomNav()
                 R.id.forgot_password -> hideBottomNav()
+                R.id.chat_page -> hideBottomNav()
                 else -> {
                     showBottomNav()
 
