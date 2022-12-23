@@ -25,13 +25,13 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="184dp"
-        android:background="@color/transparent"
-
         android:layout_marginTop="15dp"
 
+        android:background="@color/transparent"
+
+        android:src="@drawable/addimagebuttontmscolor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/addimagebuttontmscolor" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_choose_image"
