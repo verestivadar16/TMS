@@ -23,10 +23,9 @@
         tools:listitem="@layout/item_contact" />
 
     <ImageButton
-        android:id="@+id/navigation_avatar_insta"
+        android:id="@+id/profile_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
-
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -87,7 +86,7 @@
         app:srcCompat="@drawable/backbutton1" />
 
     <ImageButton
-        android:id="@+id/add_event_button"
+        android:id="@+id/add_friend_button"
         android:layout_width="64dp"
         android:layout_height="70dp"
         android:layout_alignParentStart="true"

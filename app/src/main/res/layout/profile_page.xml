@@ -28,8 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.012"
-        app:srcCompat="@drawable/friends"
-        tools:ignore="MissingConstraints" />
+        app:srcCompat="@drawable/friends" />
 
     <ImageButton
         android:id="@+id/back_button"
@@ -50,7 +49,6 @@
         android:id="@+id/navigation_avatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
-
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
