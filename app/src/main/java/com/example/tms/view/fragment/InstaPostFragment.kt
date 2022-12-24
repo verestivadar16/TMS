@@ -1,6 +1,8 @@
 package com.example.tms.view.fragment
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +12,15 @@ import com.example.tms.R
 import com.example.tms.adapter.InstaAdaptor
 import com.example.tms.data.InstaPostData
 import com.example.tms.databinding.InstaPostBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class InstaPostFragment : Fragment() {
     private lateinit var binding: InstaPostBinding
     private lateinit var postArrayList: ArrayList<InstaPostData>
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,6 +28,7 @@ class InstaPostFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = InstaPostBinding.inflate(layoutInflater)
+        val db = Firebase.firestore
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instapostpage_to_loginpage)
         })
@@ -35,6 +42,23 @@ class InstaPostFragment : Fragment() {
         binding.profileButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instapostpage_to_profile_page)
         })
+
+        lateinit var imagefirst : String
+        val sfDocRef = db.collection("users").document("Tivadar")
+
+        db.runTransaction { transaction ->
+            val snapshot = transaction.get(sfDocRef)
+
+            // Note: this could be done without a transaction
+            //       by updating the population using FieldValue.increment()
+            val image = snapshot.getString("image")!!
+            //transaction.update(sfDocRef, "image", newPopulation)
+            imagefirst = image
+            // Success
+            null
+        }.addOnSuccessListener { Log.d(TAG, "Transaction success!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
+
 
         val profImageId = intArrayOf(
             R.drawable.avatar_button,
@@ -66,6 +90,7 @@ class InstaPostFragment : Fragment() {
         }
 
         binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
+       // binding.listview.adapter.add(InstaAdaptor())
 
         return binding.root
     }
