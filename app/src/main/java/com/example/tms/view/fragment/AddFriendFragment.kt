@@ -19,13 +19,13 @@ class AddFriendFragment : Fragment() {
     ): View? {
         binding = AddFriendPageBinding.inflate(layoutInflater)
         binding.backButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.add_friend_page_to_friend_list_page)
+            findNavController().navigate(R.id.action_add_friend_page_to_friend_list_page)
         })
         binding.confirmButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.confirm_button)
+            findNavController().navigate(R.id.friend_list_page)
         })
         binding.profileButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.profile_page)
+            findNavController().navigate(R.id.action_add_friend_page_to_profile_page)
         })
         return binding.root
     }

@@ -173,43 +173,38 @@
             app:destination="@id/navigation_page" />
 
         <action
-            android:id="@+id/profile_page_to_firends_page"
+            android:id="@+id/action_profile_page_to_friends_page"
             app:destination="@id/friend_list_page" />
 
     </fragment>
 
     <fragment
         android:id="@+id/friend_list_page"
-        android:name="com.example.tms.view.fragment.ProfileFragment"
-        android:label="FriendListFragment"
+        android:name="com.example.tms.view.fragment.FriendsFragment"
+        android:label="FriendsFragment"
         tools:layout="@layout/friend_list">
         <action
-            android:id="@+id/friend_list_to_profile_page"
+            android:id="@+id/action_friends_page_to_profile_page"
             app:destination="@id/profile_page" />
 
         <action
-            android:id="@+id/friend_list_to_add_friend"
-            app:destination="@id/friend_list_page" />
-
+            android:id="@+id/action_friends_page_to_add_friend_page"
+            app:destination="@id/add_friend_page" />
     </fragment>
 
-      <fragment
+    <fragment
         android:id="@+id/add_friend_page"
-        android:name="com.example.tms.view.fragment.ProfileFragment"
-        android:label="AddFriendfragment"
+        android:name="com.example.tms.view.fragment.AddFriendFragment"
+        android:label="AddFriendFragment"
         tools:layout="@layout/add_friend_page">
         <action
-            android:id="@+id/add_friend_page_to_friend_list_page"
+            android:id="@+id/action_add_friend_page_to_friend_list_page"
             app:destination="@id/friend_list_page" />
 
         <action
-            android:id="@+id/confirm_button"
-            app:destination="@id/friend_list_page" />
-
-        <action
-            android:id="@+id/profile_button"
-            app:destination="@+id/profile_page"/>
-
+            android:id="@+id/action_add_friend_page_to_profile_page"
+            app:destination="@id/profile_page" />
+        
     </fragment>
 
 </navigation>

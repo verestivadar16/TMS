@@ -107,18 +107,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-86" />
-                            <option name="y" value="42" />
+                            <option name="x" value="-82" />
+                            <option name="y" value="32" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="friend_list_to_add_friend">
+                            <entry key="action_friends_page_to_add_friend_page">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="friend_list_to_profile_page">
+                            <entry key="action_friends_page_to_profile_page">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -310,7 +310,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="profile_page_to_firends_page">
+                            <entry key="action_profile_page_to_friends_page">
                               <value>
                                 <LayoutPositions />
                               </value>
