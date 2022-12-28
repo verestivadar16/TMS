@@ -53,6 +53,9 @@ class InstaPostFragment : Fragment() {
         binding.inboxButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instapostpage_to_inboxpage)
         })
+//        binding.navigationAvatarInsta.setOnClickListener(View.OnClickListener {
+//            findNavController().navigate(R.id.action_instapostpage_to_profilepage)
+//        })
 
         binding.profileButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instapostpage_to_profile_page)

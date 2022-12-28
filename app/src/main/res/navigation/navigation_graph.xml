@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+ <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
@@ -172,7 +172,39 @@
             android:id="@+id/profile_page_to_navigation_page"
             app:destination="@id/navigation_page" />
 
+        <action
+            android:id="@+id/action_profile_page_to_friends_page"
+            app:destination="@id/friend_list_page" />
+
     </fragment>
 
+    <fragment
+        android:id="@+id/friend_list_page"
+        android:name="com.example.tms.view.fragment.FriendsFragment"
+        android:label="FriendsFragment"
+        tools:layout="@layout/friends_list">
+        <action
+            android:id="@+id/action_friends_page_to_profile_page"
+            app:destination="@id/profile_page" />
+
+        <action
+            android:id="@+id/action_friends_page_to_add_friend_page"
+            app:destination="@id/add_friend_page" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_friend_page"
+        android:name="com.example.tms.view.fragment.AddFriendFragment"
+        android:label="AddFriendFragment"
+        tools:layout="@layout/add_friend_page">
+        <action
+            android:id="@+id/action_add_friend_page_to_friend_list_page"
+            app:destination="@id/friend_list_page" />
+
+        <action
+            android:id="@+id/action_add_friend_page_to_profile_page"
+            app:destination="@id/profile_page" />
+        
+    </fragment>
 
 </navigation>

@@ -61,6 +61,19 @@
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/addbuttonwhite" />
 
+    <ImageButton
+        android:id="@+id/search_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.862"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/search" />
+
     <ScrollView
 
         android:layout_width="match_parent"
