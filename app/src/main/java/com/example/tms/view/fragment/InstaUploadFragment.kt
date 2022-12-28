@@ -19,6 +19,7 @@ import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -26,7 +27,6 @@ class InstaUploadFragment : Fragment() {
     private lateinit var binding: InstaUploadImageBinding
     private lateinit var imageUri: Uri
     private lateinit var mAuth : FirebaseAuth
-    private lateinit var currentUser : User
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,14 +48,13 @@ class InstaUploadFragment : Fragment() {
         binding.buttonUpload.setOnClickListener(){
 
             uploadImage()
-            findNavController().navigate(R.id.action_instauploadpage_to_instapostpage)
+
 
         }
         return binding.root
 
 
     }
-
 
 
     private fun uploadImage() {
@@ -67,23 +66,34 @@ class InstaUploadFragment : Fragment() {
 
         val db = Firebase.firestore
 
-        val user = hashMapOf(
-            "name" to "asd",
-            "picture" to imageUri.toString(),
-
-        )
+        val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss",Locale.getDefault())
+        val now = Date()
+        val date = formatter.format(now)
 
 // Add a new document with a generated ID
-        val city = hashMapOf(
-            "name" to "tivadar",
-            "image" to imageUri
+        val post = hashMapOf(
+            "name" to "Tivadar",
+            "description" to binding.editTextDescription.text.toString(),
+            "image" to imageUri.toString()
         )
 
-        db.collection("users").document("Tivadar")
-            .set(city)
-            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+
+        db.collection("users").document(date)
+            .set(post)
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
+            }
             .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
 
+        val fileName =imageUri.toString()
+
+        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
+
+        storageReference.putFile(imageUri).addOnSuccessListener {
+            if(progressDialog.isShowing)progressDialog.dismiss()
+            findNavController().navigate(R.id.action_instauploadpage_to_instapostpage)
+        }.addOnFailureListener {
+            if(progressDialog.isShowing)progressDialog.dismiss()
+        }
 
     }
     private fun selectImage() {

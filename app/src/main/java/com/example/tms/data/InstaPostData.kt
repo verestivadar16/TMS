@@ -1,8 +1,10 @@
 package com.example.tms.data
 
+import android.graphics.Bitmap
+
 data class InstaPostData(
     var name: String,
     var postDescription: String,
-    var imageId: Int,
+    var imageId: Bitmap,
     var profImageId: Int
 )
