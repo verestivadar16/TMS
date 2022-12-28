@@ -1,4 +1,4 @@
-package com.example.tms.view.fragment
+package com.example.tms.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
+import com.example.tms.data.Message
 
 class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -14,15 +15,15 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) 
     val ITEM_SENT = 2;
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == 1)
-        {
+        if (viewType == 1) {
             //inflate receive
-            val view: View = LayoutInflater.from(context).inflate(R.layout.chat_received_view,parent,false)
+            val view: View =
+                LayoutInflater.from(context).inflate(R.layout.chat_received_view, parent, false)
             return ReceiveViewHolder(view)
-        }
-        else{
+        } else {
             //inflate sent
-            val view: View = LayoutInflater.from(context).inflate(R.layout.chat_sent_view,parent,false)
+            val view: View =
+                LayoutInflater.from(context).inflate(R.layout.chat_sent_view, parent, false)
             return SentViewHolder(view)
         }
     }
@@ -49,17 +50,15 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) 
         val currentMessage = messageList[position]
 
         //backend current user check
-        if(currentMessage.senderID == "2"){
+        if (currentMessage.senderID == "2") {
             return ITEM_SENT
-        }
-        else
-        {
+        } else {
             return ITEM_RECEIVE
         }
     }
 
     override fun getItemCount(): Int {
-        return  messageList.size
+        return messageList.size
     }
 
 

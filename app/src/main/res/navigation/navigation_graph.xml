@@ -15,7 +15,9 @@
         <action
             android:id="@+id/action_startFragment_to_registerFragment"
             app:destination="@id/registerPage" />
-
+        <action
+            android:id="@+id/action_startFragment_to_InstaFragment"
+            app:destination="@+id/home"/>
     </fragment>
 
     <fragment
@@ -120,7 +122,6 @@
         <action
             android:id="@+id/action_instapostpage_to_market_page"
             app:destination="@id/market_page" />
-
 
     </fragment>
 
