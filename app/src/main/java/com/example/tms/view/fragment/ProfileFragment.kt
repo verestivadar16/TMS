@@ -22,9 +22,9 @@ class ProfileFragment : Fragment() {
         binding.backButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.profile_page_to_navigation_page)
         })
-//        binding.friendsButton.setOnClickListener(View.OnClickListener {
-//            findNavController().navigate(R.id.action_addEventPage_to_navigationPage)
-//        })
+        binding.friendsButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_profile_page_to_friends_page)
+        })
         return binding.root
     }
 }

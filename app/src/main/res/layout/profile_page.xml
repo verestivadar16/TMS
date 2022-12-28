@@ -28,8 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.012"
-        app:srcCompat="@drawable/friends"
-        tools:ignore="MissingConstraints" />
+        app:srcCompat="@drawable/friends" />
 
     <ImageButton
         android:id="@+id/back_button"
@@ -50,7 +49,6 @@
         android:id="@+id/navigation_avatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
-
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.012"
-        app:srcCompat="@drawable/avatar"
+        app:srcCompat="@drawable/avatar3"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -158,21 +156,24 @@
 
     </TextView>
 
-    <EditText
-        android:id="@+id/username_text"
-        android:layout_width="221dp"
-        android:layout_height="38dp"
-
-        android:hint="Username"
+    <TextView
+        android:id="@+id/Username_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/add_event_margin_start"
+        android:text="Username"
         android:textAlignment="center"
-        android:textColorHint="@color/white"
+        android:textColor="@color/grey"
+        android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.166"
-        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+        app:layout_constraintVertical_bias="0.16"
+        tools:ignore="MissingConstraints">
 
+    </TextView>
 
     <TextView
         android:id="@+id/Friends"
