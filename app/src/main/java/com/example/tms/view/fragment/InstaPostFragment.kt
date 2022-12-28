@@ -60,6 +60,9 @@ class InstaPostFragment : Fragment() {
         binding.profileButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instapostpage_to_profile_page)
         })
+        binding.marketOpenButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_instapostpage_to_market_page)
+        })
 
 
         val db = Firebase.firestore

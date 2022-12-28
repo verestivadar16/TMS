@@ -8,6 +8,21 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="action_inboxpage_to_chatpage">
+                    <value>
+                      <LayoutPositions />
+                    </value>
+                  </entry>
+                  <entry key="action_inboxpage_to_homepage">
+                    <value>
+                      <LayoutPositions />
+                    </value>
+                  </entry>
+                  <entry key="action_inboxpage_to_notificationpage">
+                    <value>
+                      <LayoutPositions />
+                    </value>
+                  </entry>
                   <entry key="add_event_page">
                     <value>
                       <LayoutPositions>
@@ -243,6 +258,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="market_page">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="465" />
+                            <option name="y" value="138" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
