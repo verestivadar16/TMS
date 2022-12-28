@@ -182,7 +182,7 @@
         android:id="@+id/friend_list_page"
         android:name="com.example.tms.view.fragment.FriendsFragment"
         android:label="FriendsFragment"
-        tools:layout="@layout/friend_list">
+        tools:layout="@layout/friends_list">
         <action
             android:id="@+id/action_friends_page_to_profile_page"
             app:destination="@id/profile_page" />
