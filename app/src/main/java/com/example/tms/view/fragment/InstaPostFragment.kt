@@ -63,7 +63,7 @@ class InstaPostFragment : Fragment() {
 
 
         val db = Firebase.firestore
-       // val postRef = db.collection("users").document("tivadar3")
+        val postRef = db.collection("users").document("tivadar3")
 
         postArrayList = ArrayList()
 
