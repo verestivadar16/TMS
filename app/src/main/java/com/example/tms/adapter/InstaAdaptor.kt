@@ -25,7 +25,8 @@ class InstaAdaptor(private val context: Activity, private val arrayList: ArrayLi
         imageView.setImageResource(arrayList[position].profImageId)
         username.text = arrayList[position].name
         description.text = arrayList[position].postDescription
-        postImage.setImageResource(arrayList[position].imageId)
+        //postImage.setImageResource(arrayList[position].imageId)
+        postImage.setImageBitmap(arrayList[position].imageId)
 
         return view
     }
