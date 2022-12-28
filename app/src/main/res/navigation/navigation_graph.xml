@@ -118,6 +118,9 @@
         <action
             android:id="@+id/action_instapostpage_to_profile_page"
             app:destination="@id/profile_page" />
+        <action
+            android:id="@+id/action_instapostpage_to_market_page"
+            app:destination="@id/market_page" />
 
 
     </fragment>
@@ -202,6 +205,7 @@
         <action
             android:id="@+id/action_profile_page_to_friends_page"
             app:destination="@id/friend_list_page" />
+
 
     </fragment>
 
