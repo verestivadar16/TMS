@@ -44,6 +44,37 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="add_friend_page">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-80" />
+                            <option name="y" value="326" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="add_friend_page_to_friend_list_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="confirm_button">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="profile_button">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="chat_page">
                     <value>
                       <LayoutPositions>
@@ -77,6 +108,32 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_forgotPage_to_loginPage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="friend_list_page">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-82" />
+                            <option name="y" value="32" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_friends_page_to_add_friend_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_friends_page_to_profile_page">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -280,6 +337,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_profile_page_to_friends_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="profile_page_to_navigation_page">
                               <value>
                                 <LayoutPositions />
@@ -322,6 +384,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_startFragment_to_InstaFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_startFragment_to_loginFragment">
                               <value>
                                 <LayoutPositions />
