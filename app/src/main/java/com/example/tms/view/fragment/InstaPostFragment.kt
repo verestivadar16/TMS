@@ -61,7 +61,7 @@ class InstaPostFragment : Fragment() {
             findNavController().navigate(R.id.action_instapostpage_to_profile_page)
         })
         binding.marketOpenButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_instapostpage_to_market_page)
+            findNavController().navigate(R.id.action_instapostpage_to_mix_page)
         })
 
 
@@ -77,10 +77,7 @@ class InstaPostFragment : Fragment() {
                 for(snapshot in users){
                     val name = snapshot.getString("name")!!
                     val imageName = snapshot.getString("image")!!
-//                    val description = snapshot.getString("description")!!
-
-                    val description = "asdf ggfd sdfadasf asdfasdfs asd fsdafasdf asdfdasfsda asdfasdf asdfasdfasd asdfhgfdh asdf balazs"
-
+                    val description = snapshot.getString("description")!!
                     val profilePicture = R.drawable.avatar_button
                     val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
                     val localFile = File.createTempFile("tempImage","jpg")
@@ -91,8 +88,6 @@ class InstaPostFragment : Fragment() {
 //                        val post = InstaPostData(name,description,bitmap,profilePicture)
 //                        postArrayList.add(post)
 //                        binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
-//
-//                    }
                     val bitmap = BitmapFactory.decodeResource(getResources(),
                         R.drawable.audib5);
                     //bitmap = BitmapFactory.decodeFile(R.drawable.audib5.toString())
@@ -100,10 +95,12 @@ class InstaPostFragment : Fragment() {
                     postArrayList.add(post)
                     binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
 
+//
+//                    }
+
                 }
             }
             .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
-
 
 
 
