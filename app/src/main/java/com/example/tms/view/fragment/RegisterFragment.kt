@@ -41,7 +41,7 @@ class RegisterFragment : Fragment() {
         register()
 
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_registerPage_to_startPage)
+            getActivity()?.onBackPressed()
         })
 
         return binding.root

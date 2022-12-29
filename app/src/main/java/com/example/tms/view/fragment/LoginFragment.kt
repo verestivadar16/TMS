@@ -27,7 +27,7 @@ class LoginFragment : Fragment() {
        login()
 
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_loginPage_to_startPage)
+            getActivity()?.onBackPressed()
         })
 
         binding.forgotPasswordButton.setOnClickListener(View.OnClickListener {

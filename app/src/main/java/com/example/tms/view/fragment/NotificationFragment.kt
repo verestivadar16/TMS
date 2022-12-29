@@ -22,7 +22,7 @@ class NotificationFragment : Fragment() {
     ): View? {
         binding = NotificationPageBinding.inflate(layoutInflater)
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_notificationpage_to_inboxpage)
+            getActivity()?.onBackPressed()
         })
         return binding.root
     }
