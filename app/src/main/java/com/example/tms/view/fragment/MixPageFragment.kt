@@ -43,10 +43,18 @@ class MixPageFragment : Fragment() {
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
         val recyclerview = getView()?.findViewById<RecyclerView>(R.id.post_list)
+
+        val bitmap0 = BitmapFactory.decodeResource(getResources(), R.drawable.golfr32);
+        val bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.eventimage1);
+        val bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.warningimage1);
+
         if (recyclerview != null) {
             recyclerview.layoutManager = LinearLayoutManager(getContext())
         }
         val data = ArrayList<MixPageData>()
+
+        data.add(MixPageData(R.drawable.avatar_button, "Pasiunea ne uneste","Va invitam sambata 25.01.2023 incepand cu ora 13:00, locatie:..",bitmap1, "3"))
+
         data.add(MixPageData( R.drawable.tire,
             R.drawable.avatar4,
             "Kiss Elemer ",
@@ -61,9 +69,12 @@ class MixPageFragment : Fragment() {
             "Nearly new bought them last year...",
             "230 LEI",
             "2"))
-        val bitmap0 = BitmapFactory.decodeResource(getResources(),
-            R.drawable.golfr32);
+
+
+
         data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1"))
+        data.add(MixPageData(R.drawable.avatar_button, "Pasiunea ne uneste","Va invitam sambata 15.10.2022 incepand cu ora 13:00, locatie:..",bitmap1, "3"))
+        data.add(MixPageData(R.drawable.avatar_button, "Traffic Jam Warning!",bitmap2, "4"))
         data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1"))
         data.add(MixPageData(R.drawable.tire,
             R.drawable.avatar_button,
