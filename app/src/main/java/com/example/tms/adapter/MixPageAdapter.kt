@@ -14,6 +14,7 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val Insta_Post = 1;
     val Market_Post = 2;
+    val on = 1;
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == 2) {
