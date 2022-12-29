@@ -244,9 +244,13 @@
         android:label="MixPageFragment"
         tools:layout="@layout/mix_page">
 
+
         <action
-            android:id="@+id/action_mix_page_to_home_page"
-            app:destination="@id/home" />
+            android:id="@+id/action_mix_page_to_profilepage"
+            app:destination="@id/profile_page" />
+        <action
+            android:id="@+id/action_mix_page_to_inboxpage"
+            app:destination="@id/inbox_page" />
 
     </fragment>
 

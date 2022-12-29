@@ -24,7 +24,7 @@ class ForgotPasswordFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         binding = ForgotPasswordBinding.inflate(layoutInflater)
         binding.backButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_forgotPage_to_loginPage)
+            getActivity()?.onBackPressed()
         })
 
         val emailAddress=binding.editTextForgotPassword.text
