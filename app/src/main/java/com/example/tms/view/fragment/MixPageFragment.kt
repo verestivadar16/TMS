@@ -28,6 +28,13 @@ class MixPageFragment : Fragment() {
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
             getActivity()?.onBackPressed()
         })
+        binding.inboxButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_mix_page_to_inboxpage)
+        })
+        binding.profileButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_mix_page_to_profilepage)
+        })
+
 
 
         return binding.root
