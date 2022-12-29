@@ -1,9 +1,9 @@
 package com.example.tms.view.fragment
 
 import android.app.Activity.RESULT_OK
-import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,17 +11,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
 import com.example.tms.databinding.InstaUploadImageBinding
-import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.iceteck.silicompressorr.FileUtils.getPath
+import com.iceteck.silicompressorr.SiliCompressor
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class InstaUploadFragment : Fragment() {
     private lateinit var binding: InstaUploadImageBinding
@@ -78,17 +82,18 @@ class InstaUploadFragment : Fragment() {
         )
 
 
-        db.collection("users").document(date)
+        db.collection("posts").document(date)
             .set(post)
             .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
             }
             .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
 
         val fileName =imageUri.toString()
+        val filePath = SiliCompressor.with(requireContext()).compress(fileName, File.createTempFile("tempImage","jpg"))
 
         val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
 
-        storageReference.putFile(imageUri).addOnSuccessListener {
+        storageReference.putFile(filePath.toUri()).addOnSuccessListener {
             if(progressDialog.isShowing)progressDialog.dismiss()
             findNavController().navigate(R.id.action_instauploadpage_to_instapostpage)
         }.addOnFailureListener {
