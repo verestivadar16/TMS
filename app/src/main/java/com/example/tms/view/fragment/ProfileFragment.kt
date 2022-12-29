@@ -75,13 +75,11 @@ class ProfileFragment : Fragment() {
                     val imageName = document.getString("profileImage")!!
                     val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
                 val localFile = File.createTempFile("tempImage","jpg")
-                lateinit var bitmap : Bitmap
                 storageRef.getFile(localFile).addOnSuccessListener {
                     val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
                     binding.profileImage.setImageBitmap(bitmap)
                     binding.username.hint = userName
                 }
-
                     Log.d(TAG, "DocumentSnapshot data: ${document.data}")
                 } else {
                     Log.d(TAG, "No such document")
