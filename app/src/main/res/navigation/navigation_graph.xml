@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
- <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
@@ -118,6 +118,9 @@
         <action
             android:id="@+id/action_instapostpage_to_profile_page"
             app:destination="@id/profile_page" />
+        <action
+            android:id="@+id/action_instapostpage_to_mix_page"
+            app:destination="@id/mix_page" />
 
 
     </fragment>
@@ -172,9 +175,37 @@
             android:id="@+id/profile_page_to_navigation_page"
             app:destination="@id/navigation_page" />
 
+    </fragment>
+
+    <fragment
+        android:id="@+id/market_page"
+        android:name="com.example.tms.view.fragment.MarketPageFragment"
+        android:label="MarketPageFragment"
+        tools:layout="@layout/market_page">
+
+        <action
+            android:id="@+id/action_marketpage_to_homepage"
+            app:destination="@id/home" />
+
+        <action
+            android:id="@+id/action_marketpage_to_newlistingpage"
+            app:destination="@+id/home" />
+
+        <action
+            android:id="@+id/action_marketpage_to_profilpage"
+            app:destination="@+id/profile_page" />
+        <action
+            android:id="@+id/action_marketpage_to_searchitempage"
+            app:destination="@+id/profile_page" />
+
+        <action
+            android:id="@+id/action_marketpage_to_chatpage"
+            app:destination="@+id/chat_page" />
+
         <action
             android:id="@+id/action_profile_page_to_friends_page"
             app:destination="@id/friend_list_page" />
+
 
     </fragment>
 
@@ -204,7 +235,20 @@
         <action
             android:id="@+id/action_add_friend_page_to_profile_page"
             app:destination="@id/profile_page" />
-        
+
     </fragment>
+
+    <fragment
+        android:id="@+id/mix_page"
+        android:name="com.example.tms.view.fragment.MixPageFragment"
+        android:label="MixPageFragment"
+        tools:layout="@layout/mix_page">
+
+        <action
+            android:id="@+id/action_mix_page_to_home_page"
+            app:destination="@id/home" />
+
+    </fragment>
+
 
 </navigation>

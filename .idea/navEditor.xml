@@ -40,17 +40,12 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="add_friend_page_to_friend_list_page">
+                            <entry key="action_add_friend_page_to_friend_list_page">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="confirm_button">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="profile_button">
+                            <entry key="action_add_friend_page_to_profile_page">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -154,6 +149,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_instapostpage_to_market_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_instapostpage_to_profile_page">
                               <value>
                                 <LayoutPositions />
@@ -247,6 +247,83 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="market_page">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="299" />
+                            <option name="y" value="-253" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_marketpage_to_chatpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_marketpage_to_homepage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_marketpage_to_newlistingpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_marketpage_to_profilpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_marketpage_to_searchitempage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_profile_page_to_friends_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="mix_page">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="470" />
+                            <option name="y" value="-251" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_loginPage_to_forgot_password_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_loginPage_to_insta_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="mix_page_to_home_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="navigation_page">
                     <value>
                       <LayoutPositions>
@@ -310,11 +387,6 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_profile_page_to_friends_page">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                             <entry key="profile_page_to_navigation_page">
                               <value>
                                 <LayoutPositions />
