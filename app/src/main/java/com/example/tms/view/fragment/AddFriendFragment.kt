@@ -19,7 +19,7 @@ class AddFriendFragment : Fragment() {
     ): View? {
         binding = AddFriendPageBinding.inflate(layoutInflater)
         binding.backButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_add_friend_page_to_friend_list_page)
+            getActivity()?.onBackPressed()
         })
         binding.confirmButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.friend_list_page)

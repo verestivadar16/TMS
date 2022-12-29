@@ -28,7 +28,7 @@ class MarketPageFragment : Fragment() {
             findNavController().navigate(R.id.action_marketpage_to_profilpage)
         })
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_marketpage_to_homepage)
+            getActivity()?.onBackPressed()
         })
         binding.searchButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_marketpage_to_searchitempage)

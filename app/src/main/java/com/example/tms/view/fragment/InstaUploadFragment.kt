@@ -37,7 +37,7 @@ class InstaUploadFragment : Fragment() {
         mAuth= FirebaseAuth.getInstance()
 
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_instauploadpage_to_instapostpage)
+            getActivity()?.onBackPressed()
         })
         binding.buttonChooseImage.setOnClickListener(View.OnClickListener{
 
