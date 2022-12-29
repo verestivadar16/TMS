@@ -1,30 +1,155 @@
 package com.example.tms.view.fragment
 
+import android.app.Activity
+import android.app.ProgressDialog
+import android.content.ContentValues.TAG
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
-import com.example.tms.databinding.AddEventPageBinding
+import com.example.tms.adapter.InstaAdaptor
+import com.example.tms.data.InstaPostData
 import com.example.tms.databinding.ProfilePageBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.iceteck.silicompressorr.SiliCompressor
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: ProfilePageBinding
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var imageUri: Uri
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = ProfilePageBinding.inflate(layoutInflater)
+        mAuth= FirebaseAuth.getInstance()
         binding.backButton.setOnClickListener(View.OnClickListener {
             getActivity()?.onBackPressed()
         })
         binding.friendsButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_profile_page_to_friends_page)
         })
+
+        requestUser()
+
+        binding.updateProfile.setOnClickListener(View.OnClickListener {
+            uploadImage()
+        })
+
+        binding.profileImage.setOnClickListener(View.OnClickListener {
+            selectImage()
+        })
+
         return binding.root
     }
+
+    private fun requestUser(){
+        val db = Firebase.firestore
+
+        Toast.makeText(requireContext(), mAuth.currentUser?.uid.toString(), Toast.LENGTH_SHORT).show()
+
+        val docRef = db.collection("users").document(mAuth.currentUser?.uid.toString())
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val userName = document.getString("userName")!!
+                    val imageName = document.getString("profileImage")!!
+                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                val localFile = File.createTempFile("tempImage","jpg")
+                lateinit var bitmap : Bitmap
+                storageRef.getFile(localFile).addOnSuccessListener {
+                    val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                    binding.profileImage.setImageBitmap(bitmap)
+                    binding.username.hint = userName
+                }
+
+                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                } else {
+                    Log.d(TAG, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "get failed with ", exception)
+            }
+
+    }
+
+
+    private fun uploadImage() {
+
+        val progressDialog = ProgressDialog(requireContext())
+        progressDialog.setMessage("Updating profile ...")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
+
+        val db = Firebase.firestore
+
+// Add a new document with a generated ID
+        val post = hashMapOf(
+            "userName" to binding.username.text.toString(),
+            "profileImage" to imageUri.toString()
+        )
+
+        db.collection("users").document(mAuth.currentUser?.uid.toString())
+            .set(post)
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
+            }
+            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+
+        val fileName =imageUri.toString()
+
+        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
+
+        val filePath = SiliCompressor.with(requireContext()).compress(fileName, File.createTempFile("tempImage","jpg"))
+
+        storageReference.putFile(filePath.toUri()).addOnSuccessListener {
+            if(progressDialog.isShowing)progressDialog.dismiss()
+        }.addOnFailureListener {
+            if(progressDialog.isShowing)progressDialog.dismiss()
+            //Toast.makeText(requireContext(), "Profile updated!", Toast.LENGTH_LONG).show()
+        }
+
+    }
+
+
+
+    private fun selectImage() {
+
+        val intent = Intent()
+        intent.type= "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+
+        startActivityForResult(intent,100)
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == 100 && resultCode == Activity.RESULT_OK){
+            imageUri=data?.data!!
+            binding.profileImage.setImageURI(imageUri)
+        }
+
+    }
+
 }
