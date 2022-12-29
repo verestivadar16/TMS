@@ -27,7 +27,7 @@ class ChatPageFragment : Fragment() {
 
         binding = ChatInputBinding.inflate(layoutInflater)
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_chatpage_to_inboxpage)
+            getActivity()?.onBackPressed()
         })
 
 

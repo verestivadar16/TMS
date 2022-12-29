@@ -23,7 +23,7 @@ class FriendsFragment : Fragment(){
 
         binding = FriendsListBinding.inflate(layoutInflater)
         binding.backButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_friends_page_to_profile_page)
+            getActivity()?.onBackPressed()
         })
         binding.addButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_friends_page_to_add_friend_page)

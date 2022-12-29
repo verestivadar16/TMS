@@ -20,7 +20,7 @@ class AddEventFragment : Fragment() {
     ): View? {
         binding = AddEventPageBinding.inflate(layoutInflater)
         binding.backToMapsButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_addEventPage_to_navigationPage)
+            getActivity()?.onBackPressed()
         })
         binding.createEventButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_addEventPage_to_navigationPage)

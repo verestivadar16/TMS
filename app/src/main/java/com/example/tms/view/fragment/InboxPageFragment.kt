@@ -28,13 +28,8 @@ class InboxPageFragment : Fragment() {
             findNavController().navigate(R.id.action_inboxpage_to_notificationpage)
         })
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_inboxpage_to_homepage)
+            getActivity()?.onBackPressed()
         })
-
-
-
-
-
 
 
 
