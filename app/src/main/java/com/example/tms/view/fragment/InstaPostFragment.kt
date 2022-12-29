@@ -61,7 +61,7 @@ class InstaPostFragment : Fragment() {
             findNavController().navigate(R.id.action_instapostpage_to_profile_page)
         })
         binding.marketOpenButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_instapostpage_to_market_page)
+            findNavController().navigate(R.id.action_instapostpage_to_mix_page)
         })
 
 
@@ -82,14 +82,21 @@ class InstaPostFragment : Fragment() {
                     val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
                     val localFile = File.createTempFile("tempImage","jpg")
                     //lateinit var bitmap : Bitmap
-                    storageRef.getFile(localFile).addOnSuccessListener {
-                        val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+//                    storageRef.getFile(localFile).addOnSuccessListener {
+//                        val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+//
+//                        val post = InstaPostData(name,description,bitmap,profilePicture)
+//                        postArrayList.add(post)
+//                        binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
+                    val bitmap = BitmapFactory.decodeResource(getResources(),
+                        R.drawable.audib5);
+                    //bitmap = BitmapFactory.decodeFile(R.drawable.audib5.toString())
+                    val post = InstaPostData(name,description,bitmap,profilePicture)
+                    postArrayList.add(post)
+                    binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
 
-                        val post = InstaPostData(name,description,bitmap,profilePicture)
-                        postArrayList.add(post)
-                        binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
-
-                    }
+//
+//                    }
 
                 }
             }

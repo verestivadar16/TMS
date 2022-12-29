@@ -52,7 +52,7 @@ class ChatPageFragment : Fragment() {
         binding.chatSendMsg.setOnClickListener() {
             val inputMessage = getView()?.findViewById<EditText>(R.id.input_message)?.text
             val inputMessage2 = binding.inputMessage.text
-            data.add(Message(inputMessage2.toString(), "2"))
+            data.add(Message(inputMessage2.toString(), "1"))
             getView()?.findViewById<EditText>(R.id.input_message)?.text?.clear()
             val adapter = context?.let { MessageAdapter(it, data) }
             if (recyclerview != null) {

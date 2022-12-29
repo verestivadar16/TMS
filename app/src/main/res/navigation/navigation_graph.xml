@@ -119,8 +119,8 @@
             android:id="@+id/action_instapostpage_to_profile_page"
             app:destination="@id/profile_page" />
         <action
-            android:id="@+id/action_instapostpage_to_market_page"
-            app:destination="@id/market_page" />
+            android:id="@+id/action_instapostpage_to_mix_page"
+            app:destination="@id/mix_page" />
 
 
     </fragment>
@@ -235,6 +235,18 @@
         <action
             android:id="@+id/action_add_friend_page_to_profile_page"
             app:destination="@id/profile_page" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/mix_page"
+        android:name="com.example.tms.view.fragment.MixPageFragment"
+        android:label="MixPageFragment"
+        tools:layout="@layout/mix_page">
+
+        <action
+            android:id="@+id/action_mix_page_to_home_page"
+            app:destination="@id/home" />
 
     </fragment>
 
