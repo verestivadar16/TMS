@@ -74,7 +74,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
     implementation 'com.google.firebase:firebase-storage-ktx'
-
+    implementation 'com.iceteck.silicompressorr:silicompressor:2.2.4'
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
 
