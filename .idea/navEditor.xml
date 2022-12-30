@@ -283,38 +283,31 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_profile_page_to_friends_page">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="mix">
+                  <entry key="market_upload_page">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="-128" />
+                            <option name="y" value="-64" />
                           </Point>
                         </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_add_friend_page_to_friend_list_page">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_add_friend_page_to_profile_page">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="mix_content_page">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-316" />
+                            <option name="y" value="78" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -413,7 +406,17 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="profile_page_to_navigation_page">
+                            <entry key="action_profile_page_to_friends_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_profile_page_to_navigation_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_profile_page_to_start_page">
                               <value>
                                 <LayoutPositions />
                               </value>
