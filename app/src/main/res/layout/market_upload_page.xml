@@ -1,94 +1,174 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.activity.MainActivity"
     android:background="@drawable/bacgroundtexture2">
-    <!--    android:padding="16dp"-->
 
-    <ImageButton
-        android:id="@+id/imageButton_back"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-
-        android:background="?android:attr/selectableItemBackground"
-        android:minHeight="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/backbutton1" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/imageButton_to_Upload_image"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="15dp"
+        <ImageButton
+            android:id="@+id/imageButton_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
 
-        android:background="@color/transparent"
+            android:background="?android:attr/selectableItemBackground"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/backbutton1" />
 
-        android:src="@drawable/addimagebuttontmscolor"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="New listing"
+            android:textColor="@color/white"
+            android:gravity="center|left"
+            android:textSize="25dp"
+            >
+
+        </TextView>
+
+
+
+        <ImageButton
+            android:id="@+id/profile_button"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+
+            android:layout_marginLeft="190dp"
+
+            android:background="?android:attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.003"
+            app:srcCompat="@drawable/avatar_button" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintVertical_bias="0.0">
 
-    <Button
-        android:id="@+id/button_choose_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="84dp"
-        android:backgroundTint="@color/grey"
-        android:layout_centerHorizontal="true"
-        android:text="Select Image"
-        android:textColor="@color/black" />
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-    <EditText
-        android:id="@+id/edit_text_description"
-        android:layout_width="317dp"
-        android:layout_height="144dp"
-        android:layout_above="@+id/button_upload"
-        android:layout_alignParentTop="true"
+            android:orientation="vertical"
 
-        android:layout_centerInParent="true"
-        android:layout_marginStart="-228dp"
-        android:layout_marginTop="478dp"
-        android:layout_marginBottom="7dp"
-        android:layout_toEndOf="@+id/button_choose_image"
-        android:background="@drawable/frame"
-        android:gravity="top|left"
-        android:hint="Your description here"
-        android:padding="10dp"
-        android:textColor="@color/black" />
+            >
 
-    <Button
-        android:id="@+id/button_upload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            <ImageButton
+                android:id="@+id/uploadedImage"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="0dp"
+                app:srcCompat="@drawable/uploadimage"
+                android:background="?android:attr/selectableItemBackground"
+                />
 
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="54dp"
-        android:backgroundTint="@color/blue"
-        android:text="Post"
-        android:textColor="@color/black" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="450dp"
-        android:text="Write a description"
-        android:textColor="@color/white" />
+            <EditText
+                android:id="@+id/item_up_price"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/frame"
+                android:padding="5dp"
+                android:hint="Price"
+                android:textColor="@color/black"
+                android:maxLength="10"/>
 
-    <ImageView
-        android:id="@+id/uploadedImage"
-        android:layout_width="344dp"
-        android:layout_height="232dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="170dp"
-        app:srcCompat="@drawable/audib5" />
+            <EditText
+                android:id="@+id/item_up_category"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/frame"
+                android:padding="5dp"
+                android:hint="Category"
+                android:textColor="@color/black"
+                android:maxLength="20"/>
 
-</RelativeLayout>
+            <EditText
+                android:id="@+id/item_up_brand"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/frame"
+                android:padding="5dp"
+                android:hint="Brand"
+                android:textColor="@color/black"
+                android:maxLength="20"/>
+
+            <EditText
+                android:id="@+id/item_up_location"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/frame"
+                android:padding="5dp"
+                android:hint="Location"
+                android:textColor="@color/black"
+                android:maxLength="25"/>
+
+            <EditText
+                android:id="@+id/item_up_description"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/frame"
+                android:gravity="top|left"
+                android:padding="5dp"
+                android:hint="Description"
+                android:textColor="@color/black"
+                android:maxLength="500"/>
+
+            <Button
+                android:id="@+id/button_upload_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/grey"
+                android:text="Put on marketplace"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
