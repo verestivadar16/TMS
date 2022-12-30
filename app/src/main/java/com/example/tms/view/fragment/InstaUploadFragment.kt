@@ -5,12 +5,14 @@ import android.app.ProgressDialog
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -53,7 +55,6 @@ class InstaUploadFragment : Fragment() {
 
             uploadImage()
 
-
         }
         return binding.root
 
@@ -74,31 +75,59 @@ class InstaUploadFragment : Fragment() {
         val now = Date()
         val date = formatter.format(now)
 
-// Add a new document with a generated ID
-        val post = hashMapOf(
-            "name" to "Tivadar",
-            "description" to binding.editTextDescription.text.toString(),
-            "image" to imageUri.toString()
-        )
+        val docRef = db.collection("users").document(mAuth.currentUser?.uid.toString())
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val username = document.getString("userName")!!
+                    val imageName = document.getString("profileImage")!!
+
+                    try {
+
+                        val post = hashMapOf(
+                            "name" to username,
+                            "description" to binding.editTextDescription.text.toString(),
+                            "image" to imageUri.toString(),
+                            "profileImage" to imageName
+                        )
+
+                        db.collection("posts").document(date)
+                            .set(post)
+                            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
+                            }
+                            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+
+                        val fileName =imageUri.toString()
+                        val filePath = SiliCompressor.with(requireContext()).compress(fileName, File.createTempFile("tempImage","jpg"))
+
+                        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
+
+                        storageReference.putFile(filePath.toUri()).addOnSuccessListener {
+                            if(progressDialog.isShowing)progressDialog.dismiss()
+                            findNavController().navigate(R.id.action_instauploadpage_to_instapostpage)
+                        }.addOnFailureListener {
+                            if(progressDialog.isShowing)progressDialog.dismiss()
+                        }
 
 
-        db.collection("posts").document(date)
-            .set(post)
-            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
+                        Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+
+
+                    }catch (e:Exception){
+                        if(progressDialog.isShowing)progressDialog.dismiss()
+                        Toast.makeText(requireContext(), "Fill in the fields!", Toast.LENGTH_SHORT).show()
+                    }
+
+
+                } else {
+                    Log.d(TAG, "No such document")
+                }
             }
-            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "get failed with ", exception)
+            }
+// Add a new document with a generated ID
 
-        val fileName =imageUri.toString()
-        val filePath = SiliCompressor.with(requireContext()).compress(fileName, File.createTempFile("tempImage","jpg"))
-
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
-
-        storageReference.putFile(filePath.toUri()).addOnSuccessListener {
-            if(progressDialog.isShowing)progressDialog.dismiss()
-            findNavController().navigate(R.id.action_instauploadpage_to_instapostpage)
-        }.addOnFailureListener {
-            if(progressDialog.isShowing)progressDialog.dismiss()
-        }
 
     }
     private fun selectImage() {

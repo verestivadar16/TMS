@@ -172,8 +172,14 @@
         android:label="ProfileFragment"
         tools:layout="@layout/profile_page">
         <action
-            android:id="@+id/profile_page_to_navigation_page"
+            android:id="@+id/action_profile_page_to_navigation_page"
             app:destination="@id/navigation_page" />
+        <action
+            android:id="@+id/action_profile_page_to_start_page"
+            app:destination="@id/startPage" />
+        <action
+            android:id="@+id/action_profile_page_to_friends_page"
+            app:destination="@id/friend_list_page" />
 
     </fragment>
 
@@ -202,9 +208,7 @@
             android:id="@+id/action_marketpage_to_chatpage"
             app:destination="@+id/chat_page" />
 
-        <action
-            android:id="@+id/action_profile_page_to_friends_page"
-            app:destination="@id/friend_list_page" />
+
 
 
     </fragment>

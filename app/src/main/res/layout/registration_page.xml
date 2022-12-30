@@ -19,19 +19,34 @@
 
         app:srcCompat="@drawable/backbutton1" />
 
+    <EditText
+        android:id="@+id/editText_username"
+        android:layout_width="221dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/frame"
+        android:hint="Username"
+        android:textAlignment="center"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+
 
     <EditText
         android:id="@+id/editText_email"
         android:layout_width="221dp"
         android:layout_height="38dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="@dimen/register_page_gap"
         android:background="@drawable/frame"
         android:hint="Email"
         android:textAlignment="center"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText_username"
         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
 
