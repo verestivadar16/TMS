@@ -34,6 +34,9 @@ class MixPageFragment : Fragment() {
         binding.profileButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_mix_page_to_profilepage)
         })
+        binding.searchButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_mix_page_to_mix_content_page)
+        })
 
 
 

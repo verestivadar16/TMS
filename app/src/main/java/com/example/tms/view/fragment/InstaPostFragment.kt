@@ -61,6 +61,10 @@ class InstaPostFragment : Fragment() {
             findNavController().navigate(R.id.action_instapostpage_to_profile_page)
         })
 
+        binding.searchButton.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_instapostpage_to_mix_page)
+        })
+
         postArrayList = ArrayList()
 
         requestPosts()

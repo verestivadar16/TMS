@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
@@ -54,27 +55,6 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
 
         }
 
-//        if (viewType == 2) {
-//            //inflate marketpost
-//            val view: View =
-//                LayoutInflater.from(context).inflate(R.layout.market_item_view, parent, false)
-//            return MarketPostViewHolder(view)
-//        } else if (viewType == 1){
-//            //inflate instapost
-//            val view: View =
-//                LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
-//            return InstaPostViewHolder(view)
-//        } else if (viewType == 3){
-//            //inflate Event_Post
-//            val view: View =
-//                LayoutInflater.from(context).inflate(R.layout.event_item, parent, false)
-//            return EventPostViewHolder(view)
-//        } else {
-//            //inflate Warning_Post
-//            val view: View =
-//                LayoutInflater.from(context).inflate(R.layout.traffic_info_item, parent, false)
-//            return WarningPostViewHolder(view)
-//        }
     }
 
 
@@ -85,6 +65,8 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
             MarketPostViewHolder::class.java -> {
                 val viewHolder = holder as MarketPostViewHolder
 
+//                if (holder.sw1.isActivated) {
+
                 currentPost.productimage?.let { holder.prductimage.setImageResource(it) }
                 currentPost.sellerimage?.let { holder.sellerimage.setImageResource(it) }
                 holder.sellername.text = currentPost.sellername
@@ -92,9 +74,11 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
                 holder.productdescription.text = currentPost.productdescription
                 holder.price.text = currentPost.price
             }
+//        }
 
             InstaPostViewHolder::class.java -> {
                 val viewHolder = holder as InstaPostViewHolder
+
 
             currentPost.profImageId?.let { holder.profImageid.setImageResource(it) }
             currentPost.imageId?.let{holder.imageId.setImageBitmap(it)}
@@ -119,32 +103,6 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
                 currentPost.warningImage?.let{holder.warningImage.setImageBitmap(it)}
             }
         }
-
-
-//        if (holder.javaClass ==MarketPostViewHolder::class.java) {
-//
-//
-//            val viewHolder = holder as MarketPostViewHolder
-//
-//            currentPost.productimage?.let { holder.prductimage.setImageResource(it) }
-//            currentPost.sellerimage?.let { holder.sellerimage.setImageResource(it) }
-//            holder.sellername.text = currentPost.sellername
-//            holder.productname.text = currentPost.productname
-//            holder.productdescription.text = currentPost.productdescription
-//            holder.price.text = currentPost.price
-//
-//
-//        } else {
-//
-//            val viewHolder = holder as InstaPostViewHolder
-//
-//            currentPost.profImageId?.let { holder.profImageid.setImageResource(it) }
-//            currentPost.imageId?.let{holder.imageId.setImageBitmap(it)}
-//            holder.personName.text = currentPost.personName
-//            holder.postDescription.text = currentPost.postDescription
-//
-//        }
-
 
     }
 
@@ -172,14 +130,6 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
                 return Insta_Post
             }
         }
-
-//        if (currentPost.postTypeID == "2") {
-//            return Market_Post
-//        } else if (currentPost.postTypeID == "1"){
-//            return Insta_Post
-//        } else if (currentPost.postTypeID == "3") {
-//            return Event_Post
-//        } else return Warning_Post
     }
 
     override fun getItemCount(): Int {
@@ -188,6 +138,8 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
 
 
     class MarketPostViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+
+//        val sw1: Switch = itemView.findViewById(R.id.market_switch)
 
         val prductimage: ImageView = itemView.findViewById(R.id.product_icon)
         val sellerimage: ImageView = itemView.findViewById(R.id.seller_icon)
@@ -200,6 +152,8 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
 
     class InstaPostViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
 
+//        val sw2: Switch = itemView.findViewById(R.id.posts_switch)
+
         val personName: TextView = itemView.findViewById(R.id.personName)
         val postDescription: TextView = itemView.findViewById(R.id.postDesciption)
         val imageId: ImageView = itemView.findViewById(R.id.postImage)
@@ -209,19 +163,33 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
 
     class EventPostViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
 
-        var organiserPic: ImageView = itemView.findViewById(R.id.organiserPic)
-        var organiserName: TextView = itemView.findViewById(R.id.organiserName)
-        var eventDescription: TextView = itemView.findViewById(R.id.eventDescription)
-        var locationImage: ImageView = itemView.findViewById(R.id.locationImage)
+//        val sw3: Switch = itemView.findViewById(R.id.event_switch)
+
+        val organiserPic: ImageView = itemView.findViewById(R.id.organiserPic)
+        val organiserName: TextView = itemView.findViewById(R.id.organiserName)
+        val eventDescription: TextView = itemView.findViewById(R.id.eventDescription)
+        val locationImage: ImageView = itemView.findViewById(R.id.locationImage)
 
     }
 
     class WarningPostViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
 
-        var warningIcon: ImageView = itemView.findViewById(R.id.warningIcon)
-        var warningName: TextView = itemView.findViewById(R.id.warningName)
-        var warningImage: ImageView = itemView.findViewById(R.id.warningImage)
+//        val sw4: Switch = itemView.findViewById(R.id.warning_switch)
+
+        val warningIcon: ImageView = itemView.findViewById(R.id.warningIcon)
+        val warningName: TextView = itemView.findViewById(R.id.warningName)
+        val warningImage: ImageView = itemView.findViewById(R.id.warningImage)
 
     }
+
+//    class MixContentViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+//
+//        var warningIcon: ImageView = itemView.findViewById(R.id.warningIcon)
+//        var warningName: TextView = itemView.findViewById(R.id.warningName)
+//        var warningImage: ImageView = itemView.findViewById(R.id.warningImage)
+//
+//        var sw1: Switch = itemView.findViewById(R.id.posts_switch)
+//
+//    }
 
 }
