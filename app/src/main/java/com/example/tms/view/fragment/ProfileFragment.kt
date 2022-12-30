@@ -49,10 +49,11 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_profile_page_to_friends_page)
         })
 
+
         requestUser()
 
         binding.updateProfile.setOnClickListener(View.OnClickListener {
-            uploadImage()
+            updateProfile()
         })
 
         binding.profileImage.setOnClickListener(View.OnClickListener {
@@ -64,8 +65,6 @@ class ProfileFragment : Fragment() {
 
     private fun requestUser(){
         val db = Firebase.firestore
-
-        Toast.makeText(requireContext(), mAuth.currentUser?.uid.toString(), Toast.LENGTH_SHORT).show()
 
         val docRef = db.collection("users").document(mAuth.currentUser?.uid.toString())
         docRef.get()
@@ -92,7 +91,7 @@ class ProfileFragment : Fragment() {
     }
 
 
-    private fun uploadImage() {
+    private fun updateProfile() {
 
         val progressDialog = ProgressDialog(requireContext())
         progressDialog.setMessage("Updating profile ...")
