@@ -1,6 +1,7 @@
 package com.example.tms.view.fragment
 
 import android.app.Activity.RESULT_OK
+import android.app.ProgressDialog
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
@@ -16,6 +18,11 @@ import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.iceteck.silicompressorr.SiliCompressor
+import java.io.File
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: RegistrationPageBinding
@@ -77,7 +84,7 @@ class RegisterFragment : Fragment() {
                     Log.d(TAG, "createUserWithEmail:success")
                     Toast.makeText(requireContext(), "Register succeeded.",
                         Toast.LENGTH_SHORT).show()
-                    val user = mAuth.currentUser
+                    updateProfile()
                     //updateUI(user)
                     findNavController().navigate(R.id.action_registerPage_to_startPage)
                 } else {
@@ -90,6 +97,25 @@ class RegisterFragment : Fragment() {
             }
 
     }
+
+    private fun updateProfile() {
+
+        val db = Firebase.firestore
+
+// Add a new document with a generated ID
+        val post = hashMapOf(
+            "userName" to binding.editTextUsername.text.toString(),
+            "profileImage" to "content://com.android.providers.media.documents/document/image%3A1000000103"
+        )
+
+        db.collection("users").document(mAuth.currentUser?.uid.toString())
+            .set(post)
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
+            }
+            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+
+    }
+
 
 
 }
