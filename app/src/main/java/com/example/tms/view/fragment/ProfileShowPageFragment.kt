@@ -82,32 +82,31 @@ class ProfileShowPageFragment : Fragment() {
     private fun requestPosts() {
         val db = Firebase.firestore
         db.collection("posts")
+                .whereEqualTo("uid", mAuth.currentUser?.uid)
                 .get()
-                .addOnSuccessListener { users ->
-                    for (snapshot in users) {
-                        val uid = snapshot.getString("uid")!!
-                        if(uid == mAuth.currentUser?.uid){
-                            val name = snapshot.getString("name")!!
-                            val imageName = snapshot.getString("image")!!
-                            val description = snapshot.getString("description")!!
-                            val profileImage = snapshot.getString("profileImage")!!
-                            val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
-                            val localFile = File.createTempFile("tempImage", "jpg")
-                            storageRef.getFile(localFile).addOnSuccessListener {
-                                val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                .addOnSuccessListener { posts ->
+                    for (snapshot in posts) {
+                        val name = snapshot.getString("name")!!
+                        val imageName = snapshot.getString("image")!!
+                        val description = snapshot.getString("description")!!
+                        val profileImage = snapshot.getString("profileImage")!!
+                        val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                        val localFile = File.createTempFile("tempImage", "jpg")
+                        storageRef.getFile(localFile).addOnSuccessListener {
+                            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
 
-                                val storageRef2 = FirebaseStorage.getInstance().reference.child("images/$profileImage")
-                                val localFile2 = File.createTempFile("tempImage", "jpg")
-                                storageRef2.getFile(localFile2).addOnSuccessListener {
-                                    val bitmap2 = BitmapFactory.decodeFile(localFile2.absolutePath)
+                            val storageRef2 = FirebaseStorage.getInstance().reference.child("images/$profileImage")
+                            val localFile2 = File.createTempFile("tempImage", "jpg")
+                            storageRef2.getFile(localFile2).addOnSuccessListener {
+                                val bitmap2 = BitmapFactory.decodeFile(localFile2.absolutePath)
 
-                                    val post = InstaPostData(name, description, bitmap, bitmap2)
-                                    postArrayList.add(post)
-                                    binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
-                                }
+                                val post = InstaPostData(name, description, bitmap, bitmap2)
+                                postArrayList.add(post)
+                                binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
                             }
-
                         }
+
+
 
                 }
             }

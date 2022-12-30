@@ -63,8 +63,7 @@ class RegisterFragment : Fragment() {
                 Toast.makeText(requireContext(), "Fill in the fields!", Toast.LENGTH_SHORT).show()
             } else {
                 if (binding.editTextPassword.text.toString() != binding.editTextRePassword.text.toString()) {
-                    Toast.makeText(requireContext(), "Passwords do not match!", Toast.LENGTH_SHORT)
-                            .show()
+                    Toast.makeText(requireContext(), "Passwords do not match!", Toast.LENGTH_SHORT).show()
                 } else {
                     signUpUser(
                             binding.editTextEmail.text.toString(),
