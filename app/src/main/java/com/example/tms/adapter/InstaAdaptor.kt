@@ -11,7 +11,7 @@ import com.example.tms.R
 import com.example.tms.data.InstaPostData
 
 class InstaAdaptor(private val context: Activity, private val arrayList: ArrayList<InstaPostData>) :
-    ArrayAdapter<InstaPostData>(context, R.layout.list_item, arrayList) {
+        ArrayAdapter<InstaPostData>(context, R.layout.list_item, arrayList) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
         var inflater: LayoutInflater = LayoutInflater.from(context)

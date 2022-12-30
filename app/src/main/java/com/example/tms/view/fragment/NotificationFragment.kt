@@ -16,9 +16,9 @@ import com.example.tms.databinding.NotificationPageBinding
 class NotificationFragment : Fragment() {
     private lateinit var binding: NotificationPageBinding
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = NotificationPageBinding.inflate(layoutInflater)
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
@@ -35,28 +35,28 @@ class NotificationFragment : Fragment() {
         }
         val data = ArrayList<ConversationViewModel>()
         data.add(
-            ConversationViewModel(
-                R.drawable.map,
-                "Arany Janos",
-                "invited to an upcoming event",
-                "12:00"
-            )
+                ConversationViewModel(
+                        R.drawable.map,
+                        "Arany Janos",
+                        "invited to an upcoming event",
+                        "12:00"
+                )
         )
         data.add(
-            ConversationViewModel(
-                R.drawable.contacticon,
-                "Osama bin Laden",
-                "wants to be your friend",
-                "13:00"
-            )
+                ConversationViewModel(
+                        R.drawable.contacticon,
+                        "Osama bin Laden",
+                        "wants to be your friend",
+                        "13:00"
+                )
         )
         data.add(
-            ConversationViewModel(
-                R.drawable.instaicon,
-                "Mia Khalifa",
-                "tagged in her new post",
-                "17:00"
-            )
+                ConversationViewModel(
+                        R.drawable.instaicon,
+                        "Mia Khalifa",
+                        "tagged in her new post",
+                        "17:00"
+                )
         )
         val adapter = CustomAdapter(data)
         if (recyclerview != null) {

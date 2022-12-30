@@ -27,7 +27,7 @@ import kotlin.system.exitProcess
 //AIzaSyCXPxzAnc8icMuBAYqWnbtw5S2eaT5opMg
 
 class NavigationPageFragment : Fragment(), OnMapReadyCallback {
-//    private lateinit var REQUEST_LOCATION
+    //    private lateinit var REQUEST_LOCATION
     private lateinit var binding: NavigationPageBinding
     private lateinit var mMap: GoogleMap
     private lateinit var locationManager: LocationManager
@@ -44,22 +44,25 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
         ) { isGranted ->
             if (isGranted) {
 
-            }
-            else {
+            } else {
 
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("You cant access the maps")
                 builder.setMessage("You have to allow your location.")
 
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                    Toast.makeText(context,
-                        android.R.string.yes, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        android.R.string.yes, Toast.LENGTH_SHORT
+                    ).show()
                     Manifest.permission.ACCESS_FINE_LOCATION
-                             }
+                }
 
                 builder.setNegativeButton(android.R.string.no) { dialog, which ->
-                    Toast.makeText(context,
-                        android.R.string.no, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        android.R.string.no, Toast.LENGTH_SHORT
+                    ).show()
                     exitProcess(1)
                 }
                 builder.show()
@@ -68,8 +71,6 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
         }
 
         permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-
-
 
 
 //        DirectionAPI.openGoogleMapsNavigationFromAToB(this, -34.0, 151.0, -30.0, 150.0)
@@ -92,11 +93,11 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(
             MarkerOptions()
-            .position(sydney)
-            .title("Marker in Sydney"))
+                .position(sydney)
+                .title("Marker in Sydney")
+        )
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
-
 
 
 }

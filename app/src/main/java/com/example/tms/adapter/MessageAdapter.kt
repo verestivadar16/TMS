@@ -10,7 +10,7 @@ import com.example.tms.R
 import com.example.tms.data.Message
 
 class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+        RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val ITEM_RECEIVE = 1;
     val ITEM_SENT = 2;
 
@@ -18,12 +18,12 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) 
         if (viewType == 1) {
             //inflate receive
             val view: View =
-                LayoutInflater.from(context).inflate(R.layout.chat_received_view, parent, false)
+                    LayoutInflater.from(context).inflate(R.layout.chat_received_view, parent, false)
             return ReceiveViewHolder(view)
         } else {
             //inflate sent
             val view: View =
-                LayoutInflater.from(context).inflate(R.layout.chat_sent_view, parent, false)
+                    LayoutInflater.from(context).inflate(R.layout.chat_sent_view, parent, false)
             return SentViewHolder(view)
         }
     }

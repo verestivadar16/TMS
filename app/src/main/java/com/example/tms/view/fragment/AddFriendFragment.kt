@@ -13,9 +13,9 @@ import com.example.tms.databinding.AddFriendPageBinding
 class AddFriendFragment : Fragment() {
     private lateinit var binding: AddFriendPageBinding
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = AddFriendPageBinding.inflate(layoutInflater)
         binding.backButton.setOnClickListener(View.OnClickListener {

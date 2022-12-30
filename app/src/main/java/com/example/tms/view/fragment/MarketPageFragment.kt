@@ -18,9 +18,9 @@ class MarketPageFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
 
         binding = MarketPageBinding.inflate(layoutInflater)
@@ -49,34 +49,34 @@ class MarketPageFragment : Fragment() {
         }
         val data = ArrayList<MarketData>()
         data.add(
-            MarketData(
-                R.drawable.tire,
-                R.drawable.avatar4,
-                "Kiss Elemer ",
-                "Anvelope 195X65XR18",
-                "Nearly new bought them last year...",
-                "230 LEI"
-            )
+                MarketData(
+                        R.drawable.tire,
+                        R.drawable.avatar4,
+                        "Kiss Elemer ",
+                        "Anvelope 195X65XR18",
+                        "Nearly new bought them last year...",
+                        "230 LEI"
+                )
         )
         data.add(
-            MarketData(
-                R.drawable.tire,
-                R.drawable.avatar,
-                "Lakatos Brendon",
-                "Anvelope 195X65XR18",
-                "Nearly new bought them last year...",
-                "230 LEI"
-            )
+                MarketData(
+                        R.drawable.tire,
+                        R.drawable.avatar,
+                        "Lakatos Brendon",
+                        "Anvelope 195X65XR18",
+                        "Nearly new bought them last year...",
+                        "230 LEI"
+                )
         )
         data.add(
-            MarketData(
-                R.drawable.tire,
-                R.drawable.avatar_button,
-                "Kiss Elemer ",
-                "Anvelope 195X65XR18",
-                "Nearly new bought them last year...",
-                "230 LEI"
-            )
+                MarketData(
+                        R.drawable.tire,
+                        R.drawable.avatar_button,
+                        "Kiss Elemer ",
+                        "Anvelope 195X65XR18",
+                        "Nearly new bought them last year...",
+                        "230 LEI"
+                )
         )
 
         val adapter = MarketAdaptor(data)

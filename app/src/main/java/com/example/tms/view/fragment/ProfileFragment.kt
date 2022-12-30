@@ -34,12 +34,12 @@ class ProfileFragment : Fragment() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var imageUri: Uri
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = ProfilePageBinding.inflate(layoutInflater)
-        mAuth= FirebaseAuth.getInstance()
+        mAuth = FirebaseAuth.getInstance()
         binding.backButton.setOnClickListener(View.OnClickListener {
             getActivity()?.onBackPressed()
         })
@@ -57,7 +57,7 @@ class ProfileFragment : Fragment() {
         binding.updateProfile.setOnClickListener(View.OnClickListener {
             try {
                 updateProfile()
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Fill in the fields!", Toast.LENGTH_SHORT).show()
             }
         })
@@ -73,30 +73,30 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
-    private fun requestUser(){
+    private fun requestUser() {
         val db = Firebase.firestore
 
         val docRef = db.collection("users").document(mAuth.currentUser?.uid.toString())
         docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    val userName = document.getString("userName")!!
-                    val imageName = document.getString("profileImage")!!
-                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
-                val localFile = File.createTempFile("tempImage","jpg")
-                storageRef.getFile(localFile).addOnSuccessListener {
-                    val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
-                    binding.profileImage.setImageBitmap(bitmap)
-                    binding.username.hint = userName
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val userName = document.getString("userName")!!
+                        val imageName = document.getString("profileImage")!!
+                        val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                        val localFile = File.createTempFile("tempImage", "jpg")
+                        storageRef.getFile(localFile).addOnSuccessListener {
+                            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                            binding.profileImage.setImageBitmap(bitmap)
+                            binding.username.hint = userName
+                        }
+                        Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                    } else {
+                        Log.d(TAG, "No such document")
+                    }
                 }
-                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-                } else {
-                    Log.d(TAG, "No such document")
+                .addOnFailureListener { exception ->
+                    Log.d(TAG, "get failed with ", exception)
                 }
-            }
-            .addOnFailureListener { exception ->
-                Log.d(TAG, "get failed with ", exception)
-            }
 
     }
 
@@ -122,65 +122,69 @@ class ProfileFragment : Fragment() {
         )
 
         db.collection("users").document(mAuth.currentUser?.uid.toString())
-            .set(post)
-            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
-            }
-            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+                .set(post)
+                .addOnSuccessListener {
+                    Log.d(TAG, "DocumentSnapshot successfully written!")
+                }
+                .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
 
-        val fileName =imageUri.toString()
+        val fileName = imageUri.toString()
 
         val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
 
-        val filePath = SiliCompressor.with(requireContext()).compress(fileName, File.createTempFile("tempImage","jpg"))
+        val filePath = SiliCompressor.with(requireContext()).compress(fileName, File.createTempFile("tempImage", "jpg"))
 
         storageReference.putFile(filePath.toUri()).addOnSuccessListener {
-            if(progressDialog.isShowing)progressDialog.dismiss()
+            if (progressDialog.isShowing) progressDialog.dismiss()
         }.addOnFailureListener {
-            if(progressDialog.isShowing)progressDialog.dismiss()
+            if (progressDialog.isShowing) progressDialog.dismiss()
         }
     }
+
+
 
     private fun selectImage() {
 
         val intent = Intent()
-        intent.type= "image/*"
+        intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
 
-        startActivityForResult(intent,100)
+        startActivityForResult(intent, 100)
 
     }
 
-    private fun takePhoto(){
+    private fun takePhoto() {
         val intent = Intent()
 
         intent.action = MediaStore.ACTION_IMAGE_CAPTURE
-        startActivityForResult(intent,150)
+        startActivityForResult(intent, 150)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == 100 && resultCode == Activity.RESULT_OK){
-            imageUri=data?.data!!
+        if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
+            imageUri = data?.data!!
             binding.profileImage.setImageURI(imageUri)
         }
 
-        if(requestCode == 150 && resultCode == Activity.RESULT_OK){
+        if (requestCode == 150 && resultCode == Activity.RESULT_OK) {
 
             val bitmap = data?.extras?.get("data") as Bitmap
 
-            imageUri = getImageUri(requireContext(),bitmap)!!
+            imageUri = getImageUri(requireContext(), bitmap)!!
             binding.profileImage.setImageBitmap(bitmap)
         }
     }
+
     fun getImageUri(inContext: Context, inImage: Bitmap): Uri? {
         val bytes = ByteArrayOutputStream()
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
         val path = MediaStore.Images.Media.insertImage(
-            inContext.getContentResolver(),
-            inImage,
-            "Temp",
-            null
+                inContext.getContentResolver(),
+                inImage,
+                "Temp",
+                null
         )
         return Uri.parse(path)
     }

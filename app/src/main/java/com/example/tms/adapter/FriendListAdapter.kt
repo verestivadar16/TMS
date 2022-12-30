@@ -11,7 +11,7 @@ import com.example.tms.R
 import com.example.tms.data.FriendListData
 
 class FriendListAdapter(private val context: Activity, private val arrayList: ArrayList<FriendListData>) :
-    ArrayAdapter<FriendListData>(context, R.layout.item_contact, arrayList) {
+        ArrayAdapter<FriendListData>(context, R.layout.item_contact, arrayList) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
         var inflater: LayoutInflater = LayoutInflater.from(context)
