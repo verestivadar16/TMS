@@ -70,7 +70,7 @@ class MixPageFragment : Fragment() {
         {
             response = "ON"
         }
-        else response ="OFF"
+        else response ="ON"
 
         if(sw2?.isChecked == true)
         {
@@ -85,7 +85,7 @@ class MixPageFragment : Fragment() {
         {
             response3 = "ON"
         }
-        else response3 ="OFF"
+        else response3 ="ON"
 
         if(sw4?.isChecked == true)
         {

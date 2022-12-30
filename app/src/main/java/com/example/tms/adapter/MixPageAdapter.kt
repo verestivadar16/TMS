@@ -201,19 +201,11 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
 
     class BlankPostViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
 
-//        val sw4: Switch = itemView.findViewById(R.id.warning_switch)
+
 
 
     }
 
-//    class MixContentViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-//
-//        var warningIcon: ImageView = itemView.findViewById(R.id.warningIcon)
-//        var warningName: TextView = itemView.findViewById(R.id.warningName)
-//        var warningImage: ImageView = itemView.findViewById(R.id.warningImage)
-//
-//        var sw1: Switch = itemView.findViewById(R.id.posts_switch)
-//
-//    }
+
 
 }
