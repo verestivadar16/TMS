@@ -3,11 +3,13 @@ package com.example.tms.view.fragment
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,17 +19,14 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
-import com.example.tms.adapter.InstaAdaptor
-import com.example.tms.data.InstaPostData
 import com.example.tms.databinding.ProfilePageBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.iceteck.silicompressorr.SiliCompressor
+import java.io.ByteArrayOutputStream
 import java.io.File
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -58,7 +57,6 @@ class ProfileFragment : Fragment() {
 
         binding.updateProfile.setOnClickListener(View.OnClickListener {
             try {
-                Toast.makeText(requireContext(), imageUri.port.toString(), Toast.LENGTH_SHORT).show()
                 updateProfile()
             }catch (e:Exception){
                 Toast.makeText(requireContext(), "Fill in the fields!", Toast.LENGTH_SHORT).show()
@@ -67,6 +65,10 @@ class ProfileFragment : Fragment() {
 
         binding.profileImage.setOnClickListener(View.OnClickListener {
             selectImage()
+        })
+
+        binding.takePhoto.setOnClickListener(View.OnClickListener {
+            takePhoto()
         })
 
         return binding.root
@@ -110,10 +112,18 @@ class ProfileFragment : Fragment() {
         val db = Firebase.firestore
 
 // Add a new document with a generated ID
+
         val post = hashMapOf(
-            "userName" to binding.username.text.toString(),
+            "userName" to binding.username.hint.toString(),
             "profileImage" to imageUri.toString()
         )
+
+        if(binding.username.text.isNotEmpty()){
+            val post = hashMapOf(
+                "userName" to binding.username.text.toString(),
+                "profileImage" to imageUri.toString()
+            )
+        }
 
         db.collection("users").document(mAuth.currentUser?.uid.toString())
             .set(post)
@@ -131,7 +141,6 @@ class ProfileFragment : Fragment() {
             if(progressDialog.isShowing)progressDialog.dismiss()
         }.addOnFailureListener {
             if(progressDialog.isShowing)progressDialog.dismiss()
-            //Toast.makeText(requireContext(), "Profile updated!", Toast.LENGTH_LONG).show()
         }
 
     }
@@ -148,6 +157,13 @@ class ProfileFragment : Fragment() {
 
     }
 
+    private fun takePhoto(){
+        val intent = Intent()
+
+        intent.action = MediaStore.ACTION_IMAGE_CAPTURE
+        startActivityForResult(intent,150)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -156,6 +172,24 @@ class ProfileFragment : Fragment() {
             binding.profileImage.setImageURI(imageUri)
         }
 
+        if(requestCode == 150 && resultCode == Activity.RESULT_OK){
+
+            val bitmap = data?.extras?.get("data") as Bitmap
+
+            imageUri = getImageUri(requireContext(),bitmap)!!
+            binding.profileImage.setImageBitmap(bitmap)
+        }
+    }
+    fun getImageUri(inContext: Context, inImage: Bitmap): Uri? {
+        val bytes = ByteArrayOutputStream()
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        val path = MediaStore.Images.Media.insertImage(
+            inContext.getContentResolver(),
+            inImage,
+            "Temp",
+            null
+        )
+        return Uri.parse(path)
     }
 
 }
