@@ -27,7 +27,6 @@ import com.google.firebase.storage.FirebaseStorage
 import com.iceteck.silicompressorr.SiliCompressor
 import java.io.ByteArrayOutputStream
 import java.io.File
-import java.util.*
 
 
 class ProfileFragment : Fragment() {
