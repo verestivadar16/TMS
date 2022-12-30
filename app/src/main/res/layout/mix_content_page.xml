@@ -43,6 +43,7 @@
                 android:layout_marginTop="-7dp"
                 android:scaleX="1.5"
                 android:scaleY="1.5"
+                android:checked="true"
                 />
 
             <TextView
@@ -67,7 +68,8 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="-7dp"
                 android:scaleX="1.5"
-                android:scaleY="1.5"/>
+                android:scaleY="1.5"
+                android:checked="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -91,7 +93,8 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="-7dp"
                 android:scaleX="1.5"
-                android:scaleY="1.5"/>
+                android:scaleY="1.5"
+                android:checked="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -115,7 +118,8 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="-7dp"
                 android:scaleX="1.5"
-                android:scaleY="1.5"/>
+                android:scaleY="1.5"
+                android:checked="true"/>
 
             <TextView
                 android:layout_width="wrap_content"

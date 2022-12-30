@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Switch
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import com.example.tms.R
 import com.example.tms.adapter.MixPageAdapter
 import com.example.tms.data.MixPageData
 import com.example.tms.databinding.MixPageBinding
+import android.widget.Toast
 
 class MixPageFragment : Fragment() {
     private lateinit var binding: MixPageBinding
@@ -51,12 +53,53 @@ class MixPageFragment : Fragment() {
         val bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.eventimage1);
         val bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.warningimage1);
 
+        val sw1 = getView()?.findViewById<Switch>(R.id.posts_switch)
+        val sw2 = getView()?.findViewById<Switch>(R.id.market_switch)
+        val sw3 = getView()?.findViewById<Switch>(R.id.event_switch)
+        val sw4 = getView()?.findViewById<Switch>(R.id.warning_switch)
+
+        var response :String
+        var response2: String
+        var response3 :String
+        var response4 :String
+
+
+
+
+        if(sw1?.isChecked == true)
+        {
+            response = "ON"
+        }
+        else response ="OFF"
+
+        if(sw2?.isChecked == true)
+        {
+            response2 = "ON"
+        }
+        else response2 ="OFF"
+
+        Toast.makeText(activity, response2,
+                Toast.LENGTH_SHORT).show()
+
+        if(sw3?.isChecked == true)
+        {
+            response3 = "ON"
+        }
+        else response3 ="OFF"
+
+        if(sw4?.isChecked == true)
+        {
+            response4 = "ON"
+        }
+        else response4 ="OFF"
+
+
         if (recyclerview != null) {
             recyclerview.layoutManager = LinearLayoutManager(getContext())
         }
         val data = ArrayList<MixPageData>()
 
-        data.add(MixPageData(R.drawable.avatar_button, "Pasiunea ne uneste","Va invitam sambata 25.01.2023 incepand cu ora 13:00, locatie:..",bitmap1, "3"))
+        data.add(MixPageData(R.drawable.avatar_button, "Pasiunea ne uneste","Va invitam sambata 25.01.2023 incepand cu ora 13:00, locatie:..",bitmap1, "3",response3))
 
         data.add(MixPageData( R.drawable.tire,
             R.drawable.avatar4,
@@ -64,32 +107,32 @@ class MixPageFragment : Fragment() {
             "Anvelope 195X65XR18",
             "Nearly new bought them last year...",
             "230 LEI",
-            "2"))
+            "2",response2))
         data.add(MixPageData( R.drawable.tire,
             R.drawable.avatar,
             "Lakatos Brendon",
             "Anvelope 195X65XR18",
             "Nearly new bought them last year...",
             "230 LEI",
-            "2"))
+            "2",response2))
 
 
 
-        data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1"))
-        data.add(MixPageData(R.drawable.avatar_button, "Pasiunea ne uneste","Va invitam sambata 15.10.2022 incepand cu ora 13:00, locatie:..",bitmap1, "3"))
-        data.add(MixPageData(R.drawable.avatar_button, "Traffic Jam Warning!",bitmap2, "4"))
-        data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1"))
+        data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1",response))
+        data.add(MixPageData(R.drawable.avatar_button, "Pasiunea ne uneste","Va invitam sambata 15.10.2022 incepand cu ora 13:00, locatie:..",bitmap1, "3",response3))
+        data.add(MixPageData(R.drawable.avatar_button, "Traffic Jam Warning!",bitmap2, "4",response4))
+        data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1",response))
         data.add(MixPageData(R.drawable.tire,
             R.drawable.avatar_button,
             "Kiss Elemer ",
             "Anvelope 195X65XR18",
             "Nearly new bought them last year...",
             "230 LEI",
-            "2"))
+            "2",response2))
         val bitmap = BitmapFactory.decodeResource(getResources(),
             R.drawable.audib5);
-        data.add(MixPageData("Tamas","got my new car",bitmap, R.drawable.avatar_button, "1"))
-        data.add(MixPageData("Balazs","got my new car",bitmap, R.drawable.avatar_button, "1"))
+        data.add(MixPageData("Tamas","got my new car",bitmap, R.drawable.avatar_button, "1",response))
+        data.add(MixPageData("Balazs","got my new car",bitmap, R.drawable.avatar_button, "1",response))
 
 
 
