@@ -113,7 +113,6 @@ class ProfileFragment : Fragment() {
         var username =  binding.username.hint.toString()
 
         if(binding.username.text.isNotEmpty()){
-            Toast.makeText(requireContext(), binding.username.text.toString(), Toast.LENGTH_SHORT).show()
              username = binding.username.text.toString()
         }
 
