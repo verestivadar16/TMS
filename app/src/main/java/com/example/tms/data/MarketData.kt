@@ -1,7 +1,9 @@
-package com.example.tms.view.fragment
+package com.example.tms.data
 
-data class MarketData(val productimage: Int,
-                      val sellerimage: Int,
+import android.graphics.Bitmap
+
+data class MarketData(val productimage: Bitmap,
+                      val sellerimage: Bitmap,
                       val sellername: String,
                       val productname: String,
                       val productdescription: String,

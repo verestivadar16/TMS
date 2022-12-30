@@ -1,4 +1,4 @@
-package com.example.tms.view.fragment
+package com.example.tms.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
+import com.example.tms.data.MarketData
 
 class MarketAdaptor(private val mList: List<MarketData>) :
         RecyclerView.Adapter<MarketAdaptor.ViewHolder>() {
@@ -29,8 +30,8 @@ class MarketAdaptor(private val mList: List<MarketData>) :
         val MarketData = mList[position]
 
         // sets the image to the imageview from our itemHolder class
-        holder.productImage.setImageResource(MarketData.productimage)
-        holder.sellerImage.setImageResource(MarketData.sellerimage)
+        holder.productImage.setImageBitmap(MarketData.productimage)
+        holder.sellerImage.setImageBitmap(MarketData.sellerimage)
 
         // sets the text to the textview from our itemHolder class
         holder.sellerName.text = MarketData.sellername

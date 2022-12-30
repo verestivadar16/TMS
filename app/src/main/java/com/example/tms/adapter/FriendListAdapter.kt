@@ -19,11 +19,9 @@ class FriendListAdapter(private val context: Activity, private val arrayList: Ar
 
         val imageView: ImageView = view.findViewById(R.id.iv_image)
         val username: TextView = view.findViewById(R.id.tv_name)
-        val car_name: TextView = view.findViewById(R.id.tv_car)
 
-        imageView.setImageResource(arrayList[position].profImage)
+        imageView.setImageBitmap(arrayList[position].profImage)
         username.text = arrayList[position].username
-        car_name.text = arrayList[position].car_name
 
         return view
     }

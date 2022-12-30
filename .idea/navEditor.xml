@@ -297,6 +297,15 @@
                             <option name="y" value="-64" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_marketuploadpage_to_profilpage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -411,12 +420,43 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_profile_page_to_navigation_page">
+                            <entry key="action_profile_page_to_profile_show_page">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                             <entry key="action_profile_page_to_start_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="profile_show_page">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_profile_page_to_navigation_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_profile_show_page_to_friends_page">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_profile_show_page_to_profile_page">
                               <value>
                                 <LayoutPositions />
                               </value>

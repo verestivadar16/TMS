@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tms.R
@@ -17,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.protobuf.LazyStringArrayList
 import java.io.File
 
 class FriendsFragment : Fragment() {
@@ -38,6 +40,7 @@ class FriendsFragment : Fragment() {
             findNavController().navigate(R.id.action_friends_page_to_add_friend_page)
         })
 
+        requestFriends()
 
         val profImage = intArrayOf(
                 R.drawable.avatar3,
@@ -54,23 +57,17 @@ class FriendsFragment : Fragment() {
                 "Tivadar"
         )
 
-        val car_name = arrayOf(
-                "Audi rs4 b5",
-                "Audi rs4 b6",
-                "Volkswagen variant r32",
-                "Volkswagen golf r32"
-        )
 
-        friendArrayList = ArrayList()
-
-        for (i in username.indices) {
-            val contact = FriendListData(username[i], car_name[i], profImage[i])
-            friendArrayList.add(contact)
-        }
+        //friendArrayList = ArrayList()
+//
+//        for (i in username.indices) {
+//            val contact = FriendListData(username[i], profImage[i])
+//            friendArrayList.add(contact)
+//        }
 
 
-        friendArrayList.sortBy { it.username }
-        binding.listview.adapter = activity?.let { FriendListAdapter(it, friendArrayList) }
+//        friendArrayList.sortBy { it.username }
+//        binding.listview.adapter = activity?.let { FriendListAdapter(it, friendArrayList) }
 
         return binding.root
     }
@@ -82,18 +79,47 @@ class FriendsFragment : Fragment() {
     private fun requestFriends(){
         val db = Firebase.firestore
 
+        friendArrayList = ArrayList()
+       // db.collection("users").whereArrayContains("regions", listOf(mAuth.currentUser?.uid))
+
+
         val docRef = db.collection("users").document(mAuth.currentUser?.uid.toString())
+
+
         docRef.get()
                 .addOnSuccessListener { document ->
                     if (document != null) {
-                        val userName = document.getString("userName")!!
-                        val imageName = document.getString("profileImage")!!
-                        val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
-                        val localFile = File.createTempFile("tempImage", "jpg")
-                        storageRef.getFile(localFile).addOnSuccessListener {
-                            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                        val friends = document["friends"] as ArrayList<*>
+
+                        for(it in friends){
+                            val docRef2 = db.collection("users").document(it.toString())
+                            docRef2.get()
+                                    .addOnSuccessListener { document2 ->
+                                        if (document2 != null) {
+                                            val userName = document2.getString("userName")!!
+                                            val imageName = document2.getString("profileImage")!!
+                                            val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                                            val localFile = File.createTempFile("tempImage", "jpg")
+                                            storageRef.getFile(localFile).addOnSuccessListener {
+                                                val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+
+                                                val contact = FriendListData(userName, bitmap)
+                                                friendArrayList.add(contact)
+                                                friendArrayList.sortBy { it.username }
+                                                binding.listview.adapter = activity?.let { FriendListAdapter(it, friendArrayList)}
+
+                                            }
+                                            Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                                        } else {
+                                            Log.d(ContentValues.TAG, "No such document")
+                                        }
+                                    }
+                                    .addOnFailureListener { exception ->
+                                        Log.d(ContentValues.TAG, "get failed with ", exception)
+                                    }
 
                         }
+
                         Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
                     } else {
                         Log.d(ContentValues.TAG, "No such document")
