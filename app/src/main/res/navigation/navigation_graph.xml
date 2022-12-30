@@ -120,7 +120,7 @@
             app:destination="@id/profile_page" />
         <action
             android:id="@+id/action_instapostpage_to_mix_page"
-            app:destination="@id/mix_page" />
+            app:destination="@id/mix_content_page" />
 
 
     </fragment>
@@ -255,6 +255,18 @@
         <action
             android:id="@+id/action_mix_page_to_inboxpage"
             app:destination="@id/inbox_page" />
+        <action
+            android:id="@+id/action_mix_page_to_mix_content_page"
+            app:destination="@id/mix_content_page"/>
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/mix_content_page"
+        android:name="com.example.tms.view.fragment.MixPageContent"
+        android:label="MixContentFragment"
+        tools:layout="@layout/mix_content_page">
 
     </fragment>
 
