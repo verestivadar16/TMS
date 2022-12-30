@@ -14,7 +14,7 @@
             app:destination="@id/loginPage" />
         <action
             android:id="@+id/action_startFragment_to_registerFragment"
-            app:destination="@id/registerPage" />
+            app:destination="@id/registerPage"/>
         <action
             android:id="@+id/action_startFragment_to_InstaFragment"
             app:destination="@+id/home"/>
