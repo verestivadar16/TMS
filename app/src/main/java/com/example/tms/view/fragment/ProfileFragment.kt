@@ -48,12 +48,21 @@ class ProfileFragment : Fragment() {
         binding.friendsButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_profile_page_to_friends_page)
         })
+        binding.logOut.setOnClickListener(View.OnClickListener {
+            mAuth.signOut()
+            findNavController().navigate(R.id.action_profile_page_to_start_page)
+        })
 
 
         requestUser()
 
         binding.updateProfile.setOnClickListener(View.OnClickListener {
-            updateProfile()
+            try {
+                Toast.makeText(requireContext(), imageUri.port.toString(), Toast.LENGTH_SHORT).show()
+                updateProfile()
+            }catch (e:Exception){
+                Toast.makeText(requireContext(), "Fill in the fields!", Toast.LENGTH_SHORT).show()
+            }
         })
 
         binding.profileImage.setOnClickListener(View.OnClickListener {

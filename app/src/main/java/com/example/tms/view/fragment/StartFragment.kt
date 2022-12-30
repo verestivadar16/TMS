@@ -26,7 +26,7 @@ class StartFragment : Fragment() {
         if (user != null) {
             // User is signed in
             Toast.makeText(requireContext(), "Loggid in as:\n"+ (user.email.toString() ), Toast.LENGTH_SHORT).show()
-           // findNavController().navigate(R.id.action_startFragment_to_InstaFragment)
+            findNavController().navigate(R.id.action_startFragment_to_InstaFragment)
 
         }
 
