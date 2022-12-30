@@ -110,19 +110,16 @@ class ProfileFragment : Fragment() {
 
         val db = Firebase.firestore
 
-// Add a new document with a generated ID
+        var username =  binding.username.hint.toString()
+
+        if(binding.username.text.isNotEmpty()){
+             username = binding.username.text.toString()
+        }
 
         val post = hashMapOf(
-                "userName" to binding.username.hint.toString(),
-                "profileImage" to imageUri.toString()
+            "userName" to username,
+            "profileImage" to imageUri.toString()
         )
-
-        if (binding.username.text.isNotEmpty()) {
-            val post = hashMapOf(
-                    "userName" to binding.username.text.toString(),
-                    "profileImage" to imageUri.toString()
-            )
-        }
 
         db.collection("users").document(mAuth.currentUser?.uid.toString())
                 .set(post)
@@ -142,8 +139,8 @@ class ProfileFragment : Fragment() {
         }.addOnFailureListener {
             if (progressDialog.isShowing) progressDialog.dismiss()
         }
-
     }
+
 
 
     private fun selectImage() {

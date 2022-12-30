@@ -17,7 +17,7 @@
             app:destination="@id/registerPage" />
         <action
             android:id="@+id/action_startFragment_to_InstaFragment"
-            app:destination="@+id/home" />
+            app:destination="@+id/home"/>
     </fragment>
 
     <fragment
@@ -212,7 +212,7 @@
 
         <action
             android:id="@+id/action_marketpage_to_newlistingpage"
-            app:destination="@+id/home" />
+            app:destination="@+id/market_upload_page" />
 
         <action
             android:id="@+id/action_marketpage_to_profilpage"
@@ -225,6 +225,17 @@
             android:id="@+id/action_marketpage_to_chatpage"
             app:destination="@+id/chat_page" />
 
+    </fragment>
+
+    <fragment
+        android:id="@+id/market_upload_page"
+        android:name="com.example.tms.view.fragment.MarketUploadFragment"
+        android:label="MArketUploadPageFragment"
+        tools:layout="@layout/market_upload_page">
+
+        <action
+            android:id="@+id/action_marketuploadpage_to_profilpage"
+            app:destination="@+id/profile_page" />
 
     </fragment>
 
