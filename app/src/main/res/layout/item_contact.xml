@@ -42,7 +42,7 @@
             android:id="@+id/tv_car"
             android:textColor="@color/grey"
             android:text="Car text"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
     </LinearLayout>
 

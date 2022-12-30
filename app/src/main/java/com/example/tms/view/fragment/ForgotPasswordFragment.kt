@@ -17,9 +17,9 @@ class ForgotPasswordFragment : Fragment() {
     private lateinit var binding: ForgotPasswordBinding
     private lateinit var mAuth: FirebaseAuth
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         mAuth = FirebaseAuth.getInstance()
         binding = ForgotPasswordBinding.inflate(layoutInflater)
@@ -27,19 +27,19 @@ class ForgotPasswordFragment : Fragment() {
             getActivity()?.onBackPressed()
         })
 
-        val emailAddress=binding.editTextForgotPassword.text
+        val emailAddress = binding.editTextForgotPassword.text
 
         binding.sendButton.setOnClickListener(View.OnClickListener {
 
             mAuth.sendPasswordResetEmail(emailAddress.toString())
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Log.d(TAG, "Email sent.")
-                        Toast.makeText(requireContext(), "Email sent!", Toast.LENGTH_SHORT).show()
-                        Toast.makeText(requireContext(), "Check Spam", Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_forgotPage_to_loginPage)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Log.d(TAG, "Email sent.")
+                            Toast.makeText(requireContext(), "Email sent!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "Check Spam", Toast.LENGTH_SHORT).show()
+                            findNavController().navigate(R.id.action_forgotPage_to_loginPage)
+                        }
                     }
-                }
         })
 
         return binding.root

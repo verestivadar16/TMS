@@ -1,4 +1,5 @@
 package com.example.tms.view.fragment
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -6,16 +7,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
-class MarketAdaptor (private val mList: List<MarketData>) :
-    RecyclerView.Adapter<MarketAdaptor.ViewHolder>() {
 
-    var onItemClick:((MarketData) -> Unit)? = null
+class MarketAdaptor(private val mList: List<MarketData>) :
+        RecyclerView.Adapter<MarketAdaptor.ViewHolder>() {
+
+    var onItemClick: ((MarketData) -> Unit)? = null
+
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflates the card_view_design view
         // that is used to hold list item
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.market_item_view, parent, false)
+                .inflate(R.layout.market_item_view, parent, false)
 
         return ViewHolder(view)
     }
@@ -31,11 +34,11 @@ class MarketAdaptor (private val mList: List<MarketData>) :
 
         // sets the text to the textview from our itemHolder class
         holder.sellerName.text = MarketData.sellername
-        holder.productName.text =MarketData.productname
-        holder.productDescription.text =MarketData.productdescription
+        holder.productName.text = MarketData.productname
+        holder.productDescription.text = MarketData.productdescription
         holder.price.text = MarketData.price
 
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             onItemClick?.invoke(MarketData)
         }
 

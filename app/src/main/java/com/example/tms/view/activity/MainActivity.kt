@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navController =
-            Navigation.findNavController(this, R.id.nav_host_fragment) as NavController
+                Navigation.findNavController(this, R.id.nav_host_fragment) as NavController
         val bottomNavigationView = binding.bottomNavigationView as BottomNavigationView
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
 

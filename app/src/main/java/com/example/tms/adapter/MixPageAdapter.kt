@@ -12,7 +12,7 @@ import com.example.tms.R
 import com.example.tms.data.MixPageData
 
 class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+        RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val Insta_Post = 1
     val Market_Post = 2
     val Event_Post = 3
@@ -27,28 +27,28 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
         when (viewType) {
             1 -> {
                 val view: View =
-                    LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
+                        LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
                 return InstaPostViewHolder(view)
             }
 
             2 -> {
                 //inflate marketpost
                 val view: View =
-                    LayoutInflater.from(context).inflate(R.layout.market_item_view, parent, false)
+                        LayoutInflater.from(context).inflate(R.layout.market_item_view, parent, false)
                 return MarketPostViewHolder(view)
             }
 
             3 -> {
                 //inflate Event_Post
                 val view: View =
-                    LayoutInflater.from(context).inflate(R.layout.event_item, parent, false)
+                        LayoutInflater.from(context).inflate(R.layout.event_item, parent, false)
                 return EventPostViewHolder(view)
             }
 
             else -> {
                 //inflate Warning_Post
                 val view: View =
-                    LayoutInflater.from(context).inflate(R.layout.traffic_info_item, parent, false)
+                        LayoutInflater.from(context).inflate(R.layout.traffic_info_item, parent, false)
                 return WarningPostViewHolder(view)
             }
 
@@ -96,27 +96,27 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
             InstaPostViewHolder::class.java -> {
                 val viewHolder = holder as InstaPostViewHolder
 
-            currentPost.profImageId?.let { holder.profImageid.setImageResource(it) }
-            currentPost.imageId?.let{holder.imageId.setImageBitmap(it)}
-            holder.personName.text = currentPost.personName
-            holder.postDescription.text = currentPost.postDescription
+                currentPost.profImageId?.let { holder.profImageid.setImageResource(it) }
+                currentPost.imageId?.let { holder.imageId.setImageBitmap(it) }
+                holder.personName.text = currentPost.personName
+                holder.postDescription.text = currentPost.postDescription
             }
 
             EventPostViewHolder::class.java -> {
                 val viewHolder = holder as EventPostViewHolder
 
                 currentPost.organiserPic?.let { holder.organiserPic.setImageResource(it) }
-                holder.organiserName.text =  currentPost.organiserName
-                holder.eventDescription.text =  currentPost.eventDescription
-                currentPost.locationImage?.let{holder.locationImage.setImageBitmap(it)}
+                holder.organiserName.text = currentPost.organiserName
+                holder.eventDescription.text = currentPost.eventDescription
+                currentPost.locationImage?.let { holder.locationImage.setImageBitmap(it) }
             }
 
             WarningPostViewHolder::class.java -> {
                 val viewHolder = holder as WarningPostViewHolder
 
                 currentPost.warningIcon?.let { holder.warningIcon.setImageResource(it) }
-                holder.warningName.text =  currentPost.warningName
-                currentPost.warningImage?.let{holder.warningImage.setImageBitmap(it)}
+                holder.warningName.text = currentPost.warningName
+                currentPost.warningImage?.let { holder.warningImage.setImageBitmap(it) }
             }
         }
 

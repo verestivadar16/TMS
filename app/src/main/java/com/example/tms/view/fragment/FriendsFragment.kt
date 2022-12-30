@@ -11,14 +11,14 @@ import com.example.tms.adapter.FriendListAdapter
 import com.example.tms.data.FriendListData
 import com.example.tms.databinding.FriendsListBinding
 
-class FriendsFragment : Fragment(){
+class FriendsFragment : Fragment() {
     private lateinit var binding: FriendsListBinding
     private lateinit var friendArrayList: ArrayList<FriendListData>
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
 
         binding = FriendsListBinding.inflate(layoutInflater)
@@ -33,33 +33,32 @@ class FriendsFragment : Fragment(){
         })
 
 
+        val profImage = intArrayOf(
+                R.drawable.avatar3,
+                R.drawable.avatar2,
+                R.drawable.avatar,
+                R.drawable.avatar4
+        )
 
-    val profImage = intArrayOf(
-        R.drawable.avatar3,
-        R.drawable.avatar2,
-        R.drawable.avatar,
-        R.drawable.avatar4
-    )
+        val username = arrayOf(
 
-    val username = arrayOf(
+                "Tomi",
+                "Roli",
+                "Balazs",
+                "Tivadar"
+        )
 
-        "Tomi",
-        "Roli",
-        "Balazs",
-        "Tivadar"
-    )
+        val car_name = arrayOf(
+                "Audi rs4 b5",
+                "Audi rs4 b6",
+                "Volkswagen variant r32",
+                "Volkswagen golf r32"
+        )
 
-    val car_name = arrayOf(
-        "Audi rs4 b5",
-        "Audi rs4 b6",
-        "Volkswagen variant r32",
-        "Volkswagen golf r32"
-    )
+        friendArrayList = ArrayList()
 
- friendArrayList = ArrayList()
-
-        for (i in username.indices){
-            val contact = FriendListData(username[i],car_name[i],profImage[i])
+        for (i in username.indices) {
+            val contact = FriendListData(username[i], car_name[i], profImage[i])
             friendArrayList.add(contact)
         }
 
