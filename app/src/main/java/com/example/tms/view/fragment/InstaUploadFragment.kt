@@ -55,7 +55,6 @@ class InstaUploadFragment : Fragment() {
 
             uploadImage()
 
-
         }
         return binding.root
 
@@ -83,33 +82,43 @@ class InstaUploadFragment : Fragment() {
                     val username = document.getString("userName")!!
                     val imageName = document.getString("profileImage")!!
 
-                    val post = hashMapOf(
-                        "name" to username,
-                        "description" to binding.editTextDescription.text.toString(),
-                        "image" to imageUri.toString(),
-                        "profileImage" to imageName
-                    )
+                    try {
 
-                    db.collection("posts").document(date)
-                        .set(post)
-                        .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
+                        val post = hashMapOf(
+                            "name" to username,
+                            "description" to binding.editTextDescription.text.toString(),
+                            "image" to imageUri.toString(),
+                            "profileImage" to imageName
+                        )
+
+                        db.collection("posts").document(date)
+                            .set(post)
+                            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
+                            }
+                            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+
+                        val fileName =imageUri.toString()
+                        val filePath = SiliCompressor.with(requireContext()).compress(fileName, File.createTempFile("tempImage","jpg"))
+
+                        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
+
+                        storageReference.putFile(filePath.toUri()).addOnSuccessListener {
+                            if(progressDialog.isShowing)progressDialog.dismiss()
+                            findNavController().navigate(R.id.action_instauploadpage_to_instapostpage)
+                        }.addOnFailureListener {
+                            if(progressDialog.isShowing)progressDialog.dismiss()
                         }
-                        .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
 
-                    val fileName =imageUri.toString()
-                    val filePath = SiliCompressor.with(requireContext()).compress(fileName, File.createTempFile("tempImage","jpg"))
 
-                    val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
+                        Log.d(TAG, "DocumentSnapshot data: ${document.data}")
 
-                    storageReference.putFile(filePath.toUri()).addOnSuccessListener {
+
+                    }catch (e:Exception){
                         if(progressDialog.isShowing)progressDialog.dismiss()
-                        findNavController().navigate(R.id.action_instauploadpage_to_instapostpage)
-                    }.addOnFailureListener {
-                        if(progressDialog.isShowing)progressDialog.dismiss()
+                        Toast.makeText(requireContext(), "Fill in the fields!", Toast.LENGTH_SHORT).show()
                     }
 
 
-                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
                 } else {
                     Log.d(TAG, "No such document")
                 }
