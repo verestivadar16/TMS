@@ -46,9 +46,37 @@ class ProfileShowPageFragment : Fragment() {
 
         postArrayList = ArrayList()
 
+        requestUser()
         requestPosts()
 
         return binding.root
+    }
+
+    private fun requestUser() {
+        val db = Firebase.firestore
+
+        val docRef = db.collection("users").document(mAuth.currentUser?.uid.toString())
+        docRef.get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val userName = document.getString("userName")!!
+                        val imageName = document.getString("profileImage")!!
+                        val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                        val localFile = File.createTempFile("tempImage", "jpg")
+                        storageRef.getFile(localFile).addOnSuccessListener {
+                            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                            binding.profileImage.setImageBitmap(bitmap)
+                            binding.username.hint = userName
+                        }
+                        Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                    } else {
+                        Log.d(ContentValues.TAG, "No such document")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d(ContentValues.TAG, "get failed with ", exception)
+                }
+
     }
 
     private fun requestPosts() {
@@ -57,32 +85,34 @@ class ProfileShowPageFragment : Fragment() {
                 .get()
                 .addOnSuccessListener { users ->
                     for (snapshot in users) {
-                        val name = snapshot.getString("name")!!
-                        val imageName = snapshot.getString("image")!!
-                        val description = snapshot.getString("description")!!
-                        val profileImage = snapshot.getString("profileImage")!!
-                        val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
-                        val localFile = File.createTempFile("tempImage", "jpg")
-                        storageRef.getFile(localFile).addOnSuccessListener {
-                            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                        val uid = snapshot.getString("uid")!!
+                        if(uid == mAuth.currentUser?.uid){
+                            val name = snapshot.getString("name")!!
+                            val imageName = snapshot.getString("image")!!
+                            val description = snapshot.getString("description")!!
+                            val profileImage = snapshot.getString("profileImage")!!
+                            val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                            val localFile = File.createTempFile("tempImage", "jpg")
+                            storageRef.getFile(localFile).addOnSuccessListener {
+                                val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
 
-                            val storageRef2 = FirebaseStorage.getInstance().reference.child("images/$profileImage")
-                            val localFile2 = File.createTempFile("tempImage", "jpg")
-                            storageRef2.getFile(localFile2).addOnSuccessListener {
-                                val bitmap2 = BitmapFactory.decodeFile(localFile2.absolutePath)
+                                val storageRef2 = FirebaseStorage.getInstance().reference.child("images/$profileImage")
+                                val localFile2 = File.createTempFile("tempImage", "jpg")
+                                storageRef2.getFile(localFile2).addOnSuccessListener {
+                                    val bitmap2 = BitmapFactory.decodeFile(localFile2.absolutePath)
 
-                                val post = InstaPostData(name, description, bitmap, bitmap2)
-                                postArrayList.add(post)
-                                binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
-
+                                    val post = InstaPostData(name, description, bitmap, bitmap2)
+                                    postArrayList.add(post)
+                                    binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
+                                }
                             }
 
                         }
 
-
-                    }
                 }
-                .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Transaction failure.", e) }
+            }
+            .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Transaction failure.", e) }
+
 
     }
 

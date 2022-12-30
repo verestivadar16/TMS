@@ -245,10 +245,6 @@
         android:label="FriendsFragment"
         tools:layout="@layout/friends_list">
         <action
-            android:id="@+id/action_friends_page_to_profile_page"
-            app:destination="@id/profile_page" />
-
-        <action
             android:id="@+id/action_friends_page_to_add_friend_page"
             app:destination="@id/add_friend_page" />
     </fragment>
@@ -262,9 +258,6 @@
             android:id="@+id/action_add_friend_page_to_friend_list_page"
             app:destination="@id/friend_list_page" />
 
-        <action
-            android:id="@+id/action_add_friend_page_to_profile_page"
-            app:destination="@id/profile_page" />
 
     </fragment>
 

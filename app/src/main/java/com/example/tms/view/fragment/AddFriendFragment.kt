@@ -24,9 +24,6 @@ class AddFriendFragment : Fragment() {
         binding.confirmButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.friend_list_page)
         })
-        binding.profileButton.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_add_friend_page_to_profile_page)
-        })
         return binding.root
     }
 }

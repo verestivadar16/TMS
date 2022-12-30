@@ -85,6 +85,7 @@ class InstaUploadFragment : Fragment() {
                     try {
 
                         val post = hashMapOf(
+                            "uid" to mAuth.currentUser?.uid,
                             "name" to username,
                             "description" to binding.editTextDescription.text.toString(),
                             "image" to imageUri.toString(),
