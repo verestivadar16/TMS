@@ -25,19 +25,15 @@
             android:layout_width="@dimen/product_size"
             android:layout_height="@dimen/product_size"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="7dp"
-
+            android:layout_marginStart="7dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="43dp"
             android:background="?android:attr/selectableItemBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.016"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.128"
             app:srcCompat="@drawable/tire" />
 
 
@@ -128,7 +124,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="7dp"
-            android:layout_marginTop="99dp"
+            android:layout_marginTop="105dp"
             android:layout_marginBottom="24dp"
             android:text="230 LEI"
             android:textAlignment="center"
