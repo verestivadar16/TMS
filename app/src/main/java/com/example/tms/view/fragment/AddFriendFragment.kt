@@ -22,6 +22,7 @@ import java.io.File
 class AddFriendFragment : Fragment() {
     private lateinit var binding: AddFriendPageBinding
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var friends : ArrayList<*>
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -53,15 +54,24 @@ class AddFriendFragment : Fragment() {
                     if (document != null) {
                         val userName = document.getString("userName")!!
                         val imageName = document.getString("profileImage")!!
-                        val currentfriends = document["friends"] as ArrayList<*>
+                        try {
+                            friends = document["friends"] as ArrayList<*>
+                        }catch (e:Exception){
+                            Toast.makeText(requireContext(),"$e",Toast.LENGTH_SHORT).show()
+                        }
+
                         val newfriend = binding.editTextUsername.text.toString()
 
                         val newFriendList : ArrayList<String> = ArrayList()
 
-
-                        for(it in currentfriends){
-                            newFriendList.add(it.toString())
+                        try {
+                            for(it in friends){
+                                newFriendList.add(it.toString())
+                            }
+                        }catch (e:Exception){
+                            Toast.makeText(requireContext(),"$e",Toast.LENGTH_SHORT).show()
                         }
+
                         newFriendList.add(newfriend)
 
                         val post = hashMapOf(

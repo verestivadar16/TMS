@@ -7,4 +7,5 @@ data class MarketData(val productimage: Bitmap,
                       val sellername: String,
                       val productname: String,
                       val productdescription: String,
+                      val location: String,
                       val price: String)

@@ -33,6 +33,7 @@ class ProfileFragment : Fragment() {
     private lateinit var binding: ProfilePageBinding
     private lateinit var mAuth: FirebaseAuth
     private lateinit var imageUri: Uri
+    private lateinit var friends : ArrayList<*>
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -82,6 +83,8 @@ class ProfileFragment : Fragment() {
                     if (document != null) {
                         val userName = document.getString("userName")!!
                         val imageName = document.getString("profileImage")!!
+                        friends = document["friends"] as ArrayList<*>
+
                         val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
                         val localFile = File.createTempFile("tempImage", "jpg")
                         storageRef.getFile(localFile).addOnSuccessListener {
@@ -118,7 +121,8 @@ class ProfileFragment : Fragment() {
 
         val post = hashMapOf(
             "userName" to username,
-            "profileImage" to imageUri.toString()
+            "profileImage" to imageUri.toString(),
+            "friends" to friends
         )
 
         db.collection("users").document(mAuth.currentUser?.uid.toString())
