@@ -96,9 +96,6 @@ class AddFriendFragment : Fragment() {
                     Log.d(ContentValues.TAG, "get failed with ", exception)
                 }
 
-
-
-
     }
 
 }

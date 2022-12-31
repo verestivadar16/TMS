@@ -64,7 +64,7 @@ class MarketPageFragment : Fragment() {
                 .get()
                 .addOnSuccessListener { users ->
                     for (snapshot in users) {
-                        val userName = snapshot.getString("name")!!
+                        val userName = snapshot.getString("userName")!!
                         val imageName = snapshot.getString("image")!!
                         val description = snapshot.getString("description")!!
                         val profileImage = snapshot.getString("profileImage")!!
