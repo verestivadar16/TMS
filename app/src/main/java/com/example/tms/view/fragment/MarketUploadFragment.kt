@@ -82,7 +82,7 @@ class MarketUploadFragment : Fragment() {
                                     "price" to binding.itemUpPrice.text.toString(),
                                     "description" to binding.itemUpDescription.text.toString(),
                                     "category" to binding.itemUpCategory.text.toString(),
-                                    "brand" to binding.itemUpBrand.text.toString(),
+                                    "name" to binding.itemUpName.text.toString(),
                                     "location" to binding.itemUpLocation.text.toString(),
                                     "image" to imageUri.toString(),
                                     "profileImage" to imageName

@@ -64,12 +64,12 @@ class MarketPageFragment : Fragment() {
                 .get()
                 .addOnSuccessListener { users ->
                     for (snapshot in users) {
-                        val name = snapshot.getString("name")!!
+                        val userName = snapshot.getString("name")!!
                         val imageName = snapshot.getString("image")!!
                         val description = snapshot.getString("description")!!
                         val profileImage = snapshot.getString("profileImage")!!
                         val price = snapshot.getString("price")!!
-                        val brand = snapshot.getString("brand")!!
+                        val productName = snapshot.getString("name")!!
                         val location = snapshot.getString("location")!!
                         val category = snapshot.getString("category")!!
 
@@ -84,71 +84,7 @@ class MarketPageFragment : Fragment() {
                             storageRef2.getFile(localFile2).addOnSuccessListener {
                                 val bitmapProfile = BitmapFactory.decodeFile(localFile2.absolutePath)
 
-                                val product = MarketData(bitmap, bitmapProfile, name, "Nevet kerek",description,price)
-                                data.add(product)
-                                val adapter = MarketAdaptor(data)
-                                if (recyclerview != null) {
-                                    recyclerview.adapter = adapter
-                                }
-                                if (recyclerview != null) {
-                                    recyclerview.adapter = adapter
-                                }
-                                adapter.onItemClick = {
-                                    findNavController().navigate(R.id.action_marketpage_to_chatpage)
-                                }
-
-                            }
-
-                        }
-
-
-                    }
-                }
-                .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Transaction failure.", e) }
-
-
-    }
-
-
-
-
-
-
-
-    private fun requestProducts() {
-
-        val recyclerview = getView()?.findViewById<RecyclerView>(R.id.market_items_list)
-        if (recyclerview != null) {
-            recyclerview.layoutManager = LinearLayoutManager(getContext())
-        }
-        val db = Firebase.firestore
-        val data = ArrayList<MarketData>()
-
-        db.collection("posts")
-                .get()
-                .addOnSuccessListener { users ->
-                    for (snapshot in users) {
-                        val name = snapshot.getString("name")!!
-                        val imageName = snapshot.getString("image")!!
-                        val description = snapshot.getString("description")!!
-                        val profileImage = snapshot.getString("profileImage")!!
-                        val price = snapshot.getString("price")!!
-                        val brand = snapshot.getString("brand")!!
-                        val location = snapshot.getString("location")!!
-                        val category = snapshot.getString("category")!!
-
-
-                        val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
-                        val localFile = File.createTempFile("tempImage", "jpg")
-                        storageRef.getFile(localFile).addOnSuccessListener {
-                            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
-
-                            val storageRef2 = FirebaseStorage.getInstance().reference.child("images/$profileImage")
-                            val localFile2 = File.createTempFile("tempImage", "jpg")
-                            storageRef2.getFile(localFile2).addOnSuccessListener {
-                                val bitmapProfile = BitmapFactory.decodeFile(localFile2.absolutePath)
-
-                                val product = MarketData(bitmap, bitmapProfile, name, "Nevet kerek",description,price)
+                                val product = MarketData(bitmap, bitmapProfile, userName, productName,description,location,price)
                                 data.add(product)
                                 val adapter = MarketAdaptor(data)
                                 if (recyclerview != null) {
@@ -169,5 +105,7 @@ class MarketPageFragment : Fragment() {
                 }
                 .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Transaction failure.", e) }
 
+
     }
+
 }

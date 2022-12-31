@@ -118,18 +118,6 @@
                 android:maxLength="20"/>
 
             <EditText
-                android:id="@+id/item_up_brand"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/frame"
-                android:padding="5dp"
-                android:hint="Brand"
-                android:textColor="@color/black"
-                android:maxLength="20"/>
-
-            <EditText
                 android:id="@+id/item_up_location"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -138,6 +126,18 @@
                 android:background="@drawable/frame"
                 android:padding="5dp"
                 android:hint="Location"
+                android:textColor="@color/black"
+                android:maxLength="20"/>
+
+            <EditText
+                android:id="@+id/item_up_name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/frame"
+                android:padding="5dp"
+                android:hint="Name"
                 android:textColor="@color/black"
                 android:maxLength="25"/>
 

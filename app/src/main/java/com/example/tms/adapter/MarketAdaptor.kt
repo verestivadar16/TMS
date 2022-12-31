@@ -37,6 +37,7 @@ class MarketAdaptor(private val mList: List<MarketData>) :
         holder.sellerName.text = MarketData.sellername
         holder.productName.text = MarketData.productname
         holder.productDescription.text = MarketData.productdescription
+        holder.location.text = MarketData.location
         holder.price.text = MarketData.price
 
         holder.itemView.setOnClickListener {
@@ -57,6 +58,7 @@ class MarketAdaptor(private val mList: List<MarketData>) :
         val sellerName: TextView = itemView.findViewById(R.id.seller_name)
         val productName: TextView = itemView.findViewById(R.id.product_name)
         val productDescription: TextView = itemView.findViewById(R.id.product_description)
+        val location: TextView = itemView.findViewById(R.id.location)
         val price: TextView = itemView.findViewById(R.id.price)
     }
 
