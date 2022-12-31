@@ -42,38 +42,7 @@ class FriendsFragment : Fragment() {
 
         requestFriends()
 
-        val profImage = intArrayOf(
-                R.drawable.avatar3,
-                R.drawable.avatar2,
-                R.drawable.avatar,
-                R.drawable.avatar4
-        )
-
-        val username = arrayOf(
-
-                "Tomi",
-                "Roli",
-                "Balazs",
-                "Tivadar"
-        )
-
-
-        //friendArrayList = ArrayList()
-//
-//        for (i in username.indices) {
-//            val contact = FriendListData(username[i], profImage[i])
-//            friendArrayList.add(contact)
-//        }
-
-
-//        friendArrayList.sortBy { it.username }
-//        binding.listview.adapter = activity?.let { FriendListAdapter(it, friendArrayList) }
-
         return binding.root
-    }
-
-    private fun addFriend(){
-
     }
 
     private fun requestFriends(){
@@ -85,40 +54,50 @@ class FriendsFragment : Fragment() {
 
         val docRef = db.collection("users").document(mAuth.currentUser?.uid.toString())
 
-
         docRef.get()
                 .addOnSuccessListener { document ->
                     if (document != null) {
-                        val friends = document["friends"] as ArrayList<*>
+                        try {
+                            val friends = document["friends"] as ArrayList<*>
+                            for(it in friends){
+                                val docRef2 = db.collection("users").document(it.toString())
+                                docRef2.get()
+                                        .addOnSuccessListener { document2 ->
+                                            if (document2 != null) {
+                                                try {
+                                                    val userName = document2.getString("userName")!!
+                                                    val imageName = document2.getString("profileImage")!!
+                                                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                                                    val localFile = File.createTempFile("tempImage", "jpg")
+                                                    storageRef.getFile(localFile).addOnSuccessListener {
+                                                        val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
 
-                        for(it in friends){
-                            val docRef2 = db.collection("users").document(it.toString())
-                            docRef2.get()
-                                    .addOnSuccessListener { document2 ->
-                                        if (document2 != null) {
-                                            val userName = document2.getString("userName")!!
-                                            val imageName = document2.getString("profileImage")!!
-                                            val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
-                                            val localFile = File.createTempFile("tempImage", "jpg")
-                                            storageRef.getFile(localFile).addOnSuccessListener {
-                                                val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                                                        val contact = FriendListData(userName, bitmap)
+                                                        friendArrayList.add(contact)
+                                                        friendArrayList.sortBy { it.username }
+                                                        binding.listview.adapter = activity?.let { FriendListAdapter(it, friendArrayList)}
 
-                                                val contact = FriendListData(userName, bitmap)
-                                                friendArrayList.add(contact)
-                                                friendArrayList.sortBy { it.username }
-                                                binding.listview.adapter = activity?.let { FriendListAdapter(it, friendArrayList)}
+                                                    }
 
+                                                }catch (e:Exception){
+                                                    Toast.makeText(requireContext(),"Friends cant be loaded!",Toast.LENGTH_SHORT).show()
+                                                }
+
+                                                Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                                            } else {
+                                                Log.d(ContentValues.TAG, "No such document")
                                             }
-                                            Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
-                                        } else {
-                                            Log.d(ContentValues.TAG, "No such document")
                                         }
-                                    }
-                                    .addOnFailureListener { exception ->
-                                        Log.d(ContentValues.TAG, "get failed with ", exception)
-                                    }
+                                        .addOnFailureListener { exception ->
+                                            Log.d(ContentValues.TAG, "get failed with ", exception)
+                                        }
 
+                            }
+
+                        }catch (e:Exception){
+                            Toast.makeText(requireContext(),"No friends yet!",Toast.LENGTH_SHORT).show()
                         }
+
 
                         Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
                     } else {
