@@ -87,16 +87,6 @@ class ChatPageFragment : Fragment() {
 
             mDbRef = FirebaseDatabase.getInstance().getReference()
 
-//            val data = ArrayList<Message>()
-//            data.add(Message("Hello", "1"))
-//            data.add(Message("Hello", "2"))
-//            data.add(Message("How you doing", "2"))
-//            data.add(Message("Doing Fine", "1"))
-//            data.add(Message("Then meet up at 7pm?", "1"))
-//            data.add(Message("Bringin the evo, the new exhaust system gonna blow your ears", "1"))
-//            data.add(Message("Yeah", "2"))
-//            data.add(Message("Cant wait for it", "2"))
-
             //logic for adding data to recyclerview
             mDbRef.child("chats").child(senderRoom!!).child("messages")
                 .addValueEventListener(object: ValueEventListener{
@@ -124,7 +114,6 @@ class ChatPageFragment : Fragment() {
             // adding the message to database
             binding.chatSendMsg.setOnClickListener() {
                 val message = binding.inputMessage.text.toString()
-//                data.add(Message(message, "2"))
 
                 val messageObject = Message(message,senderUid)
 
@@ -137,25 +126,7 @@ class ChatPageFragment : Fragment() {
 
                 binding.inputMessage.text?.clear()
 
-//                val adapter = context?.let { MessageAdapter(it, data) }
-//                if (recyclerview != null) {
-//                    recyclerview.adapter = adapter
-//                }
-//                if (recyclerview != null) {
-//                    recyclerview.adapter = adapter
-//                }
             }
-
-
-//            val adapter = context?.let { MessageAdapter(it, data) }
-//            if (recyclerview != null) {
-//                recyclerview.adapter = adapter
-//            }
-//            if (recyclerview != null) {
-//                recyclerview.adapter = adapter
-//            }
-
-
 
         }
 
