@@ -15,6 +15,10 @@ import com.example.tms.adapter.MixPageAdapter
 import com.example.tms.data.MixPageData
 import com.example.tms.databinding.MixPageBinding
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
+import com.example.tms.data.ContentConstants
 
 class MixPageFragment : Fragment() {
     private lateinit var binding: MixPageBinding
@@ -58,19 +62,38 @@ class MixPageFragment : Fragment() {
         val sw3 = getView()?.findViewById<Switch>(R.id.event_switch)
         val sw4 = getView()?.findViewById<Switch>(R.id.warning_switch)
 
+
         var response :String
         var response2: String
         var response3 :String
         var response4 :String
 
+        response = "OFF"
 
-
-
-        if(sw1?.isChecked == true)
-        {
-            response = "ON"
+        setFragmentResultListener(ContentConstants.REQUEST_KEY) { requestKey, bundle ->
+            val result1 = bundle.getString(ContentConstants.BUNDLE_KEY)
+            if(result1 == "ON")
+            {
+                response = "ON"
+            }
+            else response ="OFF"
         }
-        else response ="ON"
+
+        sw1?.setOnCheckedChangeListener { _, isChecked ->
+//            val response = if (isChecked) "ON" else "OFF"
+            if (isChecked) {
+                response = "ON"
+            } else {
+                response ="OFF"
+            }
+
+        }
+
+//        if(sw1?.isChecked == true)
+//        {
+//            response = "ON"
+//        }
+//        else response ="ON"
 
         if(sw2?.isChecked == true)
         {
