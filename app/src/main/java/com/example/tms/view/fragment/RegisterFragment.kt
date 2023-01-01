@@ -34,9 +34,9 @@ class RegisterFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         mAuth = FirebaseAuth.getInstance()
         binding = RegistrationPageBinding.inflate(layoutInflater)
@@ -55,20 +55,19 @@ class RegisterFragment : Fragment() {
     }
 
 
-    private fun register(){
+    private fun register() {
         binding.buttonRegister.setOnClickListener(View.OnClickListener {
             if (binding.editTextEmail.text.toString()
-                    .isEmpty() || binding.editTextPassword.text.toString().isEmpty()
+                            .isEmpty() || binding.editTextPassword.text.toString().isEmpty()
             ) {
                 Toast.makeText(requireContext(), "Fill in the fields!", Toast.LENGTH_SHORT).show()
             } else {
                 if (binding.editTextPassword.text.toString() != binding.editTextRePassword.text.toString()) {
-                    Toast.makeText(requireContext(), "Passwords do not match!", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(requireContext(), "Passwords do not match!", Toast.LENGTH_SHORT).show()
                 } else {
                     signUpUser(
-                        binding.editTextEmail.text.toString(),
-                        binding.editTextPassword.text.toString()
+                            binding.editTextEmail.text.toString(),
+                            binding.editTextPassword.text.toString()
                     )
                 }
             }
@@ -78,23 +77,23 @@ class RegisterFragment : Fragment() {
 
     private fun signUpUser(email: String, password: String) {
         mAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener{ task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "createUserWithEmail:success")
-                    Toast.makeText(requireContext(), "Register succeeded.",
-                        Toast.LENGTH_SHORT).show()
-                    updateProfile()
-                    //updateUI(user)
-                    findNavController().navigate(R.id.action_registerPage_to_startPage)
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(requireContext(), "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
-                   // updateUI(null)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "createUserWithEmail:success")
+                        Toast.makeText(requireContext(), "Register succeeded.",
+                                Toast.LENGTH_SHORT).show()
+                        updateProfile()
+                        //updateUI(user)
+                        findNavController().navigate(R.id.action_registerPage_to_startPage)
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                        Toast.makeText(requireContext(), "Authentication failed.",
+                                Toast.LENGTH_SHORT).show()
+                        // updateUI(null)
+                    }
                 }
-            }
 
     }
 
@@ -104,18 +103,19 @@ class RegisterFragment : Fragment() {
 
 // Add a new document with a generated ID
         val post = hashMapOf(
-            "userName" to binding.editTextUsername.text.toString(),
-            "profileImage" to "content://com.android.providers.media.documents/document/image%3A1000000103"
+                "userName" to binding.editTextUsername.text.toString(),
+                "friends" to ArrayList<String>(),
+                "profileImage" to "content://com.android.providers.media.documents/document/image%3A1000000103"
         )
 
         db.collection("users").document(mAuth.currentUser?.uid.toString())
-            .set(post)
-            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
-            }
-            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+                .set(post)
+                .addOnSuccessListener {
+                    Log.d(TAG, "DocumentSnapshot successfully written!")
+                }
+                .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
 
     }
-
 
 
 }

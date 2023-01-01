@@ -37,10 +37,11 @@ class InstaPostFragment : Fragment() {
         super.onAttach(context)
         mContext = context
     }
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = InstaPostBinding.inflate(layoutInflater)
 
@@ -72,44 +73,43 @@ class InstaPostFragment : Fragment() {
         return binding.root
     }
 
-    private fun requestPosts(){
+    private fun requestPosts() {
         val db = Firebase.firestore
         db.collection("posts")
-            .get()
-            .addOnSuccessListener { users ->
-                for(snapshot in users){
-                    val name = snapshot.getString("name")!!
-                    val imageName = snapshot.getString("image")!!
-                    val description = snapshot.getString("description")!!
-                    val profileImage = snapshot.getString("profileImage")!!
-                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
-                    val localFile = File.createTempFile("tempImage","jpg")
-                    storageRef.getFile(localFile).addOnSuccessListener {
-                        val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                .get()
+                .addOnSuccessListener { users ->
+                    for (snapshot in users) {
+                        val name = snapshot.getString("name")!!
+                        val imageName = snapshot.getString("image")!!
+                        val description = snapshot.getString("description")!!
+                        val profileImage = snapshot.getString("profileImage")!!
+                        val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                        val localFile = File.createTempFile("tempImage", "jpg")
+                        storageRef.getFile(localFile).addOnSuccessListener {
+                            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
 
-                        val storageRef2 = FirebaseStorage.getInstance().reference.child("images/$profileImage")
-                        val localFile2 = File.createTempFile("tempImage","jpg")
-                        storageRef2.getFile(localFile2).addOnSuccessListener {
-                            val bitmap2 = BitmapFactory.decodeFile(localFile2.absolutePath)
+                            val storageRef2 = FirebaseStorage.getInstance().reference.child("images/$profileImage")
+                            val localFile2 = File.createTempFile("tempImage", "jpg")
+                            storageRef2.getFile(localFile2).addOnSuccessListener {
+                                val bitmap2 = BitmapFactory.decodeFile(localFile2.absolutePath)
 
-                            val post = InstaPostData(name,description,bitmap,bitmap2)
-                            postArrayList.add(post)
-                            binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
+                                val post = InstaPostData(name, description, bitmap, bitmap2)
+                                postArrayList.add(post)
+                                binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
+
+                            }
 
                         }
 
+
                     }
-
-
-
                 }
-            }
-            .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
+                .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
 
     }
 
 
-    private fun backup(){
+    private fun backup() {
         //        db.runTransaction { transaction ->
 //            val snapshot = transaction.get(postRef)
 //
@@ -137,7 +137,6 @@ class InstaPostFragment : Fragment() {
 //
 //        }
 //            .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
-
 
 
 //        val profImageId = intArrayOf(

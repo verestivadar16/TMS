@@ -24,10 +24,10 @@ class StartFragment : Fragment() {
     private lateinit var mAuth: FirebaseAuth
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
-        mAuth=FirebaseAuth.getInstance()
+        mAuth = FirebaseAuth.getInstance()
         val user = mAuth.currentUser
 
         if (user != null) {
@@ -48,23 +48,23 @@ class StartFragment : Fragment() {
         return binding.root
     }
 
-    private fun requestUser(){
+    private fun requestUser() {
         val db = Firebase.firestore
 
         val docRef = db.collection("users").document(mAuth.currentUser?.uid.toString())
         docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    val userName = document.getString("userName")!!
-                    Toast.makeText(requireContext(), "Logged in as:\n$userName", Toast.LENGTH_SHORT).show()
-                    Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
-                } else {
-                    Log.d(ContentValues.TAG, "No such document")
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val userName = document.getString("userName")!!
+                        Toast.makeText(requireContext(), "Logged in as:\n$userName", Toast.LENGTH_SHORT).show()
+                        Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                    } else {
+                        Log.d(ContentValues.TAG, "No such document")
+                    }
                 }
-            }
-            .addOnFailureListener { exception ->
-                Log.d(ContentValues.TAG, "get failed with ", exception)
-            }
+                .addOnFailureListener { exception ->
+                    Log.d(ContentValues.TAG, "get failed with ", exception)
+                }
 
     }
 

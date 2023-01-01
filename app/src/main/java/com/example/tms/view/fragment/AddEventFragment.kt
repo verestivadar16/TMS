@@ -14,9 +14,9 @@ import com.example.tms.databinding.NavigationPageBinding
 class AddEventFragment : Fragment() {
     private lateinit var binding: AddEventPageBinding
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = AddEventPageBinding.inflate(layoutInflater)
         binding.backToMapsButton.setOnClickListener(View.OnClickListener {
