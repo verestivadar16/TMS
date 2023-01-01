@@ -7,7 +7,7 @@ data class InstaPostData(
     var name: String,
     var postDescription: String,
     var imageId: Bitmap,
-    var profImageId: Int,
+    var profImageId: Bitmap,
 //    var nrLikes: Int,
 //    var date: Date
 )
