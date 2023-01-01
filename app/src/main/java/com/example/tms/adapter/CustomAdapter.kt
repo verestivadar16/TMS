@@ -10,7 +10,7 @@ import com.example.tms.R
 import com.example.tms.data.ConversationViewModel
 
 class CustomAdapter(private val mList: List<ConversationViewModel>) :
-    RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+        RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     var onItemClick: ((ConversationViewModel) -> Unit)? = null
 
@@ -19,7 +19,7 @@ class CustomAdapter(private val mList: List<ConversationViewModel>) :
         // inflates the card_view_design view
         // that is used to hold list item
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_view_design, parent, false)
+                .inflate(R.layout.card_view_design, parent, false)
 
         return ViewHolder(view)
     }

@@ -117,10 +117,10 @@
             app:destination="@+id/inbox_page" />
         <action
             android:id="@+id/action_instapostpage_to_profile_page"
-            app:destination="@id/profile_page" />
+            app:destination="@id/profile_show_page" />
         <action
             android:id="@+id/action_instapostpage_to_mix_page"
-            app:destination="@id/mix_page" />
+            app:destination="@id/mix_content_page" />
 
 
     </fragment>
@@ -153,7 +153,7 @@
             app:destination="@id/add_event_page" />
         <action
             android:id="@+id/action_navigation_to_profile_page"
-            app:destination="@id/profile_page" />
+            app:destination="@id/profile_show_page" />
     </fragment>
 
     <fragment
@@ -172,8 +172,31 @@
         android:label="ProfileFragment"
         tools:layout="@layout/profile_page">
         <action
-            android:id="@+id/profile_page_to_navigation_page"
+            android:id="@+id/action_profile_page_to_profile_show_page"
+            app:destination="@id/profile_show_page" />
+        <action
+            android:id="@+id/action_profile_page_to_start_page"
+            app:destination="@id/startPage" />
+        <action
+            android:id="@+id/action_profile_page_to_friends_page"
+            app:destination="@id/friend_list_page" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/profile_show_page"
+        android:name="com.example.tms.view.fragment.ProfileShowPageFragment"
+        android:label="ProfileShowPageFragment"
+        tools:layout="@layout/profile_show_page">
+        <action
+            android:id="@+id/action_profile_page_to_navigation_page"
             app:destination="@id/navigation_page" />
+        <action
+            android:id="@+id/action_profile_show_page_to_friends_page"
+            app:destination="@id/friend_list_page" />
+        <action
+            android:id="@+id/action_profile_show_page_to_profile_page"
+            app:destination="@id/profile_page" />
 
     </fragment>
 
@@ -189,7 +212,7 @@
 
         <action
             android:id="@+id/action_marketpage_to_newlistingpage"
-            app:destination="@+id/home" />
+            app:destination="@+id/market_upload_page" />
 
         <action
             android:id="@+id/action_marketpage_to_profilpage"
@@ -202,10 +225,17 @@
             android:id="@+id/action_marketpage_to_chatpage"
             app:destination="@+id/chat_page" />
 
-        <action
-            android:id="@+id/action_profile_page_to_friends_page"
-            app:destination="@id/friend_list_page" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/market_upload_page"
+        android:name="com.example.tms.view.fragment.MarketUploadFragment"
+        android:label="MArketUploadPageFragment"
+        tools:layout="@layout/market_upload_page">
+
+        <action
+            android:id="@+id/action_marketuploadpage_to_profilpage"
+            app:destination="@+id/profile_page" />
 
     </fragment>
 
@@ -214,10 +244,6 @@
         android:name="com.example.tms.view.fragment.FriendsFragment"
         android:label="FriendsFragment"
         tools:layout="@layout/friends_list">
-        <action
-            android:id="@+id/action_friends_page_to_profile_page"
-            app:destination="@id/profile_page" />
-
         <action
             android:id="@+id/action_friends_page_to_add_friend_page"
             app:destination="@id/add_friend_page" />
@@ -232,9 +258,6 @@
             android:id="@+id/action_add_friend_page_to_friend_list_page"
             app:destination="@id/friend_list_page" />
 
-        <action
-            android:id="@+id/action_add_friend_page_to_profile_page"
-            app:destination="@id/profile_page" />
 
     </fragment>
 
@@ -244,9 +267,25 @@
         android:label="MixPageFragment"
         tools:layout="@layout/mix_page">
 
+
         <action
-            android:id="@+id/action_mix_page_to_home_page"
-            app:destination="@id/home" />
+            android:id="@+id/action_mix_page_to_profilepage"
+            app:destination="@id/profile_show_page" />
+        <action
+            android:id="@+id/action_mix_page_to_inboxpage"
+            app:destination="@id/inbox_page" />
+        <action
+            android:id="@+id/action_mix_page_to_mix_content_page"
+            app:destination="@id/mix_content_page"/>
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/mix_content_page"
+        android:name="com.example.tms.view.fragment.MixPageContent"
+        android:label="MixContentFragment"
+        tools:layout="@layout/mix_content_page">
 
     </fragment>
 

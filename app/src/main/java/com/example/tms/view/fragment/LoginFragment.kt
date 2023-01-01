@@ -17,14 +17,14 @@ class LoginFragment : Fragment() {
     private lateinit var binding: LoginPageBinding
     private lateinit var mAuth: FirebaseAuth
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View {
         binding = LoginPageBinding.inflate(layoutInflater)
         mAuth = FirebaseAuth.getInstance()
 
-       login()
+        login()
 
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
             getActivity()?.onBackPressed()
@@ -36,39 +36,40 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
-    private fun login(){
+    private fun login() {
         binding.loginButton.setOnClickListener(View.OnClickListener {
             if (binding.editTextEmail.text.toString().isEmpty() ||
-                binding.editTextPassword.text.toString().isEmpty()
-                ){
+                    binding.editTextPassword.text.toString().isEmpty()
+            ) {
                 Toast.makeText(requireContext(), "Fill in the fields!", Toast.LENGTH_SHORT).show()
-            }else{
+            } else {
                 signInUser(
-                    binding.editTextEmail.text.toString(),
-                    binding.editTextPassword.text.toString()
+                        binding.editTextEmail.text.toString(),
+                        binding.editTextPassword.text.toString()
                 )
             }
         })
     }
-    private fun signInUser(email:String,password:String){
+
+    private fun signInUser(email: String, password: String) {
 
         mAuth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithEmail:success")
-                    Toast.makeText(requireContext(), "Authentication successful.",
-                        Toast.LENGTH_SHORT).show()
-                    //val user = mAuth.currentUser
-                    findNavController().navigate(R.id.action_loginPage_to_insta_page)
-                    //updateUI(user)
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(requireContext(), "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
-                    //updateUI(null)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "signInWithEmail:success")
+                        Toast.makeText(requireContext(), "Authentication successful.",
+                                Toast.LENGTH_SHORT).show()
+                        //val user = mAuth.currentUser
+                        findNavController().navigate(R.id.action_loginPage_to_insta_page)
+                        //updateUI(user)
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "signInWithEmail:failure", task.exception)
+                        Toast.makeText(requireContext(), "Authentication failed.",
+                                Toast.LENGTH_SHORT).show()
+                        //updateUI(null)
+                    }
                 }
-            }
     }
 }

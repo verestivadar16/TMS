@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bacgroundtexture2">
 
 
     <ImageButton
@@ -18,26 +19,13 @@
 
         app:srcCompat="@drawable/backbutton1" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="423dp"
-        android:layout_height="741dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bacgroundtexture2" />
-
-
-
-
     <EditText
-        android:id="@+id/editText_email"
+        android:id="@+id/editText_username"
         android:layout_width="221dp"
         android:layout_height="38dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:background="@drawable/frame"
-        android:hint="Email"
+        android:hint="Username"
         android:textAlignment="center"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +33,20 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
+
+    <EditText
+        android:id="@+id/editText_email"
+        android:layout_width="221dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="@dimen/register_page_gap"
+        android:background="@drawable/frame"
+        android:hint="Email"
+        android:textAlignment="center"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText_username"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
 
     <EditText
@@ -78,8 +80,6 @@
         app:layout_constraintTop_toBottomOf="@id/editText_password" />
 
 
-
-
     <Button
         android:id="@+id/button_register"
         android:layout_width="wrap_content"
@@ -92,8 +92,7 @@
         android:layout_marginTop="@dimen/register_page_gap"
         app:layout_constraintTop_toBottomOf="@id/editText_re_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,10 +37,11 @@ class InstaPostFragment : Fragment() {
         super.onAttach(context)
         mContext = context
     }
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = InstaPostBinding.inflate(layoutInflater)
 
@@ -60,51 +61,56 @@ class InstaPostFragment : Fragment() {
         binding.profileButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instapostpage_to_profile_page)
         })
-        binding.marketOpenButton.setOnClickListener(View.OnClickListener {
+
+        binding.searchButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instapostpage_to_mix_page)
         })
 
-
-        val db = Firebase.firestore
-        val postRef = db.collection("users").document("tivadar3")
-
         postArrayList = ArrayList()
 
+        requestPosts()
 
-        db.collection("users")
-            .get()
-            .addOnSuccessListener { users ->
-                for(snapshot in users){
-                    val name = snapshot.getString("name")!!
-                    val imageName = snapshot.getString("image")!!
-                    val description = snapshot.getString("description")!!
-                    val profilePicture = R.drawable.avatar_button
-                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
-                    val localFile = File.createTempFile("tempImage","jpg")
-                    //lateinit var bitmap : Bitmap
-//                    storageRef.getFile(localFile).addOnSuccessListener {
-//                        val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
-//
-//                        val post = InstaPostData(name,description,bitmap,profilePicture)
-//                        postArrayList.add(post)
-//                        binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
-                    val bitmap = BitmapFactory.decodeResource(getResources(),
-                        R.drawable.audib5);
-                    //bitmap = BitmapFactory.decodeFile(R.drawable.audib5.toString())
-                    val post = InstaPostData(name,description,bitmap,profilePicture)
-                    postArrayList.add(post)
-                    binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
+        return binding.root
+    }
 
-//
-//                    }
+    private fun requestPosts() {
+        val db = Firebase.firestore
+        db.collection("posts")
+                .get()
+                .addOnSuccessListener { users ->
+                    for (snapshot in users) {
+                        val name = snapshot.getString("name")!!
+                        val imageName = snapshot.getString("image")!!
+                        val description = snapshot.getString("description")!!
+                        val profileImage = snapshot.getString("profileImage")!!
+                        val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                        val localFile = File.createTempFile("tempImage", "jpg")
+                        storageRef.getFile(localFile).addOnSuccessListener {
+                            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
 
+                            val storageRef2 = FirebaseStorage.getInstance().reference.child("images/$profileImage")
+                            val localFile2 = File.createTempFile("tempImage", "jpg")
+                            storageRef2.getFile(localFile2).addOnSuccessListener {
+                                val bitmap2 = BitmapFactory.decodeFile(localFile2.absolutePath)
+
+                                val post = InstaPostData(name, description, bitmap, bitmap2)
+                                postArrayList.add(post)
+                                binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
+
+                            }
+
+                        }
+
+
+                    }
                 }
-            }
-            .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
+                .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
+
+    }
 
 
-
-//        db.runTransaction { transaction ->
+    private fun backup() {
+        //        db.runTransaction { transaction ->
 //            val snapshot = transaction.get(postRef)
 //
 //            val name = snapshot.getString("name")!!
@@ -131,7 +137,6 @@ class InstaPostFragment : Fragment() {
 //
 //        }
 //            .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
-
 
 
 //        val profImageId = intArrayOf(
@@ -165,7 +170,6 @@ class InstaPostFragment : Fragment() {
 
 
 //        binding.listview.adapter.add(InstaAdaptor())
-        return binding.root
     }
 
 
