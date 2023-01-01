@@ -1,5 +1,6 @@
 package com.example.tms.view.fragment
 
+import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,7 +24,6 @@ import com.example.tms.data.ContentConstants
 class MixPageFragment : Fragment() {
     private lateinit var binding: MixPageBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,79 +43,44 @@ class MixPageFragment : Fragment() {
         binding.searchButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_mix_page_to_mix_content_page)
         })
-
-
-
         return binding.root
     }
 
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
+
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        var default = sharedPref.getBoolean("switchValue", true)
+        val default2 = sharedPref.getBoolean("switchValue2", true)
+        val default3 = sharedPref.getBoolean("switchValue3", true)
+        val default4 = sharedPref.getBoolean("switchValue4", true)
+        val editor = sharedPref.edit()
+
+        loadLayout(default.toString(), default2.toString(), default3.toString(), default4.toString())
+
+        setFragmentResultListener("switches") { key, bundle ->
+            // Any type can be passed via to the bundle
+            var response = bundle.getString("switch1")
+            var response2 = bundle.getString("switch2")
+            var response3 = bundle.getString("switch3")
+            var response4 = bundle.getString("switch4")
+
+            // Do something with the result...
+            editor.putBoolean("switchValue", response.toBoolean()).apply()
+            editor.putBoolean("switchValue2", response2.toBoolean()).apply()
+            editor.putBoolean("switchValue3", response3.toBoolean()).apply()
+            editor.putBoolean("switchValue4", response4.toBoolean()).apply()
+            loadLayout(response!!, response2!!, response3!!, response4!!)
+        }
+    }
+
+    private fun loadLayout(response : String, response2 : String, response3 : String, response4 : String)
+    {
         val recyclerview = getView()?.findViewById<RecyclerView>(R.id.post_list)
 
         val bitmap0 = BitmapFactory.decodeResource(getResources(), R.drawable.golfr32);
         val bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.eventimage1);
         val bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.warningimage1);
-
-        val sw1 = getView()?.findViewById<Switch>(R.id.posts_switch)
-        val sw2 = getView()?.findViewById<Switch>(R.id.market_switch)
-        val sw3 = getView()?.findViewById<Switch>(R.id.event_switch)
-        val sw4 = getView()?.findViewById<Switch>(R.id.warning_switch)
-
-
-        var response :String
-        var response2: String
-        var response3 :String
-        var response4 :String
-
-        response = "OFF"
-
-        setFragmentResultListener(ContentConstants.REQUEST_KEY) { requestKey, bundle ->
-            val result1 = bundle.getString(ContentConstants.BUNDLE_KEY)
-            if(result1 == "ON")
-            {
-                response = "ON"
-            }
-            else response ="OFF"
-        }
-
-        sw1?.setOnCheckedChangeListener { _, isChecked ->
-//            val response = if (isChecked) "ON" else "OFF"
-            if (isChecked) {
-                response = "ON"
-            } else {
-                response ="OFF"
-            }
-
-        }
-
-//        if(sw1?.isChecked == true)
-//        {
-//            response = "ON"
-//        }
-//        else response ="ON"
-
-        if(sw2?.isChecked == true)
-        {
-            response2 = "ON"
-        }
-        else response2 ="OFF"
-
-        Toast.makeText(activity, response2,
-                Toast.LENGTH_SHORT).show()
-
-        if(sw3?.isChecked == true)
-        {
-            response3 = "ON"
-        }
-        else response3 ="ON"
-
-        if(sw4?.isChecked == true)
-        {
-            response4 = "ON"
-        }
-        else response4 ="OFF"
-
 
         if (recyclerview != null) {
             recyclerview.layoutManager = LinearLayoutManager(getContext())
@@ -139,8 +104,6 @@ class MixPageFragment : Fragment() {
             "230 LEI",
             "2",response2))
 
-
-
         data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1",response))
         data.add(MixPageData(R.drawable.avatar_button, "Pasiunea ne uneste","Va invitam sambata 15.10.2022 incepand cu ora 13:00, locatie:..",bitmap1, "3",response3))
         data.add(MixPageData(R.drawable.avatar_button, "Traffic Jam Warning!",bitmap2, "4",response4))
@@ -157,9 +120,6 @@ class MixPageFragment : Fragment() {
         data.add(MixPageData("Tamas","got my new car",bitmap, R.drawable.avatar_button, "1",response))
         data.add(MixPageData("Balazs","got my new car",bitmap, R.drawable.avatar_button, "1",response))
 
-
-
-
         val adapter = context?.let { MixPageAdapter(it, data) }
         if (recyclerview != null) {
             recyclerview.adapter = adapter
@@ -167,6 +127,5 @@ class MixPageFragment : Fragment() {
         if (recyclerview != null) {
             recyclerview.adapter = adapter
         }
-
     }
 }

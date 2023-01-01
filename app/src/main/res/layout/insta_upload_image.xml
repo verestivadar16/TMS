@@ -26,6 +26,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="184dp"
         android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
 
         android:background="@color/transparent"
 
@@ -89,6 +90,6 @@
         android:layout_height="232dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="170dp"
-        app:srcCompat="@drawable/audib5" />
+        app:srcCompat="@drawable/uploadimage" />
 
 </RelativeLayout>

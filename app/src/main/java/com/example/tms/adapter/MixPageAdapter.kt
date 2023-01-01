@@ -116,28 +116,28 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
 
         when (currentPost.postTypeID) {
             "1" -> {
-                if (currentPost.response == "ON")
+                if (currentPost.response == "true")
                     return Insta_Post
                 else
                     return blank
             }
 
             "2" -> {
-                if (currentPost.response == "ON")
+                if (currentPost.response == "true")
                     return Market_Post
                 else
                     return blank
             }
 
             "3" -> {
-                if (currentPost.response == "ON")
+                if (currentPost.response == "true")
                     return Event_Post
                 else
                     return blank
             }
 
             "4" -> {
-                if (currentPost.response == "ON")
+                if (currentPost.response == "true")
                     return Warning_Post
                 else
                     return blank
