@@ -40,6 +40,8 @@ class FriendsFragment : Fragment() {
             findNavController().navigate(R.id.action_friends_page_to_add_friend_page)
         })
 
+        //test this needs to be implemented
+
         requestFriends()
 
         return binding.root
