@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
 import com.example.tms.data.Message
+import com.google.firebase.auth.FirebaseAuth
 
 class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) :
         RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -50,7 +51,7 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) 
         val currentMessage = messageList[position]
 
         //backend current user check
-        if (currentMessage.senderID == "2") {
+        if (FirebaseAuth.getInstance().currentUser?.uid.equals((currentMessage.senderID))) {
             return ITEM_SENT
         } else {
             return ITEM_RECEIVE

@@ -7,7 +7,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -64,10 +67,11 @@ class MarketPageFragment : Fragment() {
                 .get()
                 .addOnSuccessListener { users ->
                     for (snapshot in users) {
-                        val userName = snapshot.getString("name")!!
+                        val userName = snapshot.getString("userName")!!
+                        val userID = snapshot.getString("uid")!!
+                        val profileImage = snapshot.getString("profileImage")!!
                         val imageName = snapshot.getString("image")!!
                         val description = snapshot.getString("description")!!
-                        val profileImage = snapshot.getString("profileImage")!!
                         val price = snapshot.getString("price")!!
                         val productName = snapshot.getString("name")!!
                         val location = snapshot.getString("location")!!
@@ -84,7 +88,7 @@ class MarketPageFragment : Fragment() {
                             storageRef2.getFile(localFile2).addOnSuccessListener {
                                 val bitmapProfile = BitmapFactory.decodeFile(localFile2.absolutePath)
 
-                                val product = MarketData(bitmap, bitmapProfile, userName, productName,description,location,price)
+                                val product = MarketData(bitmapProfile, userName, userID, bitmap, productName, description, location, price)
                                 data.add(product)
                                 val adapter = MarketAdaptor(data)
                                 if (recyclerview != null) {
@@ -94,6 +98,12 @@ class MarketPageFragment : Fragment() {
                                     recyclerview.adapter = adapter
                                 }
                                 adapter.onItemClick = {
+
+                                    val result = it.sellerUid
+                                    setFragmentResult("requestKey", bundleOf(("uid" to result)))
+                                    setFragmentResult("requestKey2", bundleOf(("userID" to result)))
+
+
                                     findNavController().navigate(R.id.action_marketpage_to_chatpage)
                                 }
 

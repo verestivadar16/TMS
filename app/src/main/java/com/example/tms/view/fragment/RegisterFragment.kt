@@ -104,6 +104,7 @@ class RegisterFragment : Fragment() {
 // Add a new document with a generated ID
         val post = hashMapOf(
                 "userName" to binding.editTextUsername.text.toString(),
+                "friends" to ArrayList<String>(),
                 "profileImage" to "content://com.android.providers.media.documents/document/image%3A1000000103"
         )
 

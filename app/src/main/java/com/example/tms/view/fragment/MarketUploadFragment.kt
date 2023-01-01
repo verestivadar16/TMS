@@ -85,7 +85,8 @@ class MarketUploadFragment : Fragment() {
                                     "name" to binding.itemUpName.text.toString(),
                                     "location" to binding.itemUpLocation.text.toString(),
                                     "image" to imageUri.toString(),
-                                    "profileImage" to imageName
+                                    "profileImage" to imageName,
+                                    "userName" to username
                             )
 
                             db.collection("products").document(date)

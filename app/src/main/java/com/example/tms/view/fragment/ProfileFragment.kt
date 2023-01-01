@@ -59,7 +59,7 @@ class ProfileFragment : Fragment() {
             try {
                 updateProfile()
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Fill in the fields!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "$e", Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -83,7 +83,16 @@ class ProfileFragment : Fragment() {
                     if (document != null) {
                         val userName = document.getString("userName")!!
                         val imageName = document.getString("profileImage")!!
-                        friends = document["friends"] as ArrayList<*>
+
+
+                        try{
+                            friends = document["friends"] as ArrayList<*>
+
+                        }catch (e:Exception){
+
+                        }
+
+
 
                         val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
                         val localFile = File.createTempFile("tempImage", "jpg")
@@ -106,11 +115,6 @@ class ProfileFragment : Fragment() {
 
     private fun updateProfile() {
 
-        val progressDialog = ProgressDialog(requireContext())
-        progressDialog.setMessage("Updating profile ...")
-        progressDialog.setCancelable(false)
-        progressDialog.show()
-
         val db = Firebase.firestore
 
         var username =  binding.username.hint.toString()
@@ -125,12 +129,19 @@ class ProfileFragment : Fragment() {
             "friends" to friends
         )
 
+
         db.collection("users").document(mAuth.currentUser?.uid.toString())
                 .set(post)
                 .addOnSuccessListener {
                     Log.d(TAG, "DocumentSnapshot successfully written!")
                 }
-                .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+                .addOnFailureListener {
+                        e -> Log.w(TAG, "Error writing document", e) }
+
+        val progressDialog = ProgressDialog(requireContext())
+        progressDialog.setMessage("Updating profile ...")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
 
         val fileName = imageUri.toString()
 
@@ -143,6 +154,7 @@ class ProfileFragment : Fragment() {
         }.addOnFailureListener {
             if (progressDialog.isShowing) progressDialog.dismiss()
         }
+
     }
 
 
