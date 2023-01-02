@@ -21,7 +21,11 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
+import com.example.tms.adapter.InstaAdaptor
+import com.example.tms.adapter.MarketAdaptor
 import com.example.tms.data.ContentConstants
+import com.example.tms.data.InstaPostData
+import com.example.tms.data.MarketData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -31,6 +35,7 @@ import java.io.File
 class MixPageFragment : Fragment() {
     private lateinit var binding: MixPageBinding
     private lateinit var mAuth :FirebaseAuth
+    private lateinit var data : ArrayList<MixPageData>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -96,40 +101,143 @@ class MixPageFragment : Fragment() {
         if (recyclerview != null) {
             recyclerview.layoutManager = LinearLayoutManager(getContext())
         }
+
         val data = ArrayList<MixPageData>()
+        val db = Firebase.firestore
 
-        data.add(MixPageData(R.drawable.avatar_button, "Pasiunea ne uneste","Va invitam sambata 25.01.2023 incepand cu ora 13:00, locatie:..",bitmap1, "3",response3))
 
-        data.add(MixPageData( R.drawable.tire,
-            R.drawable.avatar4,
-            "Kiss Elemer ",
-            "Anvelope 195X65XR18",
-            "Nearly new bought them last year...",
-            "230 LEI",
-            "2",response2))
-        data.add(MixPageData( R.drawable.tire,
-            R.drawable.avatar,
-            "Lakatos Brendon",
-            "Anvelope 195X65XR18",
-            "Nearly new bought them last year...",
-            "230 LEI",
-            "2",response2))
+        db.collection("posts")
+            .get()
+            .addOnSuccessListener { users ->
+                var count = 0
+                data.add(MixPageData(R.drawable.avatar_button, "Pasiunea ne uneste","Va invitam sambata 25.01.2023 incepand cu ora 13:00, locatie:..",bitmap1, "3",response3))
+                for (snapshot in users) {
+                    if(count<2) {
+                        val name = snapshot.getString("name")!!
+                        val imageName = snapshot.getString("image")!!
+                        val description = snapshot.getString("description")!!
+                        val profileImage = snapshot.getString("profileImage")!!
+                        val storageRef =
+                            FirebaseStorage.getInstance().reference.child("images/$imageName")
+                        val localFile = File.createTempFile("tempImage", "jpg")
+                        storageRef.getFile(localFile).addOnSuccessListener {
+                            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
 
-        data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1",response))
-        data.add(MixPageData(R.drawable.avatar_button, "Pasiunea ne uneste","Va invitam sambata 15.10.2022 incepand cu ora 13:00, locatie:..",bitmap1, "3",response3))
-        data.add(MixPageData(R.drawable.avatar_button, "Traffic Jam Warning!",bitmap2, "4",response4))
-        data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1",response))
-        data.add(MixPageData(R.drawable.tire,
-            R.drawable.avatar_button,
-            "Kiss Elemer ",
-            "Anvelope 195X65XR18",
-            "Nearly new bought them last year...",
-            "230 LEI",
-            "2",response2))
+                            val storageRef2 =
+                                FirebaseStorage.getInstance().reference.child("images/$profileImage")
+                            val localFile2 = File.createTempFile("tempImage", "jpg")
+                            storageRef2.getFile(localFile2).addOnSuccessListener {
+                                val bitmap2 = BitmapFactory.decodeFile(localFile2.absolutePath)
+
+                                val post =
+                                    MixPageData(name, description, bitmap, bitmap2, "1", response)
+                                data.add(post)
+                                val adapter = context?.let { MixPageAdapter(it, data) }
+                                if (recyclerview != null) {
+                                    recyclerview.adapter = adapter
+                                }
+
+//                            binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
+
+                            }
+
+                        }
+                        count++
+                    }
+                }
+            }
+            .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Transaction failure.", e) }
+
+
+        db.collection("products")
+            .get()
+            .addOnSuccessListener { users ->
+                var count=0
+
+                    for (snapshot in users) {
+
+                        if (count <= 2) {
+
+                            val userName = snapshot.getString("userName")!!
+                            val userID = snapshot.getString("uid")!!
+                            val profileImage = snapshot.getString("profileImage")!!
+                            val imageName = snapshot.getString("image")!!
+                            val description = snapshot.getString("description")!!
+                            val price = snapshot.getString("price")!!
+                            val productName = snapshot.getString("name")!!
+                            val location = snapshot.getString("location")!!
+                            val category = snapshot.getString("category")!!
+
+                            val storageRef =
+                                FirebaseStorage.getInstance().reference.child("images/$imageName")
+                            val localFile = File.createTempFile("tempImage", "jpg")
+                            storageRef.getFile(localFile).addOnSuccessListener {
+                                val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+
+                                val storageRef2 =
+                                    FirebaseStorage.getInstance().reference.child("images/$profileImage")
+                                val localFile2 = File.createTempFile("tempImage", "jpg")
+                                storageRef2.getFile(localFile2).addOnSuccessListener {
+                                    val bitmapProfile =
+                                        BitmapFactory.decodeFile(localFile2.absolutePath)
+
+                                    val product = MixPageData(
+                                        bitmap,
+                                        bitmapProfile,
+                                        userName,
+                                        productName,
+                                        description,
+                                        price,
+                                        "2",
+                                        response2
+                                    )
+                                    data.add(product)
+                                    val adapter = context?.let { MixPageAdapter(it, data) }
+                                    if (recyclerview != null) {
+                                        recyclerview.adapter = adapter
+                                    }
+
+
+                                }
+
+                            }
+                            count++
+                        }
+                    }
+
+                data.add(MixPageData(R.drawable.avatar_button, "Pasiunea ne uneste","Va invitam sambata 15.10.2022 incepand cu ora 13:00, locatie:..",bitmap1, "3",response3))
+                data.add(MixPageData(R.drawable.avatar_button, "Traffic Jam Warning!",bitmap2, "4",response4))
+
+            }
+            .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Transaction failure.", e) }
+
+
+
+//        data.add(MixPageData( R.drawable.tire,
+//            R.drawable.avatar,
+//            "Lakatos Brendon",
+//            "Anvelope 195X65XR18",
+//            "Nearly new bought them last year...",
+//            "230 LEI",
+//            "2",response2))
+
+//        data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1",response))
+
+//        data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1",response))
+//        data.add(MixPageData(R.drawable.tire,
+//            R.drawable.avatar_button,
+//            "Kiss Elemer ",
+//            "Anvelope 195X65XR18",
+//            "Nearly new bought them last year...",
+//            "230 LEI",
+//            "2",response2))
         val bitmap = BitmapFactory.decodeResource(getResources(),
             R.drawable.audib5);
-        data.add(MixPageData("Tamas","got my new car",bitmap, R.drawable.avatar_button, "1",response))
-        data.add(MixPageData("Balazs","got my new car",bitmap, R.drawable.avatar_button, "1",response))
+
+
+
+//        data.add(MixPageData("Tamas","got my new car",bitmap, R.drawable.avatar_button, "1",response))
+//        data.add(MixPageData("Balazs","got my new car",bitmap, R.drawable.avatar_button, "1",response))
 
         val adapter = context?.let { MixPageAdapter(it, data) }
         if (recyclerview != null) {
@@ -138,6 +246,11 @@ class MixPageFragment : Fragment() {
         if (recyclerview != null) {
             recyclerview.adapter = adapter
         }
+    }
+
+    private fun requestPosts() {
+
+
     }
 
 

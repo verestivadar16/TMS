@@ -6,10 +6,10 @@ class MixPageData{
     var personName: String? = null
     var postDescription: String? = null
     var imageId: Bitmap? = null
-    var profImageId: Int? = null
+    var profImageId: Bitmap? = null
 
-    var productimage: Int?  = null
-    var sellerimage: Int?  = null
+    var productimage: Bitmap?  = null
+    var sellerimage: Bitmap?  = null
     var sellername: String? = null
     var productname: String?  = null
     var productdescription: String? = null
@@ -29,7 +29,7 @@ class MixPageData{
 
     constructor() {}
 
-    constructor(name: String?, postDescription: String?, imageId: Bitmap?,profImageId: Int?, postTypeID: String?,response: String?) {
+    constructor(name: String?, postDescription: String?, imageId: Bitmap?,profImageId: Bitmap?, postTypeID: String?,response: String?) {
         this.personName = name
         this.postDescription = postDescription
         this.imageId = imageId
@@ -38,7 +38,7 @@ class MixPageData{
         this.response = response
 
     }
-    constructor(productimage: Int?, sellerimage: Int?, sellername: String? , productname: String?  ,productdescription: String?, price: String?, postTypeID: String?,response: String?) {
+    constructor(productimage: Bitmap?, sellerimage: Bitmap?, sellername: String? , productname: String?  ,productdescription: String?, price: String?, postTypeID: String?,response: String?) {
         this.productimage = productimage
         this.sellerimage = sellerimage
         this.sellername = sellername
