@@ -10,6 +10,7 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
+import com.example.tms.data.MarketData
 import com.example.tms.data.MixPageData
 
 class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>) :
@@ -62,6 +63,7 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
 
     }
 
+    var onItemClick: ((MixPageData) -> Unit)? = null
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val currentPost = postList[position]
@@ -70,22 +72,23 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
             MarketPostViewHolder::class.java -> {
                 val viewHolder = holder as MarketPostViewHolder
 
-//                if (holder.sw1.isActivated) {
 
-                currentPost.productimage?.let { holder.prductimage.setImageResource(it) }
-                currentPost.sellerimage?.let { holder.sellerimage.setImageResource(it) }
+                currentPost.productimage?.let { holder.prductimage.setImageBitmap(it) }
+                currentPost.sellerimage?.let { holder.sellerimage.setImageBitmap(it) }
                 holder.sellername.text = currentPost.sellername
                 holder.productname.text = currentPost.productname
                 holder.productdescription.text = currentPost.productdescription
                 holder.price.text = currentPost.price
-            }
-//        }
+
+
+        }
+
 
             InstaPostViewHolder::class.java -> {
                 val viewHolder = holder as InstaPostViewHolder
 
 
-                currentPost.profImageId?.let { holder.profImageid.setImageResource(it) }
+                currentPost.profImageId?.let { holder.profImageid.setImageBitmap(it) }
                 currentPost.imageId?.let { holder.imageId.setImageBitmap(it) }
                 holder.personName.text = currentPost.personName
                 holder.postDescription.text = currentPost.postDescription
