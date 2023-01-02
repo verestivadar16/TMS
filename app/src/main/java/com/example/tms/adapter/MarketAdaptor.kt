@@ -1,6 +1,5 @@
 package com.example.tms.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,8 +41,6 @@ class MarketAdaptor(private val mList: List<MarketData>) :
         holder.price.text = MarketData.price
 
         holder.itemView.setOnClickListener {
-            val intent = Intent()
-
 
             onItemClick?.invoke(MarketData)
         }

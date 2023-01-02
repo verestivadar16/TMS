@@ -247,6 +247,9 @@
         <action
             android:id="@+id/action_friends_page_to_add_friend_page"
             app:destination="@id/add_friend_page" />
+        <action
+            android:id="@+id/action_friends_page_to_chatpage"
+            app:destination="@+id/chat_page" />
     </fragment>
 
     <fragment
