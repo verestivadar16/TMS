@@ -2,6 +2,8 @@ package com.example.tms.view.fragment
 
 import android.Manifest
 import android.app.AlertDialog
+import android.content.ContentValues
+import android.graphics.BitmapFactory
 import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
@@ -21,6 +23,11 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 import kotlin.system.exitProcess
 
 
@@ -31,6 +38,7 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
     private lateinit var binding: NavigationPageBinding
     private lateinit var mMap: GoogleMap
     private lateinit var locationManager: LocationManager
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +46,7 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
         savedInstanceState: Bundle?
     ): View? {
         binding = NavigationPageBinding.inflate(layoutInflater)
+        mAuth = FirebaseAuth.getInstance()
         val alertDialog: AlertDialog
         val permissionLauncher = registerForActivityResult(
             ActivityResultContracts.RequestPermission()
@@ -71,6 +80,7 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
         }
 
         permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+        requestUser()
 
 
 //        DirectionAPI.openGoogleMapsNavigationFromAToB(this, -34.0, 151.0, -30.0, 150.0)
@@ -97,6 +107,32 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
                 .title("Marker in Sydney")
         )
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+    }
+
+    private fun requestUser() {
+        val db = Firebase.firestore
+
+        val docRef = db.collection("users").document(mAuth.currentUser?.uid.toString())
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val imageName = document.getString("profileImage")!!
+
+                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                    val localFile = File.createTempFile("tempImage", "jpg")
+                    storageRef.getFile(localFile).addOnSuccessListener {
+                        val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                        binding.navigationAvatar.setImageBitmap(bitmap)
+                    }
+                    Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                } else {
+                    Log.d(ContentValues.TAG, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(ContentValues.TAG, "get failed with ", exception)
+            }
+
     }
 
 

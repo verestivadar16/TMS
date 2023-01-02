@@ -1,8 +1,10 @@
 package com.example.tms.view.fragment
 
+import android.content.ContentValues
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,17 +22,26 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import com.example.tms.data.ContentConstants
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 
 class MixPageFragment : Fragment() {
     private lateinit var binding: MixPageBinding
+    private lateinit var mAuth :FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = MixPageBinding.inflate(layoutInflater)
+        mAuth = FirebaseAuth.getInstance()
+
+        requestUser()
+
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
             getActivity()?.onBackPressed()
         })
@@ -127,5 +138,34 @@ class MixPageFragment : Fragment() {
         if (recyclerview != null) {
             recyclerview.adapter = adapter
         }
+    }
+
+
+    private fun requestUser() {
+        mAuth = FirebaseAuth.getInstance()
+
+        val db = Firebase.firestore
+
+        val docRef = db.collection("users").document(mAuth.currentUser?.uid.toString())
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val imageName = document.getString("profileImage")!!
+
+                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                    val localFile = File.createTempFile("tempImage", "jpg")
+                    storageRef.getFile(localFile).addOnSuccessListener {
+                        val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                        binding.profileButton.setImageBitmap(bitmap)
+                    }
+                    Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                } else {
+                    Log.d(ContentValues.TAG, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(ContentValues.TAG, "get failed with ", exception)
+            }
+
     }
 }
