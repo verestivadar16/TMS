@@ -27,5 +27,4 @@ class AddEventFragment : Fragment() {
         })
         return binding.root
     }
-
 }

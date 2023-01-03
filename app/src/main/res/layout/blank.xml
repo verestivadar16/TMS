@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="0dp"
     app:cardElevation="0dp"
-    app:cardBackgroundColor="@color/transparentblack"
-    >
+    app:cardBackgroundColor="@color/transparentblack">
 
     <RelativeLayout
 
@@ -14,13 +13,10 @@
         android:layout_width="407dp"
         android:layout_height="@dimen/card_size"
         android:layout_gravity="left"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
-
 
 </androidx.cardview.widget.CardView>

@@ -76,7 +76,6 @@ class ProfileShowPageFragment : Fragment() {
                 .addOnFailureListener { exception ->
                     Log.d(ContentValues.TAG, "get failed with ", exception)
                 }
-
     }
 
     private fun requestPosts() {
@@ -105,14 +104,8 @@ class ProfileShowPageFragment : Fragment() {
                                 binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
                             }
                         }
-
-
-
                 }
             }
             .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Transaction failure.", e) }
-
-
     }
-
 }

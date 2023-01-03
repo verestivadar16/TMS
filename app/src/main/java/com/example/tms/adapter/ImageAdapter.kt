@@ -45,10 +45,6 @@ class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         holder.binding.apply {
             val image = image[position]
-            //textview1.text = image.imageUrl
-
         }
     }
-
-
 }

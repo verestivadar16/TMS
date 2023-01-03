@@ -36,20 +36,14 @@
             android:text="New listing"
             android:textColor="@color/white"
             android:gravity="center|left"
-            android:textSize="25dp"
-            >
-
+            android:textSize="25dp">
         </TextView>
-
-
 
         <ImageButton
             android:id="@+id/profile_button"
             android:layout_width="50dp"
             android:layout_height="70dp"
-
             android:layout_marginLeft="190dp"
-
             android:background="?android:attr/selectableItemBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +53,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.003"
             app:srcCompat="@drawable/avatar_button" />
-
     </LinearLayout>
 
     <ScrollView
@@ -77,10 +70,7 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-            android:orientation="vertical"
-
-            >
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/uploadedImage"
@@ -89,9 +79,7 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="0dp"
                 app:srcCompat="@drawable/uploadimage"
-                android:background="?android:attr/selectableItemBackground"
-                />
-
+                android:background="?android:attr/selectableItemBackground" />
 
             <EditText
                 android:id="@+id/item_up_price"

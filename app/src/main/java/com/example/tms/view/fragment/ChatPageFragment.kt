@@ -52,8 +52,6 @@ class ChatPageFragment : Fragment() {
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
             getActivity()?.onBackPressed()
         })
-
-
         return binding.root
     }
 
@@ -73,7 +71,6 @@ class ChatPageFragment : Fragment() {
             receiverUid = bundle.getString("userID")!!
 
             // Do something with the result...
-
             val senderUid = mAuth.currentUser?.uid.toString()
             chatRecyclerView = binding.messageList
             messageList = ArrayList()
@@ -98,16 +95,11 @@ class ChatPageFragment : Fragment() {
 
                             val message = postSnapshot.getValue(Message::class.java)
                             messageList.add(message!!)
-
                         }
                         messageAdapter.notifyDataSetChanged()
-
                     }
 
-                    override fun onCancelled(error: DatabaseError) {
-
-                    }
-
+                    override fun onCancelled(error: DatabaseError) {}
                 })
 
 
@@ -123,14 +115,9 @@ class ChatPageFragment : Fragment() {
                             .setValue(messageObject)
                     }
 
-
                 binding.inputMessage.text?.clear()
-
             }
-
         }
-
-
     }
 
     private fun requestUser() {
@@ -161,9 +148,6 @@ class ChatPageFragment : Fragment() {
                 .addOnFailureListener { exception ->
                     Log.d(ContentValues.TAG, "get failed with ", exception)
                 }
-
         }
-
-
     }
 }

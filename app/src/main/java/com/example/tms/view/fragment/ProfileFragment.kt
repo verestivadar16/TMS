@@ -52,7 +52,6 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_profile_page_to_start_page)
         })
 
-
         requestUser()
 
         binding.updateProfile.setOnClickListener(View.OnClickListener {
@@ -91,9 +90,6 @@ class ProfileFragment : Fragment() {
                         }catch (e:Exception){
 
                         }
-
-
-
                         val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
                         val localFile = File.createTempFile("tempImage", "jpg")
                         storageRef.getFile(localFile).addOnSuccessListener {
@@ -109,7 +105,6 @@ class ProfileFragment : Fragment() {
                 .addOnFailureListener { exception ->
                     Log.d(TAG, "get failed with ", exception)
                 }
-
     }
 
 
@@ -128,7 +123,6 @@ class ProfileFragment : Fragment() {
             "profileImage" to imageUri.toString(),
             "friends" to friends
         )
-
 
         db.collection("users").document(mAuth.currentUser?.uid.toString())
                 .set(post)
@@ -157,16 +151,12 @@ class ProfileFragment : Fragment() {
 
     }
 
-
-
     private fun selectImage() {
-
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
 
         startActivityForResult(intent, 100)
-
     }
 
     private fun takePhoto() {
@@ -204,5 +194,4 @@ class ProfileFragment : Fragment() {
         )
         return Uri.parse(path)
     }
-
 }

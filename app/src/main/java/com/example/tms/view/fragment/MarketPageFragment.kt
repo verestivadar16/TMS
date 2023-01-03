@@ -26,10 +26,8 @@ import java.io.File
 
 
 class MarketPageFragment : Fragment() {
-
     private lateinit var binding: MarketPageBinding
     private lateinit var mAuth: FirebaseAuth
-
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -50,7 +48,6 @@ class MarketPageFragment : Fragment() {
         binding.newItemButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_marketpage_to_newlistingpage)
         })
-
 
         return binding.root
     }
@@ -80,7 +77,6 @@ class MarketPageFragment : Fragment() {
                         val location = snapshot.getString("location")!!
                         val category = snapshot.getString("category")!!
 
-
                         val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
                         val localFile = File.createTempFile("tempImage", "jpg")
                         storageRef.getFile(localFile).addOnSuccessListener {
@@ -106,19 +102,13 @@ class MarketPageFragment : Fragment() {
                                     setFragmentResult("requestKey", bundleOf(("uid" to result)))
                                     setFragmentResult("requestKey2", bundleOf(("userID" to result)))
 
-
                                     findNavController().navigate(R.id.action_marketpage_to_chatpage)
                                 }
-
                             }
-
                         }
-
                     }
                 }
                 .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Transaction failure.", e) }
-
-
     }
 
     private fun requestUser() {
@@ -146,7 +136,5 @@ class MarketPageFragment : Fragment() {
             .addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
             }
-
     }
-
 }

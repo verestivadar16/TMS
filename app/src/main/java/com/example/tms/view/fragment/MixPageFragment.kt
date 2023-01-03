@@ -105,7 +105,6 @@ class MixPageFragment : Fragment() {
         val data = ArrayList<MixPageData>()
         val db = Firebase.firestore
 
-
         db.collection("posts")
             .get()
             .addOnSuccessListener { users ->
@@ -136,11 +135,7 @@ class MixPageFragment : Fragment() {
                                 if (recyclerview != null) {
                                     recyclerview.adapter = adapter
                                 }
-
-//                            binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
-
                             }
-
                         }
                         count++
                     }
@@ -148,14 +143,12 @@ class MixPageFragment : Fragment() {
             }
             .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Transaction failure.", e) }
 
-
         db.collection("products")
             .get()
             .addOnSuccessListener { users ->
                 var count=0
 
                     for (snapshot in users) {
-
                         if (count <= 2) {
 
                             val userName = snapshot.getString("userName")!!
@@ -196,10 +189,7 @@ class MixPageFragment : Fragment() {
                                     if (recyclerview != null) {
                                         recyclerview.adapter = adapter
                                     }
-
-
                                 }
-
                             }
                             count++
                         }
@@ -211,33 +201,8 @@ class MixPageFragment : Fragment() {
             }
             .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Transaction failure.", e) }
 
-
-
-//        data.add(MixPageData( R.drawable.tire,
-//            R.drawable.avatar,
-//            "Lakatos Brendon",
-//            "Anvelope 195X65XR18",
-//            "Nearly new bought them last year...",
-//            "230 LEI",
-//            "2",response2))
-
-//        data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1",response))
-
-//        data.add(MixPageData("Tamas","got my new car",bitmap0, R.drawable.avatar_button, "1",response))
-//        data.add(MixPageData(R.drawable.tire,
-//            R.drawable.avatar_button,
-//            "Kiss Elemer ",
-//            "Anvelope 195X65XR18",
-//            "Nearly new bought them last year...",
-//            "230 LEI",
-//            "2",response2))
         val bitmap = BitmapFactory.decodeResource(getResources(),
             R.drawable.audib5);
-
-
-
-//        data.add(MixPageData("Tamas","got my new car",bitmap, R.drawable.avatar_button, "1",response))
-//        data.add(MixPageData("Balazs","got my new car",bitmap, R.drawable.avatar_button, "1",response))
 
         val adapter = context?.let { MixPageAdapter(it, data) }
         if (recyclerview != null) {
@@ -248,11 +213,7 @@ class MixPageFragment : Fragment() {
         }
     }
 
-    private fun requestPosts() {
-
-
-    }
-
+    private fun requestPosts() {}
 
     private fun requestUser() {
         mAuth = FirebaseAuth.getInstance()
@@ -279,6 +240,5 @@ class MixPageFragment : Fragment() {
             .addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
             }
-
     }
 }

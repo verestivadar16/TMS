@@ -21,10 +21,7 @@
         android:textColor="@color/white"
         android:textSize="30dp"
         app:layout_constraintStart_toEndOf="@id/back_button"
-        app:layout_constraintTop_toTopOf="parent"
- />
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/back_button"
@@ -37,7 +34,6 @@
         app:srcCompat="@drawable/backbutton1"
         tools:ignore="MissingConstraints" />
 
-
     <ImageButton
         android:id="@+id/search_button"
         android:layout_width="48dp"
@@ -48,7 +44,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/search"/>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/friends_list"
@@ -63,7 +58,6 @@
         tools:itemCount="10"
         tools:listitem="@layout/item_contact" />
 
-
     <ImageButton
         android:id="@+id/add_button"
         android:layout_width="60dp"
@@ -76,30 +70,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/add_event_button"
         tools:ignore="MissingConstraints" />
-
-
-<!--    <ScrollView-->
-<!--        android:id="@+id/friends_scrollview"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginLeft="10dp"-->
-<!--        android:layout_marginTop="60dp"-->
-<!--        android:layout_marginRight="10dp"-->
-<!--        android:layout_marginBottom="110dp"-->
-<!--        android:fillViewport="true"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <ListView-->
-<!--            android:id="@+id/listview"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:divider="@android:color/transparent"-->
-<!--            android:dividerHeight="20dp"-->
-<!--            tools:listitem="@layout/item_contact" />-->
-
-<!--    </ScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

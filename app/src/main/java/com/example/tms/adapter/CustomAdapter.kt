@@ -41,14 +41,6 @@ class CustomAdapter(private val mList: List<ConversationViewModel>) :
             onItemClick?.invoke(ConversationViewModel)
         }
 
-//        holder.itemView.setOnClickListener(object : View.OnClickListener{
-//            override fun onClick(v: View?) {
-//                val activity = v!!.context as AppCompatActivity
-//                val nextFragment = ChatPageFragment()
-//                activity.supportFragmentManager.beginTransaction().replace(R.id.conversation_list,nextFragment).addToBackStack(null).commit()
-//            }
-//        })
-
     }
 
     // return the number of the items in the list

@@ -66,7 +66,5 @@ class NotificationFragment : Fragment() {
             recyclerview.adapter = adapter
         }
     }
-
-
 }
 

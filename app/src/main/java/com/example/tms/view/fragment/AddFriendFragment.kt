@@ -67,7 +67,6 @@ class AddFriendFragment : Fragment() {
                             Toast.makeText(requireContext(),"$e",Toast.LENGTH_SHORT).show()
                         }
 
-
                         var newfriend =  binding.editTextUsername.hint.toString()
 
                         if(binding.editTextUsername.text.isNotEmpty()){
@@ -107,7 +106,6 @@ class AddFriendFragment : Fragment() {
                 .addOnFailureListener { exception ->
                     Log.d(ContentValues.TAG, "get failed with ", exception)
                 }
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -152,22 +150,16 @@ class AddFriendFragment : Fragment() {
                                                 if (recyclerview != null) {
                                                     recyclerview.adapter = adapter
                                                 }
-
-
                                                 adapter.onItemClick = { it2 ->
 
                                                     val result = it2.uid
 
                                                     binding.editTextUsername.hint = result
                                                 }
-
-
                                             }
-
                                         }catch (e:Exception){
                                             Toast.makeText(requireContext(),"Friends cant be loaded!",Toast.LENGTH_SHORT).show()
                                         }
-
                                         Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document}")
                                     } else {
                                         Log.d(ContentValues.TAG, "No such document")
@@ -176,13 +168,10 @@ class AddFriendFragment : Fragment() {
                                 .addOnFailureListener { exception ->
                                     Log.d(ContentValues.TAG, "get failed with ", exception)
                                 }
-
                         }
-
                     }catch (e:Exception){
                         Toast.makeText(requireContext(),"No users found!",Toast.LENGTH_SHORT).show()
                     }
-
 
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document}")
                 } else {
@@ -192,9 +181,5 @@ class AddFriendFragment : Fragment() {
             .addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
             }
-
-
-
     }
-
 }

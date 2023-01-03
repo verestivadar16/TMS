@@ -34,7 +34,6 @@ class StartFragment : Fragment() {
             // User is signed in
             requestUser()
             findNavController().navigate(R.id.action_startFragment_to_InstaFragment)
-
         }
 
         binding = StartPageBinding.inflate(layoutInflater)
@@ -65,7 +64,5 @@ class StartFragment : Fragment() {
                 .addOnFailureListener { exception ->
                     Log.d(ContentValues.TAG, "get failed with ", exception)
                 }
-
     }
-
 }

@@ -16,7 +16,6 @@ import com.example.tms.adapter.CustomAdapter
 class InboxPageFragment : Fragment() {
     private lateinit var binding: InboxPageBinding
 
-
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -30,8 +29,6 @@ class InboxPageFragment : Fragment() {
         binding.imageButtonBack.setOnClickListener(View.OnClickListener {
             getActivity()?.onBackPressed()
         })
-
-
 
         return binding.root
     }
