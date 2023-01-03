@@ -34,8 +34,8 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="5dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
@@ -49,8 +49,6 @@
 
     </RelativeLayout>
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/message_list"
         android:layout_width="match_parent"
@@ -60,9 +58,6 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_linear_layout"
         app:layout_constraintTop_toBottomOf="@id/top_relative_layout"/>
 
-
-
-
     <LinearLayout
         android:id="@+id/bottom_linear_layout"
         android:layout_width="match_parent"
@@ -70,8 +65,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -100,7 +94,6 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:cornerRadius="15dp" />
-
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

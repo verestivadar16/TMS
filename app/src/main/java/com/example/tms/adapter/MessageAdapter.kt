@@ -34,7 +34,6 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) 
         val currentMessage = messageList[position]
         if (holder.javaClass == SentViewHolder::class.java) {
 
-
             val viewHolder = holder as SentViewHolder
             holder.sentMessage.text = currentMessage.message
 
@@ -43,8 +42,6 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) 
             val viewHolder = holder as ReceiveViewHolder
             holder.receiveMessage.text = currentMessage.message
         }
-
-
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -66,13 +63,10 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) 
     class SentViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
 
         val sentMessage: TextView = itemView.findViewById(R.id.sent_text)
-
     }
 
     class ReceiveViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
 
         val receiveMessage: TextView = itemView.findViewById(R.id.received_text)
-
     }
-
 }

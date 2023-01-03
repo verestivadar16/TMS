@@ -70,7 +70,6 @@ class InstaPostFragment : Fragment() {
         requestUser()
         requestPosts()
 
-
         return binding.root
     }
 
@@ -99,14 +98,10 @@ class InstaPostFragment : Fragment() {
                                 binding.listview.adapter = activity?.let { InstaAdaptor(it, postArrayList) }
 
                             }
-
                         }
-
-
                     }
                 }
                 .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
-
     }
 
     private fun requestUser() {
@@ -134,6 +129,5 @@ class InstaPostFragment : Fragment() {
             .addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
             }
-
     }
 }

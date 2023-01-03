@@ -55,7 +55,6 @@ class MarketUploadFragment : Fragment() {
         return binding.root
     }
 
-
     private fun addProduct(){
         val progressDialog = ProgressDialog(requireContext())
         progressDialog.setMessage("Uploading file ...")
@@ -107,15 +106,12 @@ class MarketUploadFragment : Fragment() {
                                 if(progressDialog.isShowing)progressDialog.dismiss()
                             }
 
-
                             Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
-
 
                         }catch (e:Exception){
                             if(progressDialog.isShowing)progressDialog.dismiss()
                             Toast.makeText(requireContext(), "Fill in the fields!$e", Toast.LENGTH_SHORT).show()
                         }
-
 
                     } else {
                         Log.d(ContentValues.TAG, "No such document")
@@ -126,17 +122,14 @@ class MarketUploadFragment : Fragment() {
                 }
 // Add a new document with a generated ID
 
-
     }
 
     private fun selectImage() {
-
         val intent = Intent()
         intent.type= "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
 
         startActivityForResult(intent,100)
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -146,8 +139,5 @@ class MarketUploadFragment : Fragment() {
             imageUri=data?.data!!
             binding.uploadedImage.setImageURI(imageUri)
         }
-
     }
-
-
 }

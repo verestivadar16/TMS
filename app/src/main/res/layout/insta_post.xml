@@ -47,7 +47,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginStart="5dp"
-
         android:background="?android:attr/selectableItemBackground"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,16 +58,13 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="@color/transparent"
-
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/addbuttonwhite" />
 
-
     <ScrollView
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
@@ -85,10 +81,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="@android:color/transparent"
+            android:layout_marginTop="10dp"
             android:dividerHeight="20dp"
             tools:listitem="@layout/list_item" />
 
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

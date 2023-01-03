@@ -46,21 +46,14 @@ class InstaUploadFragment : Fragment() {
             getActivity()?.onBackPressed()
         })
         binding.buttonChooseImage.setOnClickListener(View.OnClickListener{
-
             selectImage()
-
         })
 
         binding.buttonUpload.setOnClickListener(){
-
             uploadImage()
-
         }
         return binding.root
-
-
     }
-
 
     private fun uploadImage() {
 
@@ -109,17 +102,11 @@ class InstaUploadFragment : Fragment() {
                         }.addOnFailureListener {
                             if(progressDialog.isShowing)progressDialog.dismiss()
                         }
-
-
                         Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-
-
                     }catch (e:Exception){
                         if(progressDialog.isShowing)progressDialog.dismiss()
                         Toast.makeText(requireContext(), "Fill in the fields!", Toast.LENGTH_SHORT).show()
                     }
-
-
                 } else {
                     Log.d(TAG, "No such document")
                 }
@@ -128,17 +115,13 @@ class InstaUploadFragment : Fragment() {
                 Log.d(TAG, "get failed with ", exception)
             }
 // Add a new document with a generated ID
-
-
     }
     private fun selectImage() {
-
         val intent = Intent()
         intent.type= "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
 
         startActivityForResult(intent,100)
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -148,7 +131,6 @@ class InstaUploadFragment : Fragment() {
             imageUri=data?.data!!
             binding.uploadedImage.setImageURI(imageUri)
         }
-
     }
 }
 

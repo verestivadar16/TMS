@@ -54,7 +54,6 @@ class RegisterFragment : Fragment() {
         return binding.root
     }
 
-
     private fun register() {
         binding.buttonRegister.setOnClickListener(View.OnClickListener {
             if (binding.editTextEmail.text.toString()
@@ -71,7 +70,6 @@ class RegisterFragment : Fragment() {
                     )
                 }
             }
-
         })
     }
 
@@ -94,11 +92,9 @@ class RegisterFragment : Fragment() {
                         // updateUI(null)
                     }
                 }
-
     }
 
     private fun updateProfile() {
-
         val db = Firebase.firestore
 
 // Add a new document with a generated ID
@@ -114,9 +110,6 @@ class RegisterFragment : Fragment() {
                     Log.d(TAG, "DocumentSnapshot successfully written!")
                 }
                 .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
-
     }
-
-
 }
 

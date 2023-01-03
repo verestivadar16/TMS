@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "598087276358",
+    "project_id": "tms-kotlin",
+    "storage_bucket": "tms-kotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598087276358:android:9e3297fc1424f6ed06f747",
+        "android_client_info": {
+          "package_name": "com.example.tms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598087276358-mcllqbl8cppqj0f6prb3cpl20cs5g2md.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAkQVTh5cgbCXdzeDEMrajm7zMPB9d-HE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598087276358-mcllqbl8cppqj0f6prb3cpl20cs5g2md.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

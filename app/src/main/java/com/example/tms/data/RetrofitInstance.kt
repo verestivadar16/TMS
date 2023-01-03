@@ -12,7 +12,5 @@ object RetrofitInstance {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(ImagesApi::class.java)
-
     }
-
 }

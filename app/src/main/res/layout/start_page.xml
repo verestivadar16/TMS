@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/bacgroundtexture2">
 
-
     <ImageView
         android:id="@+id/logo"
         android:layout_width="480dp"
@@ -34,9 +33,7 @@
         app:cornerRadius="15dp"
         android:backgroundTint="@color/orange" />
 
-
     <Button
-
         android:id="@+id/register_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,7 +46,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:cornerRadius="15dp"
         android:textColor="@color/black"
-        android:backgroundTint="@color/blue"
-
-        />
+        android:backgroundTint="@color/blue" />
 </androidx.constraintlayout.widget.ConstraintLayout>

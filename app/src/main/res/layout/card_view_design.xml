@@ -88,8 +88,6 @@
             android:text="16:44"
             android:textColor="@color/grey" />
 
-
     </RelativeLayout>
-
 
 </androidx.cardview.widget.CardView>

@@ -1,6 +1,5 @@
 package com.example.tms.view.activity
 
-
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,10 +16,8 @@ import com.example.tms.R
 import com.example.tms.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
     //    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +30,6 @@ class MainActivity : AppCompatActivity() {
                 Navigation.findNavController(this, R.id.nav_host_fragment) as NavController
         val bottomNavigationView = binding.bottomNavigationView as BottomNavigationView
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
-
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
@@ -48,8 +44,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
-
     }
 
     private fun showBottomNav() {

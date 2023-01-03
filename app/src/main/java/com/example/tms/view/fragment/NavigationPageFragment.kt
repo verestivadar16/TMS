@@ -51,10 +51,8 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
         val permissionLauncher = registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ) { isGranted ->
-            if (isGranted) {
-
-            } else {
-
+            if (isGranted) {}
+                else {
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("You cant access the maps")
                 builder.setMessage("You have to allow your location.")
@@ -75,13 +73,11 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
                     exitProcess(1)
                 }
                 builder.show()
-
             }
         }
 
         permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
         requestUser()
-
 
 //        DirectionAPI.openGoogleMapsNavigationFromAToB(this, -34.0, 151.0, -30.0, 150.0)
 
@@ -94,7 +90,6 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
 //        onMapReady(mMap)
         return binding.root
     }
-
 
     override fun onMapReady(googleMap: GoogleMap) {
         var mMap = googleMap
@@ -132,10 +127,7 @@ class NavigationPageFragment : Fragment(), OnMapReadyCallback {
             .addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
             }
-
     }
-
-
 }
 
 

@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bacgroundtexture2">
 
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -23,7 +22,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.173"
         tools:ignore="MissingConstraints">
-
     </TextView>
 
     <ImageButton
@@ -54,7 +52,6 @@
         app:layout_constraintTop_toBottomOf="@id/textView2"
         app:layout_constraintVertical_bias="0.122"
         tools:ignore="MissingConstraints">
-
     </TextView>
 
 
@@ -65,7 +62,6 @@
         android:background="@drawable/text_background"
         android:hint="dd/mm/yy"
         android:layout_marginStart="@dimen/add_event_margin_start"
-
         android:layout_marginTop="@dimen/add_event_margin_top"
         android:layout_marginEnd="@dimen/add_event_margin_end"
         android:textColorHint="@color/white"
@@ -92,7 +88,6 @@
         app:layout_constraintTop_toBottomOf="@id/editText_meets_location"
         app:layout_constraintVertical_bias="0.229"
         tools:ignore="MissingConstraints">
-
     </TextView>
 
     <EditText
@@ -127,7 +122,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/meet_date"
         tools:ignore="MissingConstraints">
-
     </TextView>
 
     <EditText
@@ -139,7 +133,6 @@
         android:layout_marginEnd="@dimen/add_event_margin_end"
         android:background="@drawable/text_background"
         android:hint="Add you description"
-
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -161,7 +154,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintVertical_bias="0.932" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

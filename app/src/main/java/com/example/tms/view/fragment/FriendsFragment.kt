@@ -42,8 +42,6 @@ class FriendsFragment : Fragment() {
         binding.addButton.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_friends_page_to_add_friend_page)
         })
-
-
         return binding.root
     }
 
@@ -91,7 +89,6 @@ class FriendsFragment : Fragment() {
                                                     recyclerview.adapter = adapter
                                                 }
 
-
                                                 adapter.onItemClick = { it2 ->
 
                                                     val result = it2.uid
@@ -101,8 +98,6 @@ class FriendsFragment : Fragment() {
 
                                                     findNavController().navigate(R.id.action_friends_page_to_chatpage)
                                                 }
-
-
                                             }
 
                                         }catch (e:Exception){
@@ -117,13 +112,11 @@ class FriendsFragment : Fragment() {
                                 .addOnFailureListener { exception ->
                                     Log.d(ContentValues.TAG, "get failed with ", exception)
                                 }
-
                         }
 
                     }catch (e:Exception){
                         Toast.makeText(requireContext(),"No friends yet!",Toast.LENGTH_SHORT).show()
                     }
-
 
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
                 } else {
@@ -133,9 +126,5 @@ class FriendsFragment : Fragment() {
             .addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
             }
-
-
-
     }
-
 }

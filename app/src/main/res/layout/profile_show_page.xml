@@ -56,7 +56,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_image">
-
     </TextView>
 
     <TextView
@@ -85,7 +84,6 @@
         app:layout_constraintEnd_toStartOf="@+id/profile_image"
         app:layout_constraintTop_toBottomOf="@+id/back_button"
         app:layout_constraintVertical_bias="0.564">
-
     </TextView>
 
     <TextView
@@ -101,7 +99,6 @@
         app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/friends_number_text">
-
     </TextView>
 
     <Button
@@ -120,9 +117,7 @@
         app:layout_constraintStart_toEndOf="@id/username"
         app:layout_constraintTop_toBottomOf="@id/friends_button" />
 
-
     <ScrollView
-
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -142,7 +137,6 @@
             android:divider="@android:color/transparent"
             android:dividerHeight="20dp"
             tools:listitem="@layout/list_item" />
-
     </ScrollView>
 
 
