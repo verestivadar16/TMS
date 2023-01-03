@@ -14,65 +14,42 @@
 
     <ImageButton
         android:id="@+id/add_event_button"
-        android:layout_width="64dp"
+        android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="5dp"
         android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.997"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.098"
         app:srcCompat="@drawable/add_event_button" />
 
     <ImageButton
         android:id="@+id/navigation_avatar"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.003"
-        app:srcCompat="@drawable/avatar_button"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/navigation_search_button"
-        android:layout_width="348dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginStart="10dp"
 
         android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/navigation_search_bar"
         tools:ignore="MissingConstraints" />
-
-    <!--    <ImageButton-->
-    <!--        android:id="@+id/navigation_alert_button"-->
-    <!--        android:layout_width="64dp"-->
-    <!--        android:layout_height="70dp"-->
-
-    <!--        android:background="?android:attr/selectableItemBackground"-->
-    <!--&lt;!&ndash;        app:layout_constraintBottom_toBottomOf="@+id/profil_button"&ndash;&gt;-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.997"-->
-    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.895"-->
-    <!--        app:srcCompat="@drawable/navigation_alert_button"-->
-    <!--        tools:ignore="MissingConstraints" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

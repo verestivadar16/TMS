@@ -18,6 +18,7 @@ import com.example.tms.R
 import com.example.tms.adapter.MarketAdaptor
 import com.example.tms.data.MarketData
 import com.example.tms.databinding.MarketPageBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -27,6 +28,7 @@ import java.io.File
 class MarketPageFragment : Fragment() {
 
     private lateinit var binding: MarketPageBinding
+    private lateinit var mAuth: FirebaseAuth
 
 
     override fun onCreateView(
@@ -62,6 +64,7 @@ class MarketPageFragment : Fragment() {
         }
         val data = ArrayList<MarketData>()
         val db = Firebase.firestore
+        requestUser()
 
         db.collection("products")
                 .get()
@@ -115,6 +118,34 @@ class MarketPageFragment : Fragment() {
                 }
                 .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Transaction failure.", e) }
 
+
+    }
+
+    private fun requestUser() {
+        mAuth = FirebaseAuth.getInstance()
+
+        val db = Firebase.firestore
+
+        val docRef = db.collection("users").document(mAuth.currentUser?.uid.toString())
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val imageName = document.getString("profileImage")!!
+
+                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
+                    val localFile = File.createTempFile("tempImage", "jpg")
+                    storageRef.getFile(localFile).addOnSuccessListener {
+                        val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                        binding.profileButton.setImageBitmap(bitmap)
+                    }
+                    Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                } else {
+                    Log.d(ContentValues.TAG, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(ContentValues.TAG, "get failed with ", exception)
+            }
 
     }
 
