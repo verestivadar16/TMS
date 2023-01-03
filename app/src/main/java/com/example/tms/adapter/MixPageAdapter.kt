@@ -21,10 +21,7 @@ class MixPageAdapter(val context: Context, val postList: ArrayList<MixPageData>)
     val Warning_Post = 4
     val blank = 5
 
-    val insta_on = 1
-    val market_on = 1
-    val event_on = 1
-    val warning_on = 1
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         when (viewType) {
