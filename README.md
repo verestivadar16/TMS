@@ -17,13 +17,13 @@ Követelmények
 
 Telepítés
 
-•	Töltsd le az TMS alkalmazást a Google Play Store-ból
+•	Töltsd le az TMS alkalmazást az alábbi linkről https://drive.google.com/file/d/1qk6O4ud-NZ6oFIbNnU7UQ5cnkjzuXj3r/view?usp=share_link
 •	Nyissd meg az alkalmazást és hozz létre egy fiókot
 •	Kezd el használni az összes funkciót!
 
 Támogatás
 
-Ha bármilyen kérdésed vagy problémád van, kérjük lépj kapcsolatba velünk az support@TMS.com címen.
+Ha bármilyen kérdésed vagy problémád van, kérjük lépj kapcsolatba velünk az helpTMSapp@gmail.com címen.
 
 Hozzájárulás
 
