@@ -27,4 +27,4 @@ Ha bármilyen kérdésed vagy problémád van, kérjük lépj kapcsolatba velün
 
 Hozzájárulás
 
-Örömmel fogadjuk a hozzájárulásokat a TMS alkalmazáshoz! Ha hibát szeretne jelenteni vagy új funkciót szeretnél látni, értesits!
+Örömmel fogadjuk a hozzájárulásokat a TMS alkalmazáshoz! Ha hibát szeretnél jelenteni vagy új funkciót szeretnél látni, értesits!
